@@ -527,7 +527,7 @@ const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemi
 const sleep = ms=>new Promise(r=>setTimeout(r,ms));
 
 // ⚡ وضع التشغيل: true = محلي فوري 100% (يشتغل حتى لو النت فاصل) - false = يحاول الـ API الخارجي أولاً
-let USE_LOCAL_ONLY = (()=>{ try{ const v=localStorage.getItem('ak_use_local'); return v===null ? true : v==='true'; }catch(e){ return true; } })();
+let USE_LOCAL_ONLY = (()=>{ try{ const v=localStorage.getItem('ak_use_local'); return v===null ? false : v==='true'; }catch(e){ return false; } })();
 function toggleAIMode(){
   USE_LOCAL_ONLY = !USE_LOCAL_ONLY;
   try{ localStorage.setItem('ak_use_local', USE_LOCAL_ONLY); }catch(e){}
