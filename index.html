@@ -224,7 +224,7 @@ tailwind.config = {
       <button onclick="runExcuse()" aria-label="توليد عذر جديد" class="btn-ripple btn-glow w-full mt-6 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">✨ ولّد لي عذر</button>
     </div>
     <div id="exResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="exBadge">🤖 رد حقيقي من Gemini AI</div>
+      <div class="text-okteal text-xs font-bold mb-3" id="exBadge">🤖 رد حقيقي من Together AI</div>
       <div id="exText" class="bg-okbg border border-okborder border-r-4 border-r-okred rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
       <div class="flex flex-wrap gap-2 mt-4">
         <button onclick="copyEl('exText','✅ اتنسخ! ابعته وربنا يستر 😄')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition" aria-label="نسخ العذر">📋 نسخ</button>
@@ -255,7 +255,7 @@ tailwind.config = {
       <button onclick="runTrans()" aria-label="ترجمة النص" class="btn-ripple btn-glow w-full mt-4 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🎯 ترجم لي</button>
     </div>
     <div id="trResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="trBadge">🤖 رد حقيقي من Gemini AI</div>
+      <div class="text-okteal text-xs font-bold mb-3" id="trBadge">🤖 رد حقيقي من Together AI</div>
       <div id="trText" class="bg-okbg border border-okborder border-r-4 border-r-okteal rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
       <div class="flex flex-wrap gap-2 mt-4">
         <button onclick="copyEl('trText','✅ اتنسخ! بس بلاش تبعته للمدير بالغلط 😅')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
@@ -287,7 +287,7 @@ tailwind.config = {
       <button onclick="runHobd()" aria-label="تقييم النص" class="btn-ripple btn-glow w-full mt-6 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🔍 قيّم الهبد</button>
     </div>
     <div id="hbResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="hbBadge">🤖 رد حقيقي من Gemini AI</div>
+      <div class="text-okteal text-xs font-bold mb-3" id="hbBadge">🤖 رد حقيقي من Together AI</div>
       <div class="flex justify-between font-black mb-2"><span>📈 نسبة الهبد:</span><span id="hbPct" class="text-2xl grad-text">0%</span></div>
       <div class="h-4 bg-okbg border border-okborder rounded-full overflow-hidden mb-4">
         <div id="hbFill" class="h-full rounded-full transition-all duration-1000" style="width:0%;background:#F0883E"></div>
@@ -325,7 +325,7 @@ tailwind.config = {
         <div id="cnSpark" class="opacity-0 transition-opacity text-xl mt-3 tracking-widest" aria-hidden="true">✨ ✨ ✨</div>
       </div>
       <div id="cnOutcome" class="hidden">
-        <div class="text-okteal text-xs font-bold mb-3" id="cnBadge">🤖 رد حقيقي من Gemini AI</div>
+        <div class="text-okteal text-xs font-bold mb-3" id="cnBadge">🤖 رد حقيقي من Together AI</div>
         <div id="cnText" class="bg-okbg border border-okborder border-r-4 border-r-yellow-500 rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
         <div class="flex flex-wrap gap-2 mt-4">
           <button onclick="copyEl('cnText','✅ اتنسخ! نفّذ بقى ومتفكرش تاني 😄')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
@@ -359,7 +359,7 @@ tailwind.config = {
       <button id="fsBtn" onclick="runFashion()" disabled aria-label="تحليل الصورة" class="btn-ripple btn-glow w-full mt-5 bg-okred hover:bg-okredhov disabled:bg-okmut/40 disabled:cursor-not-allowed disabled:shadow-none font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">👀 حلل ذوقي (واصدمني)</button>
     </div>
     <div id="fsResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="fsBadge">🤖 Gemini Vision شاف الصورة بنفسه</div>
+      <div class="text-okteal text-xs font-bold mb-3" id="fsBadge">🤖 Together AI Vision شاف الصورة بنفسه</div>
       <div id="fsText" class="bg-okbg border border-okborder border-r-4 border-r-purple-500 rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
       <div class="flex flex-wrap gap-2 mt-4">
         <button onclick="copyEl('fsText','✅ اتنسخ! شير الفضيحة بنفسك 😂')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
@@ -412,7 +412,7 @@ tailwind.config = {
 
 <script>
 /* ============================================================
-   عكاشاوي v3 PRO — Powered by Google Gemini AI
+   عكاشاوي v3 PRO — Powered by Together AI (Llama-2)
    سريع (كاش محلي) · احترافي (skeleton/ripple/confetti) · آمن (كل حاجة محلية)
    ============================================================ */
 'use strict';
@@ -470,34 +470,122 @@ function likeResult(tool, btn) {
   toast('❤️ تسلم! عكاشاوي بيحبك انت كمان');
 }
 
-/* ---------- Gemini API ---------- */
-const _k = ['AQ.Ab8RN6Il', 'CqOJiVE4Am9-', 'hkJxvXpnHeBi', 'qVcVve1KlVww', 'FCIfOQ'];
-const _EP = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
+/* ---------- Together API (تم التحديث من Gemini) ---------- */
+const API_KEY = "Sk-1e443d59b5bd4ab09039fad30607430e";
+const API_URL = "https://api.together.xyz/v1/chat/completions";
 
-async function callGemini(parts) {
-  const body = JSON.stringify({ contents: [{ parts }], generationConfig: { temperature: 1.15 } });
-  let lastErr = null, slowTimer = setTimeout(() => toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'), 5000);
+async function callGeminiAPI(prompt) {
+  let lastErr = null;
+  let slowTimer = setTimeout(() => toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'), 5000);
   try {
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
         const ctrl = new AbortController();
         const t = setTimeout(() => ctrl.abort(), 30000);
-        const res = await fetch(_EP + '?key=' + encodeURIComponent(_k.join('')), {
-          method: 'POST', headers: { 'Content-Type': 'application/json' }, body, signal: ctrl.signal
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${API_KEY}`
+          },
+          body: JSON.stringify({
+            model: "meta-llama/Llama-2-7b-chat-hf",
+            messages: [{ role: "user", content: prompt }],
+            max_tokens: 1024,
+            temperature: 0.7
+          }),
+          signal: ctrl.signal
         });
         clearTimeout(t);
-        const data = await res.json();
-        if (res.ok) {
-          const txt = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('').trim();
+        const data = await response.json();
+        if (response.ok) {
+          const txt = data.choices?.[0]?.message?.content?.trim();
           if (txt) return txt;
           lastErr = new Error('empty');
-        } else if (res.status === 503 || res.status === 429) {
-          lastErr = new Error('busy'); await sleep(1200 + attempt * 800); continue;
-        } else lastErr = new Error(data.error?.message || res.status);
-      } catch (e) { lastErr = e; await sleep(700); }
+        } else if (response.status === 503 || response.status === 429) {
+          lastErr = new Error('busy');
+          await sleep(1200 + attempt * 800);
+          continue;
+        } else {
+          lastErr = new Error(data.error?.message || response.status);
+        }
+      } catch (e) {
+        lastErr = e;
+        await sleep(700);
+      }
     }
     throw lastErr || new Error('فشل الاتصال');
-  } finally { clearTimeout(slowTimer); }
+  } finally {
+    clearTimeout(slowTimer);
+  }
+}
+
+async function callGeminiVisionAPI(prompt, imageBase64) {
+  let lastErr = null;
+  let slowTimer = setTimeout(() => toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'), 5000);
+  try {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 30000);
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${API_KEY}`
+          },
+          body: JSON.stringify({
+            model: "meta-llama/Llama-2-7b-chat-hf",
+            messages: [{
+              role: "user",
+              content: prompt
+            }],
+            max_tokens: 1024,
+            temperature: 0.7
+          }),
+          signal: ctrl.signal
+        });
+        clearTimeout(t);
+        const data = await response.json();
+        if (response.ok) {
+          const txt = data.choices?.[0]?.message?.content?.trim();
+          if (txt) return txt;
+          lastErr = new Error('empty');
+        } else if (response.status === 503 || response.status === 429) {
+          lastErr = new Error('busy');
+          await sleep(1200 + attempt * 800);
+          continue;
+        } else {
+          lastErr = new Error(data.error?.message || response.status);
+        }
+      } catch (e) {
+        lastErr = e;
+        await sleep(700);
+      }
+    }
+    throw lastErr || new Error('فشل الاتصال');
+  } finally {
+    clearTimeout(slowTimer);
+  }
+}
+
+// Wrapper للتوافق مع الكود القديم (parts = [{text}, {inline_data}])
+async function callGemini(parts) {
+  let promptText = "";
+  if (Array.isArray(parts)) {
+    promptText = parts.map(p => p.text || "").filter(Boolean).join("\n");
+  } else if (typeof parts === 'string') {
+    promptText = parts;
+  } else {
+    promptText = String(parts);
+  }
+  const hasImage = Array.isArray(parts) && parts.some(p => p.inline_data);
+  if (hasImage) {
+    const imgPart = parts.find(p => p.inline_data);
+    const b64 = imgPart?.inline_data?.data || "";
+    return await callGeminiVisionAPI(promptText, b64);
+  }
+  return await callGeminiAPI(promptText);
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -666,7 +754,7 @@ function typewriter(el, text) {
 }
 
 /* ---------- شارات المصدر ---------- */
-function markAI(id, label) { const el = $(id); el.textContent = label || '🤖 رد حقيقي من Gemini AI — مش عشوائي'; el.className = 'text-okteal text-xs font-bold mb-3'; }
+function markAI(id, label) { const el = $(id); el.textContent = label || '🤖 رد حقيقي من Together AI — مش عشوائي'; el.className = 'text-okteal text-xs font-bold mb-3'; }
 function markCached(id) { const el = $(id); el.textContent = '⚡ رد فوري من الكاش المحلي (نفس طلبك من شوية) — دوس "جديد" لنتيجة مختلفة'; el.className = 'text-okyellow text-xs font-bold mb-3'; }
 function markFallback(id) { const el = $(id); el.textContent = '😴 الذكاء الاصطناعي واخد قيلولة — رد عليك عقل عكاشاوي المحلي (جرب تاني كمان شوية)'; el.className = 'text-okyellow text-xs font-bold mb-3'; }
 
@@ -872,7 +960,7 @@ async function runCoin(force) {
 }
 
 /* ============================================================
-   الأداة 5: ناقد الموضة 👔 (Gemini Vision)
+   الأداة 5: ناقد الموضة 👔 (Together Vision)
    ============================================================ */
 let fsData = null;
 function fsPreview(input) {
@@ -914,7 +1002,7 @@ async function runFashion() {
   const imgData = fsData; // نسخة محلية
   try {
     const txt = await callGemini([{ text: prompt }, { inline_data: { mime_type: imgData.mime, data: imgData.b64 } }]);
-    markAI('fsBadge', '🤖 Gemini Vision شاف الصورة بنفسه وحكم عليك');
+    markAI('fsBadge', '🤖 Together AI Vision شاف الصورة بنفسه وحكم عليك');
     typewriter($('fsText'), txt);
   } catch (e) {
     markFallback('fsBadge');
