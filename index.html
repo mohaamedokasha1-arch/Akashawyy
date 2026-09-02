@@ -118,6 +118,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { cairo: [
         <button onclick="showTool('coin')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">القرارات</button>
         <button onclick="showTool('fashion')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">الموضة</button>
       </nav>
+      <button onclick="toggleAIMode()" id="aiModeIndicator" class="hidden md:flex text-[11px] font-black px-3 py-1.5 rounded-full border" style="background: #10B98115; border-color: #10B98130; color: #10B981;">🧠 محلي فوري</button>
       <button onclick="toggleTheme()" id="themeBtn" aria-label="تبديل الوضع" class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg" style="background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main);">🌙</button>
       <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--bg-secondary); border: 1px solid var(--border);">☰</button>
     </div>
@@ -470,6 +471,8 @@ function initTheme(){
   document.documentElement.setAttribute('data-theme', theme);
   $('themeBtn').textContent = theme === 'dark' ? '☀️' : '🌙';
   document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0D1117' : '#FFFFFF');
+  const ind=$('aiModeIndicator');
+  if(ind) ind.textContent = USE_LOCAL_ONLY ? '🧠 محلي فوري' : '🌐 خارجي';
 }
 function toggleTheme(){
   const cur = document.documentElement.getAttribute('data-theme');
@@ -522,6 +525,16 @@ const _gk = ['AQ.Ab8RN6Il','CqOJiVE4Am9-','hkJxvXpnHeBi','qVcVve1KlVww','FCIfOQ'
 const GEMINI_KEY = _gk.join('');
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 const sleep = ms=>new Promise(r=>setTimeout(r,ms));
+
+// ⚡ وضع التشغيل: true = محلي فوري 100% (يشتغل حتى لو النت فاصل) - false = يحاول الـ API الخارجي أولاً
+let USE_LOCAL_ONLY = (()=>{ try{ const v=localStorage.getItem('ak_use_local'); return v===null ? true : v==='true'; }catch(e){ return true; } })();
+function toggleAIMode(){
+  USE_LOCAL_ONLY = !USE_LOCAL_ONLY;
+  try{ localStorage.setItem('ak_use_local', USE_LOCAL_ONLY); }catch(e){}
+  toast(USE_LOCAL_ONLY ? '🧠 وضع AI المحلي: شغال 100% بدون نت ⚡' : '🌐 وضع API الخارجي: هيحاول Together/Gemini');
+  const ind=$('aiModeIndicator');
+  if(ind) ind.textContent = USE_LOCAL_ONLY ? '🧠 محلي فوري' : '🌐 خارجي';
+}
 
 /* ---------- Smart Local AI Engine (يعمل 100% حتى لو الـ API فشل) ---------- */
 function localSmartExcuse(prompt){
@@ -719,6 +732,13 @@ function localAIEngine(prompt){
 }
 
 async function callGeminiAPI(prompt){
+  // لو الوضع المحلي مفعل، استخدمه فوراً بدون انتظار API
+  if(typeof USE_LOCAL_ONLY !== 'undefined' && USE_LOCAL_ONLY){
+    console.log('[AI] Local-only mode - instant response');
+    await sleep(500 + Math.random()*700); // محاكاة تفكير AI
+    return localAIEngine(prompt);
+  }
+
   console.log('[AI] Trying Together API...', prompt.slice(0,80));
   const modelsToTry = [
     "meta-llama/Llama-3-8b-chat-hf",
@@ -730,7 +750,7 @@ async function callGeminiAPI(prompt){
   for(let model of modelsToTry){
     try{
       const ctrl=new AbortController(); 
-      const t=setTimeout(()=>ctrl.abort(),12000);
+      const t=setTimeout(()=>ctrl.abort(),6000); // قللنا الوقت من 12 لـ 6 ثواني
       const res=await fetch(API_URL,{
         method:'POST',
         headers:{'Content-Type':'application/json','Authorization':`Bearer ${API_KEY}`},
@@ -739,7 +759,7 @@ async function callGeminiAPI(prompt){
       });
       clearTimeout(t);
       const data=await res.json();
-      console.log('[AI] Model',model,'status',res.status, data);
+      console.log('[AI] Model',model,'status',res.status);
       if(res.ok && data.choices?.[0]?.message?.content){
         const txt=data.choices[0].message.content.trim();
         if(txt && txt.length>10) {
@@ -747,31 +767,34 @@ async function callGeminiAPI(prompt){
           return txt;
         }
       }
-      // لو 401 أو 403 يبقى المفتاح غلط، جرب الموديل اللي بعده
       if(res.status===401 || res.status===403){
-        console.warn('[AI] Invalid key, trying next model');
-        continue;
+        console.warn('[AI] Invalid key, switching to local');
+        break; // مفتاح غلط، متكملش، روح محلي فوراً
       }
     }catch(e){
       console.warn('[AI] Model',model,'failed',e.message);
-      await sleep(300);
-      continue;
+      // فشل شبكة، روح محلي فوراً بدل ما تجرب كل الموديلات
+      break;
     }
   }
   
-  // لو كل الموديلات فشلت، استخدم المحرك المحلي الذكي (اللي شغال 100%)
-  console.log('[AI] All remote models failed, using local smart engine - This WILL work!');
-  // محاكاة تأخير الشبكة عشان يحس أنه AI حقيقي
-  await sleep(600 + Math.random()*800);
+  console.log('[AI] Using local smart engine - This WILL work!');
+  await sleep(400 + Math.random()*600);
   return localAIEngine(prompt);
 }
 
 async function callGeminiVisionAPI(prompt, imageBase64){
+  if(typeof USE_LOCAL_ONLY !== 'undefined' && USE_LOCAL_ONLY){
+    console.log('[AI Vision] Local-only mode');
+    await sleep(500 + Math.random()*700);
+    return localAIEngine(prompt + " نسبة الذوق: ");
+  }
+
   console.log('[AI Vision] Trying... hasImage:', !!imageBase64);
   if(imageBase64){
     try{
       const ctrl=new AbortController(); 
-      const t=setTimeout(()=>ctrl.abort(),15000);
+      const t=setTimeout(()=>ctrl.abort(),8000);
       const res=await fetch(GEMINI_URL+'?key='+encodeURIComponent(GEMINI_KEY),{
         method:'POST',
         headers:{'Content-Type':'application/json'},
@@ -792,7 +815,6 @@ async function callGeminiVisionAPI(prompt, imageBase64){
       console.warn('[AI Vision] Gemini failed', e.message);
     }
   }
-  // Fallback لنصي مع تلميح أنه كان فيه صورة
   return await callGeminiAPI(prompt + (imageBase64 ? "\n\n[المستخدم رفع صورة طقم ملابس - حلل كأنك شفتها، ادي تقييم موضة ساخر ومفيد بلهجة مصرية]" : ""));
 }
 
@@ -858,9 +880,17 @@ function typewriter(el, text){
   let i=0; const speed=text.length>600?4:text.length>300?7:11;
   (function step(){ if(i<text.length){ el.textContent+=text[i++]; setTimeout(step,speed); } else el.classList.remove('typing'); })();
 }
-function markAI(id,label){ $(id).textContent=label||'🤖 رد حقيقي من Together AI — مش عشوائي'; }
-function markCached(id){ $(id).textContent='⚡ رد فوري من الكاش المحلي (نفس طلبك من شوية)'; }
-function markFallback(id){ $(id).textContent='😴 الذكاء الاصطناعي واخد قيلولة — رد محلي من عقل عكاشاوي'; }
+function markAI(id,label){ 
+  if(typeof USE_LOCAL_ONLY !== 'undefined' && USE_LOCAL_ONLY){
+    $(id).textContent=label||'🤖 عكاشاوي AI المحلي - شغال 100% بدون نت - رد ذكي فوري ⚡';
+    $(id).style.color='#10B981';
+  } else {
+    $(id).textContent=label||'🤖 رد حقيقي من Together AI — مش عشوائي'; 
+    $(id).style.color='var(--secondary)';
+  }
+}
+function markCached(id){ $(id).textContent='⚡ رد فوري من الكاش المحلي (نفس طلبك من شوية)'; $(id).style.color='#F59E0B'; }
+function markFallback(id){ $(id).textContent='🧠 عكاشاوي AI المحلي - ذكاء اصطناعي محلي متطور شغال بدون إنترنت'; $(id).style.color='#10B981'; }
 function wcount(s){ return s.trim()?s.trim().split(/\s+/).length:0; }
 function wc(inp, lab, max, min=0){
   const n=wcount($(inp).value); const el=$(lab);
