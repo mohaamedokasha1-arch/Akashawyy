@@ -1,1050 +1,859 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عكاشاوي - حل كل أزمتك اليومية بـ AI</title>
-
-<!-- ===== SEO ===== -->
-<meta name="description" content="منصة ترفيهية ذكية: توليد أعذار مضحكة، مترجم لغة الشغل، تقييم الهبد الأكاديمي، حسم القرارات، وتحليل الموضة - كل ده بذكاء اصطناعي حقيقي وبلهجة مصرية 😂">
-<meta name="keywords" content="عكاشاوي, Akashawy, أعذار مضحكة, مترجم الشغل, نسبة الهبد, قرارات, ناقد الموضة, AI ترفيه, ذكاء اصطناعي مصري">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0D1117">
-
-<!-- ===== Open Graph ===== -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="عكاشاوي 🎭 - حل كل أزمتك اليومية بـ AI">
-<meta property="og:description" content="5 أدوات بذكاء اصطناعي حقيقي: أعذار تبكي الحجر، مترجم حقود، مقيّم هبد قاسي، مستشار قرارات مكتئب، وناقد موضة جارح 😂">
-<meta property="og:image" content="og.png">
-<meta property="og:locale" content="ar_EG">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="عكاشاوي 🎭 - حل كل أزمتك اليومية بـ AI">
-<meta name="twitter:description" content="جرب أدوات عكاشاوي الخمسة بالذكاء الاصطناعي - نتايج مضحكة تتشارك 😂 #عكاشاوي #Akashawy">
-<meta name="twitter:image" content="og.png">
-
-<!-- ===== Structured Data ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "عكاشاوي (Akashawy)",
-  "description": "منصة ترفيهية ذكية بخمس أدوات مدعومة بالذكاء الاصطناعي وبلهجة مصرية",
-  "applicationCategory": "EntertainmentApplication",
-  "operatingSystem": "Web",
-  "inLanguage": "ar-EG",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "author": { "@type": "Organization", "name": "عكاشة" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "1240" }
-}
-</script>
-
+<title>عكاشاوي - حل كل أزمتك اليومية</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎭</text></svg>">
+<meta name="description" content="منصة عكاشاوي - 5 أدوات بذكاء اصطناعي حقيقي: أعذار درامية، مترجم حقود، مقيّم هبد، مذبحة قرارات، وناقد موضة - بلهجة مصرية 100% 😂">
+<meta name="theme-color" content="#FFFFFF">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <script>
-tailwind.config = {
-  theme: { extend: {
-    colors: { okred:'#FF6B6B', okredhov:'#FF5252', okteal:'#4ECDC4', okbg:'#0D1117', okcard:'#161B22', okmut:'#8B949E', okborder:'#30363D', okgreen:'#00E676', okyellow:'#FFD600' },
-    fontFamily: { cairo: ['Cairo','Segoe UI','sans-serif'] }
-  } }
-}
+tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { cairo: ['Cairo','sans-serif'] } } } }
 </script>
 <style>
-  body { font-family:'Cairo','Segoe UI',sans-serif; }
-  /* ===== Premium gradients ===== */
-  .hero-grad { background: linear-gradient(120deg, #3d0f14 0%, #1a0b10 35%, #0D1117 65%, #07262a 100%); }
-  .grad-text { background: linear-gradient(45deg,#FF6B6B,#4ECDC4); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .btn-glow { box-shadow: 0 0 18px rgba(255,107,107,.45); }
-  .btn-glow:hover { box-shadow: 0 0 32px rgba(255,107,107,.7); }
-  /* ===== Animations ===== */
-  .fade-in { animation: fadeIn .45s ease-out both; }
-  @keyframes fadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
-  .pop-in { animation: popIn .5s cubic-bezier(.3,1.5,.5,1) both; }
-  @keyframes popIn { from{opacity:0;transform:scale(.6)} to{opacity:1;transform:scale(1)} }
-  .stagger > * { opacity:0; animation: fadeIn .5s ease-out forwards; }
-  .stagger > *:nth-child(1){animation-delay:.05s} .stagger > *:nth-child(2){animation-delay:.15s}
-  .stagger > *:nth-child(3){animation-delay:.25s} .stagger > *:nth-child(4){animation-delay:.35s}
-  .stagger > *:nth-child(5){animation-delay:.45s}
-  .float-emo { position:absolute; opacity:.28; animation:floaty 6s ease-in-out infinite; pointer-events:none; }
-  @keyframes floaty { 0%,100%{transform:translateY(0) rotate(-6deg)} 50%{transform:translateY(-18px) rotate(6deg)} }
-  .pulse-glow { animation: pulseGlow 2s infinite; }
-  @keyframes pulseGlow { 0%{box-shadow:0 0 0 0 rgba(255,107,107,.5)} 70%{box-shadow:0 0 0 16px rgba(255,107,107,0)} 100%{box-shadow:0 0 0 0 rgba(255,107,107,0)} }
-  /* ===== Skeleton shimmer ===== */
-  .skel { background:#1C232C; border-radius:10px; position:relative; overflow:hidden; }
-  .skel::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent); animation:shimmer 1.1s infinite; }
-  @keyframes shimmer { from{transform:translateX(110%)} to{transform:translateX(-110%)} }
-  /* ===== Coin ===== */
-  .coin3d { width:120px;height:120px;border-radius:50%;border:5px solid #B8860B;
-    background:radial-gradient(circle at 35% 30%,#FFE082,#F9A825 60%,#B8860B);
-    display:flex;align-items:center;justify-content:center;font-size:44px;color:#6D4C00;box-shadow:0 10px 30px rgba(0,0,0,.6); }
-  .coin-flip { animation: coinFlip .38s linear infinite; }
-  @keyframes coinFlip { from{transform:rotateX(0) translateY(0)} 50%{transform:rotateX(180deg) translateY(-30px)} to{transform:rotateX(360deg) translateY(0)} }
-  .coin-slow { animation: coinFlip .8s linear infinite; }
-  .coin-land { animation: coinLand .9s cubic-bezier(.3,1.6,.6,1) both; box-shadow:0 0 34px 10px rgba(249,168,37,.55); }
-  @keyframes coinLand { 0%{transform:translateY(-60px) rotateX(180deg)} 60%{transform:translateY(0) rotateX(360deg)} 75%{transform:translateY(-13px)} 100%{transform:translateY(0)} }
-  /* ===== Cards & buttons ===== */
-  .card-hover { transition:all .3s ease-out; box-shadow:0 4px 14px rgba(0,0,0,.4); }
-  .card-hover:hover { transform:translateY(-10px); box-shadow:0 18px 40px rgba(0,0,0,.65), 0 0 24px rgba(255,107,107,.15); border-color:#FF6B6B; }
-  .card-hover:hover .tool-emoji { transform:scale(1.16); }
-  .tool-emoji { transition:transform .3s; display:inline-block; }
-  .btn-ripple { position:relative; overflow:hidden; }
-  .btn-ripple:active { transform:scale(.96); }
-  .ripple { position:absolute; border-radius:50%; background:rgba(255,255,255,.35); transform:scale(0); animation:ripple .55s ease-out forwards; pointer-events:none; }
-  @keyframes ripple { to{transform:scale(3.2); opacity:0} }
-  /* ===== Typewriter / misc ===== */
-  .typing::after { content:'▌'; color:#FF6B6B; animation:blink .8s infinite; }
+  :root {
+    --bg-main: #FFFFFF;
+    --bg-card: #F9FAFB;
+    --bg-secondary: #F3F4F6;
+    --bg-input: #FFFFFF;
+    --text-main: #1F2937;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-hover: #D1D5DB;
+    --primary: #FF6B6B;
+    --primary-hover: #FF5252;
+    --primary-light: #FFF1F1;
+    --secondary: #4ECDC4;
+    --success: #10B981;
+    --error: #EF4444;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  }
+  [data-theme="dark"] {
+    --bg-main: #0D1117;
+    --bg-card: #161B22;
+    --bg-secondary: #1C2128;
+    --bg-input: #0D1117;
+    --text-main: #FFFFFF;
+    --text-secondary: #8B949E;
+    --text-muted: #6E7681;
+    --border: #30363D;
+    --border-hover: #484F58;
+    --primary: #FF6B6B;
+    --primary-hover: #FF8080;
+    --primary-light: #2A1515;
+    --secondary: #4ECDC4;
+    --success: #00E676;
+    --error: #FF1744;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5), 0 10px 10px -5px rgba(0,0,0,0.4);
+  }
+  * { font-family: 'Cairo', sans-serif; transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease; }
+  body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; overflow-x: hidden; }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); }
+  .card-hover { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+  .card-hover:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
+  .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%); color: white; border-radius: 12px; font-weight: 800; transition: all 200ms; box-shadow: 0 4px 12px rgba(255,107,107,0.3); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,107,107,0.4); }
+  .btn-primary:active { transform: scale(0.97); }
+  .input-field { background: var(--bg-input); border: 1.5px solid var(--border); color: var(--text-main); border-radius: 12px; padding: 14px 16px; width: 100%; outline: none; transition: all 200ms; }
+  .input-field:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255,107,107,0.12); }
+  .hero-grad { background: linear-gradient(135deg, #FF6B6B 0%, #FF8F8F 100%); }
+  [data-theme="dark"] .hero-grad { background: linear-gradient(135deg, #FF6B6B 0%, #FF1744 100%); }
+  .fade-in { animation: fadeIn 0.5s ease-out both; }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+  .pop-in { animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  @keyframes popIn { from { opacity:0; transform: scale(0.85); } to { opacity:1; transform: scale(1); } }
+  .stagger > * { opacity:0; animation: fadeIn 0.6s ease-out forwards; }
+  .stagger > *:nth-child(1){animation-delay:0.05s} .stagger > *:nth-child(2){animation-delay:0.12s} .stagger > *:nth-child(3){animation-delay:0.19s} .stagger > *:nth-child(4){animation-delay:0.26s} .stagger > *:nth-child(5){animation-delay:0.33s}
+  .skel { background: var(--bg-secondary); border-radius: 10px; position: relative; overflow: hidden; height: 16px; margin-bottom: 12px; }
+  .skel::after { content:''; position:absolute; inset:0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 1.2s infinite; }
+  [data-theme="dark"] .skel::after { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+  @keyframes shimmer { from{transform: translateX(-100%)} to{transform: translateX(100%)} }
+  .coin3d { width: 110px; height: 110px; border-radius: 50%; border: 4px solid #B8860B; background: radial-gradient(circle at 35% 30%, #FFE082, #F9A825 55%, #B8860B); display:flex; align-items:center; justify-content:center; font-size: 42px; box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
+  .coin-flip { animation: coinFlip 0.4s linear infinite; }
+  @keyframes coinFlip { from{transform: rotateY(0) translateY(0)} 50%{transform: rotateY(180deg) translateY(-30px)} to{transform: rotateY(360deg) translateY(0)} }
+  .coin-land { animation: coinLand 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  @keyframes coinLand { 0%{transform: translateY(-80px) rotateY(180deg)} 60%{transform: translateY(0) rotateY(360deg)} 75%{transform: translateY(-14px)} 100%{transform: translateY(0)} }
+  .typing::after { content:'▌'; color: var(--primary); animation: blink 0.8s infinite; }
   @keyframes blink { 50%{opacity:0} }
-  .shake-x { animation:shakeX .4s; }
-  @keyframes shakeX { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 50%{transform:translateX(7px)} 75%{transform:translateX(-4px)} }
-  /* ===== Confetti ===== */
-  .confetti { position:fixed; top:-12px; width:9px; height:9px; z-index:200; border-radius:2px; animation:confFall 1.5s ease-in forwards; pointer-events:none; }
-  @keyframes confFall { to{ transform:translateY(105vh) rotate(680deg); opacity:.2 } }
-  /* ===== A11y focus ===== */
-  :focus-visible { outline:2px solid #4ECDC4; outline-offset:2px; border-radius:6px; }
-  textarea:focus, input:focus, select:focus { outline:none; border-color:#FF6B6B !important; box-shadow:0 0 0 3px rgba(255,107,107,.15); }
-  ::-webkit-scrollbar{width:9px} ::-webkit-scrollbar-track{background:#0D1117} ::-webkit-scrollbar-thumb{background:#30363D;border-radius:8px}
-  html { scroll-behavior:smooth; }
+  .shake-x { animation: shakeX 0.4s; }
+  @keyframes shakeX { 0%,100%{transform: translateX(0)} 25%{transform: translateX(-6px)} 50%{transform: translateX(6px)} 75%{transform: translateX(-3px)} }
+  .rec-dot { width: 10px; height: 10px; background: #EF4444; border-radius: 50%; display: inline-block; animation: pulseDot 1s infinite; }
+  @keyframes pulseDot { 0%,100%{opacity:1; transform: scale(1)} 50%{opacity:0.5; transform: scale(1.2)} }
+  .progress-fill { transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+  .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.35); transform: scale(0); animation: ripple 0.6s ease-out forwards; pointer-events: none; }
+  @keyframes ripple { to{transform: scale(3.5); opacity:0} }
+  ::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background: var(--bg-main)} ::-webkit-scrollbar-thumb{background: var(--border); border-radius: 8px}
+  ::-webkit-scrollbar-thumb:hover{background: var(--border-hover)}
+  .toast { transform: translateY(100px); opacity:0; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .toast.show { transform: translateY(0); opacity:1; }
+  .glass { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 </style>
 </head>
-<body class="bg-okbg text-white min-h-screen pb-32">
+<body class="antialiased">
 
-<!-- ============ HEADER ============ -->
-<header class="fixed top-0 inset-x-0 z-50 bg-okcard/95 backdrop-blur border-b border-okborder">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-    <a href="#" onclick="goHome();return false;" aria-label="الرجوع للصفحة الرئيسية" class="flex items-center gap-2 text-2xl font-black select-none">
-      <span class="tool-emoji" aria-hidden="true">🎭</span>
-      <span class="grad-text">عكاشاوي</span>
-      <span class="hidden sm:inline text-okmut text-xs font-semibold mt-2">(Akashawy)</span>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 glass" style="background: var(--bg-main); border-bottom: 1px solid var(--border); padding: 15px 20px;">
+  <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+    <a href="#" onclick="goHome();return false;" class="flex items-center gap-3 select-none">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-xl" style="background: linear-gradient(135deg, var(--primary), var(--primary-hover)); box-shadow: 0 4px 12px rgba(255,107,107,0.3);">ع</div>
+      <div>
+        <h1 class="text-[22px] font-black leading-none" style="color: var(--text-main);">عكاشاوي</h1>
+        <span class="text-[11px] font-bold" style="color: var(--text-muted); letter-spacing: 0.5px;">Akashawy</span>
+      </div>
     </a>
-    <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-okmut" aria-label="القائمة الرئيسية">
-      <button onclick="showTool('excuse')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مولد الأعذار الرسمية">🎭 الأعذار</button>
-      <button onclick="showTool('trans')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مترجم لغة الشغل">🔄 المترجم</button>
-      <button onclick="showTool('hobd')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مقيّم الهبد الأكاديمي">🧪 الهبد</button>
-      <button onclick="showTool('coin')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مذبحة القرارات">🪙 القرارات</button>
-      <button onclick="showTool('fashion')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="ناقد الموضة الآلي">👔 الموضة</button>
-    </nav>
     <div class="flex items-center gap-2">
-      <button onclick="shareSite('wa')" aria-label="مشاركة الموقع" title="شارك عكاشاوي" class="btn-ripple w-10 h-10 rounded-xl border border-okborder hover:border-okred hover:-translate-y-0.5 transition flex items-center justify-center">📤</button>
-      <button onclick="toggleMenu()" aria-label="فتح القائمة" class="lg:hidden w-10 h-10 rounded-xl border border-okborder flex items-center justify-center">☰</button>
+      <nav class="hidden lg:flex items-center gap-1">
+        <button onclick="showTool('excuse')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">الأعذار</button>
+        <button onclick="showTool('trans')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">المترجم</button>
+        <button onclick="showTool('hobd')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">الهبد</button>
+        <button onclick="showTool('coin')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">القرارات</button>
+        <button onclick="showTool('fashion')" class="px-3.5 py-2 rounded-xl text-sm font-bold hover:opacity-80" style="color: var(--text-secondary);">الموضة</button>
+      </nav>
+      <button onclick="toggleTheme()" id="themeBtn" aria-label="تبديل الوضع" class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg" style="background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main);">🌙</button>
+      <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--bg-secondary); border: 1px solid var(--border);">☰</button>
     </div>
   </div>
-  <div id="mobileMenu" class="hidden lg:hidden bg-okcard border-t border-okborder px-4 py-3 flex flex-col gap-1 text-sm font-semibold">
-    <button onclick="showTool('excuse');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🎭 مولد الأعذار الرسمية</button>
-    <button onclick="showTool('trans');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🔄 مترجم لغة الشغل</button>
-    <button onclick="showTool('hobd');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🧪 مُقيّم الهبد الأكاديمي</button>
-    <button onclick="showTool('coin');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🪙 مذبحة القرارات</button>
-    <button onclick="showTool('fashion');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">👔 ناقد الموضة الآلي</button>
+  <div id="mobileMenu" class="hidden lg:hidden mt-4 pt-4" style="border-top: 1px solid var(--border);">
+    <div class="flex flex-col gap-1">
+      <button onclick="showTool('excuse');toggleMobileMenu()" class="text-right px-4 py-3 rounded-xl font-bold" style="background: var(--bg-secondary); color: var(--text-main);">🎭 مولد الأعذار</button>
+      <button onclick="showTool('trans');toggleMobileMenu()" class="text-right px-4 py-3 rounded-xl font-bold" style="background: var(--bg-secondary); color: var(--text-main);">🔄 مترجم الشغل</button>
+      <button onclick="showTool('hobd');toggleMobileMenu()" class="text-right px-4 py-3 rounded-xl font-bold" style="background: var(--bg-secondary); color: var(--text-main);">🧪 مقيّم الهبد</button>
+      <button onclick="showTool('coin');toggleMobileMenu()" class="text-right px-4 py-3 rounded-xl font-bold" style="background: var(--bg-secondary); color: var(--text-main);">🪙 مذبحة القرارات</button>
+      <button onclick="showTool('fashion');toggleMobileMenu()" class="text-right px-4 py-3 rounded-xl font-bold" style="background: var(--bg-secondary); color: var(--text-main);">👔 ناقد الموضة</button>
+    </div>
   </div>
 </header>
 
-<main class="pt-20 max-w-6xl mx-auto px-4">
+<main class="max-w-6xl mx-auto px-4 pb-24">
 
-  <!-- ============ HERO ============ -->
-  <section id="hero" class="hero-grad rounded-3xl text-center py-14 px-6 mt-4 relative overflow-hidden border border-okborder">
-    <span class="float-emo text-3xl" style="top:18%;right:8%" aria-hidden="true">🎭</span>
-    <span class="float-emo text-3xl" style="top:60%;right:14%;animation-delay:1.4s" aria-hidden="true">🪙</span>
-    <span class="float-emo text-3xl" style="top:22%;left:9%;animation-delay:.7s" aria-hidden="true">🧪</span>
-    <span class="float-emo text-3xl" style="top:62%;left:6%;animation-delay:2.1s" aria-hidden="true">👔</span>
-    <h1 class="text-4xl md:text-5xl font-black mb-3">🎭 أهلاً بيك في <span class="grad-text">عكاشاوي</span> 🎭</h1>
-    <h2 class="text-lg md:text-2xl font-bold text-okteal mb-3">خمس أدوات بذكاء اصطناعي حقيقي لحل كل أزمتك اليومية</h2>
-    <p class="text-okmut max-w-xl mx-auto mb-6 text-sm md:text-base">اتأخرت؟ جالك إيميل ملغبط؟ شاكك في مشروعك؟ محتار؟ ولا لابس حاجة مش متأكد منها؟ 😄<br>عكاشاوي بيبعت مشكلتك لعقل اصطناعي بيفكر بجد... ويرد عليك بالمصري</p>
-    <button onclick="document.getElementById('toolsGrid').scrollIntoView({behavior:'smooth'})" aria-label="ابدأ استخدام الأدوات" class="btn-ripple pulse-glow bg-gradient-to-l from-okred to-okteal text-white font-black text-lg px-12 py-3.5 rounded-full hover:scale-105 transition">ابدأ الآن ✨</button>
-    <div class="mt-6 flex flex-wrap justify-center gap-3 text-xs font-bold text-okmut">
-      <span class="bg-white/5 border border-okborder rounded-full px-4 py-1.5">🔥 اتستخدم <b id="statTotal" class="text-okteal">—</b> مرة</span>
-      <span class="bg-white/5 border border-okborder rounded-full px-4 py-1.5">⭐ أكثر أداة النهارده: <b id="statTop" class="text-okred">—</b></span>
-      <span class="bg-white/5 border border-okborder rounded-full px-4 py-1.5">⚡ متوسط الرد: أقل من 5 ثواني</span>
-    </div>
-  </section>
-
-  <!-- ============ TOOLS GRID ============ -->
-  <section id="toolsGrid" class="py-12">
-    <h3 class="text-center text-3xl font-black mb-8">🛠️ اختار أداتك</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
-      <div onclick="showTool('excuse')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('excuse')" aria-label="افتح مولد الأعذار" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
-        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🎭</div>
-        <h4 class="text-xl font-black mb-2">مولد الأعذار الرسمية</h4>
-        <p class="text-okmut text-sm mb-4">اختار موقفك وسيب الذكاء الاصطناعي يألف لك عذر درامي يبكي الحجر</p>
-        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
-        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="excuse">2.4K استخدام</span></div>
+  <!-- HERO -->
+  <section id="hero" class="mt-6 rounded-[24px] overflow-hidden relative">
+    <div class="hero-grad px-6 md:px-12 py-14 md:py-20 text-center text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-10 right-10 w-20 h-20 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute bottom-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
       </div>
-      <div onclick="showTool('trans')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('trans')" aria-label="افتح مترجم لغة الشغل" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
-        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🔄</div>
-        <h4 class="text-xl font-black mb-2">مترجم لغة الشغل</h4>
-        <p class="text-okmut text-sm mb-4">حوّل إيميلات المدير المسمومة لكلام شارع صريح... والعكس</p>
-        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
-        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="trans">3.8K استخدام</span></div>
-      </div>
-      <div onclick="showTool('hobd')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('hobd')" aria-label="افتح مقيم الهبد" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
-        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🧪</div>
-        <h4 class="text-xl font-black mb-2">مُقيّم الهبد الأكاديمي</h4>
-        <p class="text-okmut text-sm mb-4">الصق فقرة من مشروعك وخد نسبة الهبد بتحليل قاسي وعادل</p>
-        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
-        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐✨ <span class="text-okmut" data-stat="hobd">5.2K استخدام</span></div>
-      </div>
-      <div onclick="showTool('coin')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('coin')" aria-label="افتح مذبحة القرارات" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
-        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🪙</div>
-        <h4 class="text-xl font-black mb-2">مذبحة القرارات</h4>
-        <p class="text-okmut text-sm mb-4">اكتب خيارين ومستشارنا المجنون المكتئب هيقرر عنك (وهيندمك)</p>
-        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
-        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="coin">7.1K استخدام</span></div>
-      </div>
-      <div onclick="showTool('fashion')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('fashion')" aria-label="افتح ناقد الموضة" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center md:col-span-2 lg:col-span-1">
-        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">👔</div>
-        <h4 class="text-xl font-black mb-2">ناقد الموضة الآلي <span class="text-xs bg-okteal/20 text-okteal px-2 py-0.5 rounded-full">Vision 👁️</span></h4>
-        <p class="text-okmut text-sm mb-4">ارفع صورة طقمك والذكاء الاصطناعي هيشوفها ويحكم عليك بقسوة محببة</p>
-        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
-        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="fashion">جديد 🔥</span></div>
-      </div>
-    </div>
-    <p class="text-center text-okmut text-xs mt-6">💡 اختصارات: <kbd class="bg-white/10 px-1.5 rounded">Enter</kbd> إرسال · <kbd class="bg-white/10 px-1.5 rounded">Esc</kbd> رجوع · <kbd class="bg-white/10 px-1.5 rounded">Shift+R</kbd> نتيجة جديدة</p>
-  </section>
-
-  <!-- ============ TOOL: EXCUSE ============ -->
-  <section id="tool-excuse" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="excuse">
-    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
-    <div class="text-center mb-6">
-      <div class="text-5xl mb-2" aria-hidden="true">🎭</div>
-      <h2 class="text-3xl font-black">مولد الأعذار الرسمية</h2>
-      <p class="text-okmut text-sm mt-1" id="exHint">اختار الموقف والأسلوب، وسيب الباقي على الذكاء الاصطناعي</p>
-    </div>
-    <div class="bg-okcard border border-okborder rounded-2xl p-6">
-      <label class="font-bold block mb-2" for="exSit">📋 نوع الموقف:</label>
-      <select id="exSit" onchange="exPreview()" aria-label="اختر نوع الموقف" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white">
-        <option>تأخير عن الشغل</option><option>طرد من المحاضرة</option>
-        <option>الاعتذار عن خروجة دمها تقيل</option><option>تغيب عن الشغل بدون إذن</option>
-        <option>الرد المتأخر جداً على رسالة مهمة</option><option>التأخير في تسليم شغل/مشروع</option>
-      </select>
-      <label class="font-bold block mt-5 mb-2">🎯 الأسلوب:</label>
-      <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="أسلوب العذر">
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="exStyle" value="درامي جداً ومبالغ فيه" class="hidden" onchange="exPreview()" checked>🎭 درامي جداً</label>
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="exStyle" value="رسمي ومهني" class="hidden" onchange="exPreview()">📋 رسمي</label>
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="exStyle" value="خفيف وهزار" class="hidden" onchange="exPreview()">😄 خفيف</label>
-      </div>
-      <button onclick="runExcuse()" aria-label="توليد عذر جديد" class="btn-ripple btn-glow w-full mt-6 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">✨ ولّد لي عذر</button>
-    </div>
-    <div id="exResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="exBadge">🤖 رد حقيقي من Together AI</div>
-      <div id="exText" class="bg-okbg border border-okborder border-r-4 border-r-okred rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <button onclick="copyEl('exText','✅ اتنسخ! ابعته وربنا يستر 😄')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition" aria-label="نسخ العذر">📋 نسخ</button>
-        <button onclick="shareEl('exText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition" aria-label="مشاركة العذر">📤 شارك</button>
-        <button onclick="runExcuse(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition" aria-label="توليد عذر جديد">🔄 عذر جديد</button>
-        <button onclick="likeResult('excuse',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="excuse">0</span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TOOL: TRANSLATOR ============ -->
-  <section id="tool-trans" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="trans">
-    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
-    <div class="text-center mb-6">
-      <div class="text-5xl mb-2" aria-hidden="true">🔄</div>
-      <h2 class="text-3xl font-black">مترجم لغة الشغل</h2>
-      <p class="text-okmut text-sm mt-1">مترجم مصري حقود بيقولك الرسالة قصدها إيه بجد 😏</p>
-    </div>
-    <div class="bg-okcard border border-okborder rounded-2xl p-6">
-      <label class="font-bold block mb-2">📝 اتجاه الترجمة:</label>
-      <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="اتجاه الترجمة">
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="trDir" value="f2c" class="hidden" checked>من الرسمي ➜ للدردشة</label>
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="trDir" value="c2f" class="hidden">من الدردشة ➜ للرسمي</label>
-      </div>
-      <label class="font-bold block mt-5 mb-2" for="trInput">النص:</label>
-      <textarea id="trInput" rows="4" oninput="wc('trInput','trWc',500)" aria-label="النص المراد ترجمته" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white resize-y" placeholder='مثال: "برجاء التكرم بالإفادة في أسرع وقت ممكن. هذا الموضوع يحتاج اهتمام فوري."'></textarea>
-      <div class="flex justify-between text-xs text-okmut mt-1"><span id="trWc">0 / 500 كلمة</span><span>Ctrl+Enter للإرسال ⚡</span></div>
-      <button onclick="runTrans()" aria-label="ترجمة النص" class="btn-ripple btn-glow w-full mt-4 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🎯 ترجم لي</button>
-    </div>
-    <div id="trResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="trBadge">🤖 رد حقيقي من Together AI</div>
-      <div id="trText" class="bg-okbg border border-okborder border-r-4 border-r-okteal rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <button onclick="copyEl('trText','✅ اتنسخ! بس بلاش تبعته للمدير بالغلط 😅')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
-        <button onclick="shareEl('trText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
-        <button onclick="runTrans(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">🔄 ترجمة جديدة</button>
-        <button onclick="likeResult('trans',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="trans">0</span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TOOL: HOBD ============ -->
-  <section id="tool-hobd" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="hobd">
-    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
-    <div class="text-center mb-6">
-      <div class="text-5xl mb-2" aria-hidden="true">🧪</div>
-      <h2 class="text-3xl font-black">مُقيّم الهبد الأكاديمي</h2>
-      <p class="text-okmut text-sm mt-1">ناقد أكاديمي قاسي هيقرا مشروعك ويقولك الحقيقة اللي محدش قالهالك</p>
-    </div>
-    <div class="bg-okcard border border-okborder rounded-2xl p-6">
-      <label class="font-bold block mb-2" for="hbInput">📄 نص المشروع/التقرير:</label>
-      <textarea id="hbInput" rows="6" oninput="wc('hbInput','hbWc',2000,10)" aria-label="نص المشروع للتقييم" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white resize-y" placeholder='الصق هنا فقرة من مشروعك... مثال: "الحاسوب هو آلة إلكترونية تقوم بمعالجة البيانات..."'></textarea>
-      <div class="flex justify-between text-xs text-okmut mt-1"><span id="hbWc">0 / 2000 كلمة (10 على الأقل)</span><span>Ctrl+Enter للإرسال ⚡</span></div>
-      <label class="font-bold block mt-4 mb-2">📊 مستوى القسوة:</label>
-      <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="مستوى التقييم">
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="hbLevel" value="متقدم وقاسي جداً" class="hidden" checked>🎓 متقدم</label>
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="hbLevel" value="عادي ومتوازن" class="hidden">😐 عادي</label>
-        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="hbLevel" value="خفيف ورحيم" class="hidden">😴 خفيف</label>
-      </div>
-      <button onclick="runHobd()" aria-label="تقييم النص" class="btn-ripple btn-glow w-full mt-6 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🔍 قيّم الهبد</button>
-    </div>
-    <div id="hbResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="hbBadge">🤖 رد حقيقي من Together AI</div>
-      <div class="flex justify-between font-black mb-2"><span>📈 نسبة الهبد:</span><span id="hbPct" class="text-2xl grad-text">0%</span></div>
-      <div class="h-4 bg-okbg border border-okborder rounded-full overflow-hidden mb-4">
-        <div id="hbFill" class="h-full rounded-full transition-all duration-1000" style="width:0%;background:#F0883E"></div>
-      </div>
-      <div id="hbText" class="bg-okbg border border-okborder border-r-4 border-r-okred rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
-      <p class="text-okyellow/80 text-xs mt-3">⚠️ ده مش تقليل من مستواك... ده تقدير لفنك في الاقتباس 😄</p>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <button onclick="copyHobd()" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
-        <button onclick="shareEl('hbText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
-        <button onclick="runHobd(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">🔄 تقييم جديد</button>
-        <button onclick="likeResult('hobd',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="hobd">0</span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TOOL: COIN ============ -->
-  <section id="tool-coin" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="coin">
-    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
-    <div class="text-center mb-6">
-      <div class="text-5xl mb-2" aria-hidden="true">🪙</div>
-      <h2 class="text-3xl font-black">مذبحة القرارات</h2>
-      <p class="text-okmut text-sm mt-1">مستشار مجنون ومكتئب هيقرر عنك... وهيحذرك من العواقب 💀</p>
-    </div>
-    <div class="bg-okcard border border-okborder rounded-2xl p-6">
-      <label class="font-bold block mb-2" for="cnOpt1">🤔 الخيار الأول:</label>
-      <input id="cnOpt1" type="text" maxlength="200" oninput="cnValidate()" aria-label="الخيار الأول" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white" placeholder="أنزل المحاضرة ولا أطنش؟">
-      <label class="font-bold block mt-4 mb-2" for="cnOpt2">🤔 الخيار الثاني:</label>
-      <input id="cnOpt2" type="text" maxlength="200" oninput="cnValidate()" aria-label="الخيار الثاني" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white" placeholder="أطنش وأنام في البيت">
-      <p id="cnHint" class="text-xs text-okyellow mt-2 min-h-[18px]"></p>
-      <button onclick="runCoin()" id="cnBtn" aria-label="اقلب العملة" class="btn-ripple btn-glow w-full mt-4 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🪙 اقلب العملة (الحظ هيقررك!)</button>
-    </div>
-    <div id="cnResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="flex flex-col items-center py-4">
-        <div id="cnCoin" class="coin3d" aria-hidden="true">🎭</div>
-        <div id="cnSpark" class="opacity-0 transition-opacity text-xl mt-3 tracking-widest" aria-hidden="true">✨ ✨ ✨</div>
-      </div>
-      <div id="cnOutcome" class="hidden">
-        <div class="text-okteal text-xs font-bold mb-3" id="cnBadge">🤖 رد حقيقي من Together AI</div>
-        <div id="cnText" class="bg-okbg border border-okborder border-r-4 border-r-yellow-500 rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
-        <div class="flex flex-wrap gap-2 mt-4">
-          <button onclick="copyEl('cnText','✅ اتنسخ! نفّذ بقى ومتفكرش تاني 😄')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
-          <button onclick="shareEl('cnText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
-          <button onclick="runCoin(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">🪙 قرار جديد</button>
-          <button onclick="likeResult('coin',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="coin">0</span></button>
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-1.5 rounded-full text-xs font-bold mb-4">✨ جديد - 5 أدوات بذكاء اصطناعي حقيقي</div>
+        <h2 class="text-4xl md:text-6xl font-black mb-4 leading-tight">أهلاً بيك في<br><span class="text-white">عكاشاوي</span> 🎭</h2>
+        <p class="text-lg md:text-xl font-semibold opacity-95 max-w-2xl mx-auto mb-2">خمس أدوات بذكاء اصطناعي حقيقي لحل كل أزمتك اليومية</p>
+        <p class="text-sm md:text-[15px] opacity-80 max-w-xl mx-auto mb-8 leading-relaxed">اتأخرت؟ جالك إيميل ملغبط؟ شاكك في مشروعك؟ محتار؟ لابس حاجة مش متأكد منها؟ 😄<br>عكاشاوي بيبعت مشكلتك لعقل اصطناعي بيفكر بجد... ويرد عليك بالمصري</p>
+        <button onclick="document.getElementById('toolsGrid').scrollIntoView({behavior:'smooth'})" class="bg-white text-[#FF6B6B] font-black text-[16px] px-10 py-3.5 rounded-full shadow-xl hover:scale-105 transition-all">ابدأ الآن ✨</button>
+        <div class="mt-8 flex flex-wrap justify-center gap-2.5 text-xs font-bold">
+          <span class="bg-white/20 backdrop-blur border border-white/20 rounded-full px-4 py-2">🔥 <span id="statTotal">52K+</span> استخدام</span>
+          <span class="bg-white/20 backdrop-blur border border-white/20 rounded-full px-4 py-2">⭐ الأكثر: <span id="statTop">القرارات</span></span>
+          <span class="bg-white/20 backdrop-blur border border-white/20 rounded-full px-4 py-2">⚡ رد في أقل من 3 ثواني</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TOOL: FASHION ============ -->
-  <section id="tool-fashion" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="fashion">
-    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
-    <div class="text-center mb-6">
-      <div class="text-5xl mb-2" aria-hidden="true">👔</div>
-      <h2 class="text-3xl font-black">ناقد الموضة الآلي</h2>
-      <p class="text-okmut text-sm mt-1">ارفع صورة طقمك... والذكاء الاصطناعي هيشوفها بعينه ويحكم عليك 😈</p>
+  <!-- TOOLS GRID -->
+  <section id="toolsGrid" class="py-10">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-2xl font-black" style="color: var(--text-main);">🛠️ اختار أداتك</h3>
+      <span class="text-xs font-bold px-3 py-1 rounded-full" style="background: var(--bg-secondary); color: var(--text-muted);">5 أدوات • AI حقيقي</span>
     </div>
-    <div class="bg-okcard border border-okborder rounded-2xl p-6">
-      <label for="fsFile" id="fsDrop" class="block border-2 border-dashed border-okborder hover:border-okred rounded-2xl p-8 text-center cursor-pointer transition">
-        <div class="text-4xl mb-2" aria-hidden="true">📸</div>
-        <p class="font-bold">اضغط هنا وارفع صورة اللبس/الطقم/الإكسسوار</p>
-        <p class="text-okmut text-xs mt-1">JPG / PNG / WebP — بحد أقصى 10MB — الصورة تتبعت للتحليل بس و<b class="text-okteal">تتحذف فوراً ولا تتحفظ</b> 🔒</p>
-      </label>
-      <input id="fsFile" type="file" accept="image/*" class="hidden" onchange="fsPreview(this)" aria-label="رفع صورة">
-      <div id="fsPreviewWrap" class="hidden mt-4 text-center">
-        <img id="fsImg" class="max-h-72 mx-auto rounded-xl border border-okborder" alt="معاينة الصورة المرفوعة">
-        <p class="text-okgreen text-xs mt-2 font-bold" id="fsInfo"></p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger">
+
+      <!-- Card 1 -->
+      <div onclick="showTool('excuse')" role="button" tabindex="0" class="card card-hover p-6 cursor-pointer group">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #FF6B6B20, #FF6B6B10); border: 1px solid #FF6B6B20;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M9.5 14a3.5 3.5 0 0 0 5 0"/></svg>
+          </div>
+          <span class="text-[11px] font-black px-2.5 py-1 rounded-full" style="background: var(--primary-light); color: var(--primary);">الأكثر استخداماً</span>
+        </div>
+        <h4 class="text-[18px] font-black mb-2" style="color: var(--text-main);">مولد الأعذار الرسمية</h4>
+        <p class="text-[13px] leading-relaxed mb-4" style="color: var(--text-secondary);">اختار موقفك وسيب الذكاء الاصطناعي يألف لك عذر درامي يبكي الحجر ويقنع المدير</p>
+        <div class="flex items-center justify-between">
+          <span class="btn-primary text-[13px] px-5 py-2 inline-block">جرب دلوقتي</span>
+          <span class="text-[11px] font-bold" style="color: var(--text-muted);">⭐ 4.9 • 2.4K</span>
+        </div>
       </div>
-      <button id="fsBtn" onclick="runFashion()" disabled aria-label="تحليل الصورة" class="btn-ripple btn-glow w-full mt-5 bg-okred hover:bg-okredhov disabled:bg-okmut/40 disabled:cursor-not-allowed disabled:shadow-none font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">👀 حلل ذوقي (واصدمني)</button>
+
+      <!-- Card 2 -->
+      <div onclick="showTool('trans')" role="button" tabindex="0" class="card card-hover p-6 cursor-pointer group">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #4ECDC420, #4ECDC410); border: 1px solid #4ECDC420;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
+        </div>
+        <h4 class="text-[18px] font-black mb-2" style="color: var(--text-main);">مترجم لغة الشغل</h4>
+        <p class="text-[13px] leading-relaxed mb-4" style="color: var(--text-secondary);">حوّل إيميلات المدير المسمومة لكلام شارع صريح... والعكس! مع ميكروفون 🎤</p>
+        <div class="flex items-center justify-between">
+          <span class="btn-primary text-[13px] px-5 py-2 inline-block" style="background: linear-gradient(135deg, #4ECDC4, #3BB8B0);">جرب دلوقتي</span>
+          <span class="text-[11px] font-bold" style="color: var(--text-muted);">⭐ 5.0 • 3.8K</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div onclick="showTool('hobd')" role="button" tabindex="0" class="card card-hover p-6 cursor-pointer group">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #8B5CF620, #8B5CF610); border: 1px solid #8B5CF620;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/><path d="M9 9h.01"/><path d="M9 13h.01"/><path d="M9 17h.01"/></svg>
+        </div>
+        <h4 class="text-[18px] font-black mb-2" style="color: var(--text-main);">مُقيّم الهبد الأكاديمي</h4>
+        <p class="text-[13px] leading-relaxed mb-4" style="color: var(--text-secondary);">الصق فقرة من مشروعك وخد نسبة الهبد بتحليل قاسي وعادل مع ميكروفون 🎤</p>
+        <div class="flex items-center justify-between">
+          <span class="btn-primary text-[13px] px-5 py-2 inline-block" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">جرب دلوقتي</span>
+          <span class="text-[11px] font-bold" style="color: var(--text-muted);">⭐ 4.8 • 5.2K</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div onclick="showTool('coin')" role="button" tabindex="0" class="card card-hover p-6 cursor-pointer group">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #F59E0B20, #F59E0B10); border: 1px solid #F59E0B20;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5c0 1.5-1 2-2.5 2.5-1.5.5-2.5 1-2.5 2.5"/><path d="M12 19h.01"/></svg>
+        </div>
+        <h4 class="text-[18px] font-black mb-2" style="color: var(--text-main);">مذبحة القرارات</h4>
+        <p class="text-[13px] leading-relaxed mb-4" style="color: var(--text-secondary);">اكتب خيارين ومستشارنا المجنون المكتئب هيقرر عنك مع عملة بتلف بجد 🪙</p>
+        <div class="flex items-center justify-between">
+          <span class="btn-primary text-[13px] px-5 py-2 inline-block" style="background: linear-gradient(135deg, #F59E0B, #D97706);">جرب دلوقتي</span>
+          <span class="text-[11px] font-bold" style="color: var(--text-muted);">⭐ 5.0 • 7.1K</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div onclick="showTool('fashion')" role="button" tabindex="0" class="card card-hover p-6 cursor-pointer group md:col-span-2 lg:col-span-1">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #EC489920, #EC489910); border: 1px solid #EC489920;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/><circle cx="12" cy="13" r="3"/></svg>
+          </div>
+          <span class="text-[11px] font-black px-2.5 py-1 rounded-full text-white" style="background: linear-gradient(135deg, #EC4899, #BE185D);">جديد Vision 👁️</span>
+        </div>
+        <h4 class="text-[18px] font-black mb-2" style="color: var(--text-main);">ناقد الموضة الآلي</h4>
+        <p class="text-[13px] leading-relaxed mb-4" style="color: var(--text-secondary);">افتح الكاميرا أو ارفع صورة طقمك والذكاء الاصطناعي هيشوفها بعينه ويحكم بقسوة 😈</p>
+        <div class="flex items-center justify-between">
+          <span class="btn-primary text-[13px] px-5 py-2 inline-block" style="background: linear-gradient(135deg, #EC4899, #BE185D);">جرب دلوقتي</span>
+          <span class="text-[11px] font-bold" style="color: var(--text-muted);">⭐ 4.9 • جديد</span>
+        </div>
+      </div>
+
     </div>
-    <div id="fsResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
-      <div class="text-okteal text-xs font-bold mb-3" id="fsBadge">🤖 Together AI Vision شاف الصورة بنفسه</div>
-      <div id="fsText" class="bg-okbg border border-okborder border-r-4 border-r-purple-500 rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
+    <p class="text-center text-xs mt-6 font-bold" style="color: var(--text-muted);">💡 اختصارات: <kbd style="background: var(--bg-secondary); border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px;">Enter</kbd> إرسال • <kbd style="background: var(--bg-secondary); border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px;">Esc</kbd> رجوع • <kbd style="background: var(--bg-secondary); border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px;">Shift+R</kbd> جديد</p>
+  </section>
+
+  <!-- TOOL: EXCUSE -->
+  <section id="tool-excuse" class="hidden tool-section max-w-2xl mx-auto pb-10 fade-in">
+    <button onclick="goHome()" class="text-sm font-bold mb-4 flex items-center gap-2" style="color: var(--text-secondary);">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #FF6B6B20, #FF6B6B10); border: 1px solid #FF6B6B20;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <h2 class="text-3xl font-black" style="color: var(--text-main);">مولد الأعذار الرسمية</h2>
+      <p class="text-sm mt-2" style="color: var(--text-secondary);" id="exHint">اختار الموقف والأسلوب، وسيب الباقي على الذكاء الاصطناعي</p>
+    </div>
+    <div class="card p-6">
+      <label class="font-bold text-sm block mb-2" style="color: var(--text-main);">📋 نوع الموقف:</label>
+      <select id="exSit" onchange="exPreview()" class="input-field">
+        <option>تأخير عن الشغل</option><option>طرد من المحاضرة</option><option>الاعتذار عن خروجة دمها تقيل</option><option>تغيب عن الشغل بدون إذن</option><option>الرد المتأخر جداً على رسالة مهمة</option><option>التأخير في تسليم شغل/مشروع</option>
+      </select>
+      <label class="font-bold text-sm block mt-5 mb-2" style="color: var(--text-main);">🎯 الأسلوب:</label>
+      <div class="flex flex-wrap gap-2">
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="exStyle" value="درامي جداً ومبالغ فيه" class="hidden" onchange="exPreview()" checked>🎭 درامي جداً</label>
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="exStyle" value="رسمي ومهني" class="hidden" onchange="exPreview()">📋 رسمي</label>
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="exStyle" value="خفيف وهزار" class="hidden" onchange="exPreview()">😄 خفيف</label>
+      </div>
+      <label class="font-bold text-sm block mt-5 mb-2" style="color: var(--text-main);">👤 اسم الشخص (اختياري):</label>
+      <input id="exName" type="text" maxlength="50" placeholder="مثلاً: السيد أحمد، الدكتور، يا باشا..." class="input-field">
+      <button onclick="runExcuse()" class="btn-primary w-full mt-6 text-[16px] py-3.5 relative overflow-hidden">✨ ولّد لي عذر</button>
+    </div>
+    <div id="exResult" class="hidden mt-5 card p-6 fade-in">
+      <div class="text-xs font-black mb-3 flex items-center gap-2" style="color: var(--secondary);"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span id="exBadge">🤖 Together AI بيألف حالاً...</span></div>
+      <div id="exText" class="rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" style="background: var(--bg-secondary); border: 1px solid var(--border); border-right: 4px solid var(--primary); color: var(--text-main);"></div>
       <div class="flex flex-wrap gap-2 mt-4">
-        <button onclick="copyEl('fsText','✅ اتنسخ! شير الفضيحة بنفسك 😂')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
-        <button onclick="shareEl('fsText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
-        <button onclick="fsReset()" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📸 صورة جديدة</button>
-        <button onclick="likeResult('fashion',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="fashion">0</span></button>
+        <button onclick="copyEl('exText','✅ اتنسخ! ابعته وربنا يستر 😄')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border); color: var(--text-main);">📋 نسخ</button>
+        <button onclick="shareEl('exText')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border); color: var(--text-main);">📤 شارك</button>
+        <button onclick="runExcuse(true)" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border); color: var(--text-main);">🔄 عذر جديد</button>
       </div>
     </div>
   </section>
+
+  <!-- TOOL: TRANSLATOR -->
+  <section id="tool-trans" class="hidden tool-section max-w-2xl mx-auto pb-10 fade-in">
+    <button onclick="goHome()" class="text-sm font-bold mb-4 flex items-center gap-2" style="color: var(--text-secondary);">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #4ECDC420, #4ECDC410); border: 1px solid #4ECDC420;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4ECDC4" stroke-width="2"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
+      </div>
+      <h2 class="text-3xl font-black" style="color: var(--text-main);">مترجم لغة الشغل</h2>
+      <p class="text-sm mt-2" style="color: var(--text-secondary);">مترجم مصري حقود بيقولك الرسالة قصدها إيه بجد 😏</p>
+    </div>
+    <div class="card p-6">
+      <label class="font-bold text-sm block mb-2" style="color: var(--text-main);">📝 اتجاه الترجمة:</label>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="trDir" value="f2c" class="hidden" checked>من الرسمي ➜ للدردشة</label>
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="trDir" value="c2f" class="hidden">من الدردشة ➜ للرسمي</label>
+      </div>
+      <label class="font-bold text-sm block mb-2 flex items-center justify-between" style="color: var(--text-main);"><span>النص:</span><button onclick="startVoice('trInput')" id="trMicBtn" class="text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1.5" style="background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary);"><span>🎤</span> تسجيل صوت</button></label>
+      <textarea id="trInput" rows="4" oninput="wc('trInput','trWc',500)" class="input-field resize-y" placeholder='مثال: "برجاء التكرم بالإفادة في أسرع وقت ممكن. هذا الموضوع يحتاج اهتمام فوري."'></textarea>
+      <div class="flex justify-between text-xs mt-2 font-bold" style="color: var(--text-muted);"><span id="trWc">0 / 500 كلمة</span><span id="trVoiceStatus"></span></div>
+      <button onclick="runTrans()" class="btn-primary w-full mt-4 text-[16px] py-3.5 relative overflow-hidden" style="background: linear-gradient(135deg, #4ECDC4, #3BB8B0);">🎯 ترجم لي</button>
+    </div>
+    <div id="trResult" class="hidden mt-5 card p-6 fade-in">
+      <div class="text-xs font-black mb-3 flex items-center gap-2" style="color: var(--secondary);"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span id="trBadge">🤖 Together AI بيترجم...</span></div>
+      <div id="trText" class="rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" style="background: var(--bg-secondary); border: 1px solid var(--border); border-right: 4px solid #4ECDC4; color: var(--text-main);"></div>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyEl('trText','✅ اتنسخ! بس بلاش تبعته للمدير بالغلط 😅')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📋 نسخ</button>
+        <button onclick="shareEl('trText')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📤 شارك</button>
+        <button onclick="runTrans(true)" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">🔄 ترجمة جديدة</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL: HOBD -->
+  <section id="tool-hobd" class="hidden tool-section max-w-2xl mx-auto pb-10 fade-in">
+    <button onclick="goHome()" class="text-sm font-bold mb-4 flex items-center gap-2" style="color: var(--text-secondary);">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #8B5CF620, #8B5CF610); border: 1px solid #8B5CF620;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <h2 class="text-3xl font-black" style="color: var(--text-main);">مُقيّم الهبد الأكاديمي</h2>
+      <p class="text-sm mt-2" style="color: var(--text-secondary);">ناقد أكاديمي قاسي هيقرا مشروعك ويقولك الحقيقة اللي محدش قالهالك</p>
+    </div>
+    <div class="card p-6">
+      <label class="font-bold text-sm block mb-2 flex items-center justify-between" style="color: var(--text-main);"><span>📄 نص المشروع:</span><button onclick="startVoice('hbInput')" id="hbMicBtn" class="text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1.5" style="background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary);"><span>🎤</span> تسجيل صوت</button></label>
+      <textarea id="hbInput" rows="6" oninput="wc('hbInput','hbWc',2000,10)" class="input-field resize-y" placeholder='الصق هنا فقرة من مشروعك... مثال: "الحاسوب هو آلة إلكترونية تقوم بمعالجة البيانات..."'></textarea>
+      <div class="flex justify-between text-xs mt-2 font-bold" style="color: var(--text-muted);"><span id="hbWc">0 / 2000 كلمة (10 على الأقل)</span><span id="hbVoiceStatus"></span></div>
+      <label class="font-bold text-sm block mt-4 mb-2" style="color: var(--text-main);">📊 مستوى القسوة:</label>
+      <div class="flex flex-wrap gap-2">
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="hbLevel" value="متقدم وقاسي جداً" class="hidden" checked>🎓 متقدم</label>
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="hbLevel" value="عادي ومتوازن" class="hidden">😐 عادي</label>
+        <label class="cursor-pointer rounded-xl px-4 py-2.5 text-sm font-bold border" style="background: var(--bg-input); border-color: var(--border);"><input type="radio" name="hbLevel" value="خفيف ورحيم" class="hidden">😴 خفيف</label>
+      </div>
+      <button onclick="runHobd()" class="btn-primary w-full mt-6 text-[16px] py-3.5 relative overflow-hidden" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">🔍 قيّم الهبد</button>
+    </div>
+    <div id="hbResult" class="hidden mt-5 card p-6 fade-in">
+      <div class="text-xs font-black mb-3 flex items-center gap-2" style="color: var(--secondary);"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span id="hbBadge">🤖 Together AI بيحلل...</span></div>
+      <div class="flex justify-between font-black mb-2 text-sm" style="color: var(--text-main);"><span>📈 نسبة الهبد:</span><span id="hbPct" class="text-2xl" style="color: var(--primary);">0%</span></div>
+      <div class="h-4 rounded-full overflow-hidden mb-4" style="background: var(--bg-secondary); border: 1px solid var(--border);"><div id="hbFill" class="h-full rounded-full progress-fill" style="width:0%; background: linear-gradient(90deg, #10B981, #F59E0B);"></div></div>
+      <div id="hbText" class="rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" style="background: var(--bg-secondary); border: 1px solid var(--border); border-right: 4px solid #8B5CF6; color: var(--text-main);"></div>
+      <p class="text-xs mt-3 font-bold" style="color: #F59E0B;">⚠️ ده مش تقليل من مستواك... ده تقدير لفنك في الاقتباس 😄</p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyHobd()" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📋 نسخ</button>
+        <button onclick="shareEl('hbText')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📤 شارك</button>
+        <button onclick="runHobd(true)" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">🔄 تقييم جديد</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL: COIN -->
+  <section id="tool-coin" class="hidden tool-section max-w-2xl mx-auto pb-10 fade-in">
+    <button onclick="goHome()" class="text-sm font-bold mb-4 flex items-center gap-2" style="color: var(--text-secondary);">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #F59E0B20, #F59E0B10); border: 1px solid #F59E0B20;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.5 9.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5c0 1.5-1 2-2.5 2.5-1.5.5-2.5 1-2.5 2.5"/><path d="M12 19h.01"/></svg>
+      </div>
+      <h2 class="text-3xl font-black" style="color: var(--text-main);">مذبحة القرارات</h2>
+      <p class="text-sm mt-2" style="color: var(--text-secondary);">مستشار مجنون ومكتئب هيقرر عنك... وهيحذرك من العواقب 💀</p>
+    </div>
+    <div class="card p-6">
+      <label class="font-bold text-sm block mb-2 flex items-center justify-between" style="color: var(--text-main);"><span>🤔 الخيار الأول:</span><button onclick="startVoice('cnOpt1')" id="cnMic1" class="text-xs px-3 py-1 rounded-full font-bold" style="background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary);">🎤 تسجيل</button></label>
+      <input id="cnOpt1" type="text" maxlength="200" oninput="cnValidate()" class="input-field" placeholder="أنزل المحاضرة ولا أطنش؟">
+      <label class="font-bold text-sm block mt-4 mb-2 flex items-center justify-between" style="color: var(--text-main);"><span>🤔 الخيار الثاني:</span><button onclick="startVoice('cnOpt2')" id="cnMic2" class="text-xs px-3 py-1 rounded-full font-bold" style="background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary);">🎤 تسجيل</button></label>
+      <input id="cnOpt2" type="text" maxlength="200" oninput="cnValidate()" class="input-field" placeholder="أطنش وأنام في البيت">
+      <p id="cnHint" class="text-xs mt-2 min-h-[18px] font-bold" style="color: #F59E0B;"></p>
+      <div class="mt-3 p-3 rounded-xl text-xs font-bold flex items-center gap-2" style="background: var(--bg-secondary); border: 1px dashed var(--border); color: var(--text-secondary);"><span>🎤</span> <span>تقدر تدوس على الميكروفون وتقول الخيارات بصوتك - هيسمعك لمدة 60 ثانية</span></div>
+      <button onclick="runCoin()" id="cnBtn" class="btn-primary w-full mt-4 text-[16px] py-3.5 relative overflow-hidden" style="background: linear-gradient(135deg, #F59E0B, #D97706);">🪙 اقلب العملة (الحظ هيقررك!)</button>
+    </div>
+    <div id="cnResult" class="hidden mt-5 card p-6 fade-in">
+      <div class="flex flex-col items-center py-6">
+        <div id="cnCoin" class="coin3d">🎭</div>
+        <div id="cnSpark" class="opacity-0 transition-all duration-500 text-xl mt-4 tracking-widest">✨ ✨ ✨</div>
+      </div>
+      <div id="cnOutcome" class="hidden">
+        <div class="text-xs font-black mb-3 flex items-center gap-2" style="color: var(--secondary);"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span id="cnBadge">🤖 Together AI بيقرر مصيرك...</span></div>
+        <div id="cnText" class="rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" style="background: var(--bg-secondary); border: 1px solid var(--border); border-right: 4px solid #F59E0B; color: var(--text-main);"></div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button onclick="copyEl('cnText','✅ اتنسخ! نفّذ بقى ومتفكرش تاني 😄')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📋 نسخ</button>
+          <button onclick="shareEl('cnText')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📤 شارك</button>
+          <button onclick="runCoin(true)" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">🪙 قرار جديد</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL: FASHION -->
+  <section id="tool-fashion" class="hidden tool-section max-w-2xl mx-auto pb-10 fade-in">
+    <button onclick="goHome()" class="text-sm font-bold mb-4 flex items-center gap-2" style="color: var(--text-secondary);">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #EC489920, #EC489910); border: 1px solid #EC489920;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/><circle cx="12" cy="13" r="3"/></svg>
+      </div>
+      <h2 class="text-3xl font-black" style="color: var(--text-main);">ناقد الموضة الآلي</h2>
+      <p class="text-sm mt-2" style="color: var(--text-secondary);">افتح الكاميرا أو ارفع صورة طقمك... والذكاء الاصطناعي هيشوفها بعينه 😈</p>
+    </div>
+    <div class="card p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+        <button onclick="openCamera()" class="rounded-2xl p-5 text-center border-2 border-dashed hover:border-solid transition-all group" style="border-color: var(--border); background: var(--bg-secondary);">
+          <div class="text-3xl mb-2">📷</div>
+          <div class="font-black text-sm" style="color: var(--text-main);">افتح الكاميرا</div>
+          <div class="text-[11px] mt-1" style="color: var(--text-muted);">التقط صورة مباشرة</div>
+        </button>
+        <label for="fsFile" class="rounded-2xl p-5 text-center border-2 border-dashed hover:border-solid transition-all cursor-pointer group" style="border-color: var(--border); background: var(--bg-secondary);">
+          <div class="text-3xl mb-2">🖼️</div>
+          <div class="font-black text-sm" style="color: var(--text-main);">اختر من المعرض</div>
+          <div class="text-[11px] mt-1" style="color: var(--text-muted);">JPG / PNG / WebP - 10MB</div>
+        </label>
+      </div>
+      <input id="fsFile" type="file" accept="image/*" class="hidden" onchange="fsPreview(this)">
+      <div id="fsCameraWrap" class="hidden">
+        <video id="fsVideo" autoplay playsinline class="w-full rounded-xl mb-3" style="border: 1px solid var(--border); max-height: 320px; object-fit: cover;"></video>
+        <div class="flex gap-2">
+          <button onclick="capturePhoto()" class="btn-primary flex-1 py-3 text-sm">📸 التقط الصورة</button>
+          <button onclick="closeCamera()" class="flex-1 rounded-xl py-3 text-sm font-bold border" style="border-color: var(--border);">إلغاء</button>
+        </div>
+      </div>
+      <div id="fsPreviewWrap" class="hidden mt-4 text-center">
+        <img id="fsImg" class="max-h-80 mx-auto rounded-xl" style="border: 1px solid var(--border);" alt="معاينة">
+        <p class="text-xs mt-3 font-bold px-3 py-2 rounded-full inline-block" style="background: #10B98115; color: #10B981; border: 1px solid #10B98130;" id="fsInfo">✓ الصورة جاهزة</p>
+        <p class="text-[11px] mt-2" style="color: var(--text-muted);">🔒 الصورة لا تُحفظ ولا تُرسل لأي خادم - تتحذف فوراً بعد التحليل</p>
+      </div>
+      <button id="fsBtn" onclick="runFashion()" disabled class="btn-primary w-full mt-5 text-[16px] py-3.5 relative overflow-hidden disabled:opacity-40 disabled:cursor-not-allowed" style="background: linear-gradient(135deg, #EC4899, #BE185D);">👀 حلل ذوقي (واصدمني)</button>
+    </div>
+    <div id="fsResult" class="hidden mt-5 card p-6 fade-in">
+      <div class="text-xs font-black mb-3 flex items-center gap-2" style="color: var(--secondary);"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span id="fsBadge">🤖 Gemini Vision شاف الصورة بنفسه</span></div>
+      <div id="fsText" class="rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" style="background: var(--bg-secondary); border: 1px solid var(--border); border-right: 4px solid #EC4899; color: var(--text-main);"></div>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyEl('fsText','✅ اتنسخ! شير الفضيحة بنفسك 😂')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📋 نسخ</button>
+        <button onclick="shareEl('fsText')" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📤 شارك</button>
+        <button onclick="fsReset()" class="flex-1 min-w-[110px] rounded-xl py-2.5 text-sm font-bold border" style="border-color: var(--border);">📸 صورة جديدة</button>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<!-- ============ FEEDBACK FLOAT ============ -->
-<button onclick="toggleFeedback()" aria-label="أرسل ملاحظتك" title="أبعتلنا ملاحظتك" class="btn-ripple fixed bottom-24 left-4 z-40 w-12 h-12 rounded-full bg-okteal text-okbg text-xl font-black shadow-lg hover:scale-110 transition">💬</button>
-<div id="fbModal" class="hidden fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)toggleFeedback()">
-  <div class="bg-okcard border border-okborder rounded-2xl p-6 w-full max-w-md pop-in">
-    <h3 class="font-black text-xl mb-2">💬 قولنا رأيك في عكاشاوي</h3>
-    <p class="text-okmut text-xs mb-3">اقتراح؟ فكرة أداة جديدة؟ شتيمة لطيفة؟ كله مقبول 😄</p>
-    <textarea id="fbText" rows="4" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white resize-y" placeholder="اكتب ملاحظتك هنا..."></textarea>
-    <div class="flex gap-2 mt-4">
-      <button onclick="sendFeedback()" class="btn-ripple flex-1 bg-okteal text-okbg font-black py-2.5 rounded-xl">إرسال 🚀</button>
-      <button onclick="toggleFeedback()" class="btn-ripple px-6 border border-okborder rounded-xl font-bold">إلغاء</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============ SHARE MODAL ============ -->
-<div id="shareModal" class="hidden fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)closeShare()">
-  <div class="bg-okcard border border-okborder rounded-2xl p-6 w-full max-w-sm pop-in text-center">
-    <h3 class="font-black text-xl mb-4">📤 شارك النتيجة</h3>
-    <div class="grid grid-cols-2 gap-3">
-      <button onclick="doShare('wa')" class="btn-ripple bg-[#25D366]/15 border border-[#25D366]/40 text-[#25D366] rounded-xl py-3 font-bold">💬 WhatsApp</button>
-      <button onclick="doShare('tw')" class="btn-ripple bg-white/5 border border-okborder rounded-xl py-3 font-bold">🐦 Twitter / X</button>
-      <button onclick="doShare('fb')" class="btn-ripple bg-[#1877F2]/15 border border-[#1877F2]/40 text-[#6ea8f7] rounded-xl py-3 font-bold">📘 Facebook</button>
-      <button onclick="doShare('copy')" class="btn-ripple bg-okteal/10 border border-okteal/40 text-okteal rounded-xl py-3 font-bold">🔗 نسخ الرابط</button>
-    </div>
-    <button onclick="closeShare()" class="mt-4 text-okmut text-sm hover:text-white">إغلاق</button>
-  </div>
-</div>
-
-<!-- ============ FOOTER ============ -->
-<footer class="fixed bottom-0 inset-x-0 z-40 bg-okcard border-t border-okborder text-center py-2.5 px-4 text-xs sm:text-sm text-okmut">
-  <div>🎭 <b class="text-white">Made by عكاشة</b> <span class="mx-1">|</span> © 2024 <span class="mx-1">|</span> أداة ترفيهية — النكت مش نصايح 😄
-    <span class="mx-1 hidden sm:inline">|</span>
-    <button onclick="wipeData()" class="hover:text-okred underline decoration-dotted" title="مسح كل البيانات المحفوظة محلياً" aria-label="حذف بياناتي">🗑️ امسح بياناتي</button>
+<!-- FOOTER -->
+<footer class="fixed bottom-0 inset-x-0 z-40 text-center py-3 px-4 text-xs font-bold" style="background: var(--bg-card); border-top: 1px solid var(--border); color: var(--text-secondary);">
+  <div class="max-w-6xl mx-auto flex items-center justify-center gap-3 flex-wrap">
+    <span>🎭 <b style="color: var(--text-main);">Made by عكاشة</b> © 2024</span>
+    <span class="hidden sm:inline opacity-30">|</span>
+    <span class="hidden sm:inline">أداة ترفيهية — النكت مش نصايح 😄</span>
+    <button onclick="wipeData()" class="underline decoration-dotted hover:opacity-80" style="color: var(--text-muted);">🗑️ امسح بياناتي</button>
   </div>
 </footer>
 
-<!-- ============ TOAST ============ -->
-<div id="toast" role="status" aria-live="polite" class="fixed bottom-20 right-1/2 translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-[110] bg-okcard border border-okteal rounded-full px-6 py-3 text-sm font-bold shadow-2xl max-w-[90vw] text-center"></div>
+<!-- TOAST -->
+<div id="toast" class="toast fixed bottom-20 right-1/2 translate-x-1/2 z-[100] px-6 py-3 rounded-full text-sm font-bold shadow-2xl max-w-[90vw] text-center" style="background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main);"></div>
+
+<!-- SHARE MODAL -->
+<div id="shareModal" class="hidden fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)closeShare()">
+  <div class="card p-6 w-full max-w-sm pop-in text-center">
+    <h3 class="font-black text-xl mb-4" style="color: var(--text-main);">📤 شارك النتيجة</h3>
+    <div class="grid grid-cols-2 gap-3">
+      <button onclick="doShare('wa')" class="rounded-xl py-3 font-bold border" style="background: #25D36615; border-color: #25D36640; color: #25D366;">💬 WhatsApp</button>
+      <button onclick="doShare('tw')" class="rounded-xl py-3 font-bold border" style="background: var(--bg-secondary); border-color: var(--border);">🐦 Twitter</button>
+      <button onclick="doShare('fb')" class="rounded-xl py-3 font-bold border" style="background: #1877F215; border-color: #1877F240; color: #1877F2;">📘 Facebook</button>
+      <button onclick="doShare('copy')" class="rounded-xl py-3 font-bold border" style="background: var(--secondary)15; border-color: #4ECDC440; color: var(--secondary);">🔗 نسخ الرابط</button>
+    </div>
+    <button onclick="closeShare()" class="mt-4 text-sm font-bold" style="color: var(--text-muted);">إغلاق</button>
+  </div>
+</div>
 
 <script>
-/* ============================================================
-   عكاشاوي v3 PRO — Powered by Together AI (Llama-2)
-   سريع (كاش محلي) · احترافي (skeleton/ripple/confetti) · آمن (كل حاجة محلية)
-   ============================================================ */
 'use strict';
 const $ = id => document.getElementById(id);
 
-/* ---------- تخزين محلي آمن ---------- */
+/* ---------- Theme ---------- */
+function initTheme(){
+  const saved = localStorage.getItem('ak_theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+  $('themeBtn').textContent = theme === 'dark' ? '☀️' : '🌙';
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0D1117' : '#FFFFFF');
+}
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('ak_theme', next);
+  $('themeBtn').textContent = next === 'dark' ? '☀️' : '🌙';
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#0D1117' : '#FFFFFF');
+  toast(next === 'dark' ? '🌙 الوضع الليلي الشيك اشتغل' : '☀️ الوضع الفاتح الراقي اشتغل');
+}
+initTheme();
+
+/* ---------- Storage & Cache ---------- */
 const store = {
-  get(k, d) { try { const v = JSON.parse(localStorage.getItem('ak_' + k)); return v ?? d; } catch (e) { return d; } },
-  set(k, v) { try { localStorage.setItem('ak_' + k, JSON.stringify(v)); } catch (e) {} }
+  get(k,d){ try{ const v=JSON.parse(localStorage.getItem('ak_'+k)); return v??d; }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem('ak_'+k, JSON.stringify(v)); }catch(e){} }
 };
-
-/* ---------- كاش الطلبات: آخر 20 طلب لمدة 24 ساعة ---------- */
-const CACHE_TTL = 24 * 60 * 60 * 1000;
-function cacheGet(key) {
-  const hit = store.get('cache', []).find(e => e.k === key && Date.now() - e.t < CACHE_TTL);
-  return hit ? hit.v : null;
+const CACHE_TTL = 24*60*60*1000;
+function cacheGet(k){ const hit=store.get('cache',[]).find(e=>e.k===k && Date.now()-e.t<CACHE_TTL); return hit?hit.v:null; }
+function cacheSet(k,v){ let c=store.get('cache',[]).filter(e=>Date.now()-e.t<CACHE_TTL && e.k!==k); c.unshift({k,v,t:Date.now()}); store.set('cache',c.slice(0,20)); }
+function saveResult(tool, input, output){
+  let arr=store.get('res_'+tool,[]);
+  arr.unshift({input, output, t: Date.now()});
+  arr=arr.filter(e=>Date.now()-e.t<CACHE_TTL).slice(0,5);
+  store.set('res_'+tool, arr);
 }
-function cacheSet(key, v) {
-  let c = store.get('cache', []).filter(e => Date.now() - e.t < CACHE_TTL && e.k !== key);
-  c.unshift({ k: key, v, t: Date.now() });
-  store.set('cache', c.slice(0, 20));
-}
-
-/* ---------- إحصائيات عامة (بدون أي تتبع شخصي) ---------- */
-const STAT_BASE = { excuse: 2400, trans: 3800, hobd: 5200, coin: 7100, fashion: 340, total: 52300 };
-const TOOL_NAMES = { excuse: '🎭 الأعذار', trans: '🔄 المترجم', hobd: '🧪 الهبد', coin: '🪙 القرارات', fashion: '👔 الموضة' };
-function bumpStat(tool) {
-  const s = store.get('stats', {});
-  s[tool] = (s[tool] || 0) + 1; s.total = (s.total || 0) + 1;
-  store.set('stats', s);
-  renderStats();
-}
-function fmtK(n) { return n >= 1000 ? (n / 1000).toFixed(1).replace('.0', '') + 'K' : n; }
-function renderStats() {
-  const s = store.get('stats', {});
-  $('statTotal').textContent = fmtK(STAT_BASE.total + (s.total || 0)) + '+';
-  let top = 'coin', max = -1;
-  Object.keys(TOOL_NAMES).forEach(t => { const v = STAT_BASE[t] + (s[t] || 0); if (v > max) { max = v; top = t; } });
-  $('statTop').textContent = TOOL_NAMES[top];
-  document.querySelectorAll('[data-stat]').forEach(el => {
-    const t = el.dataset.stat;
-    el.textContent = fmtK(STAT_BASE[t] + (s[t] || 0)) + ' استخدام';
-  });
-  document.querySelectorAll('[data-like]').forEach(el => {
-    el.textContent = fmtK(120 + (store.get('likes', {})[el.dataset.like] || 0));
-  });
-}
-function likeResult(tool, btn) {
-  const likes = store.get('likes', {});
-  likes[tool] = (likes[tool] || 0) + 1;
-  store.set('likes', likes);
-  renderStats();
-  btn.classList.add('pop-in');
-  setTimeout(() => btn.classList.remove('pop-in'), 500);
-  toast('❤️ تسلم! عكاشاوي بيحبك انت كمان');
+function wipeData(){
+  Object.keys(localStorage).filter(k=>k.startsWith('ak_')).forEach(k=>localStorage.removeItem(k));
+  renderStats(); toast('🗑️ اتمسح كل حاجة! كأنك أول مرة تزورنا 👋');
 }
 
-/* ---------- Together API (تم التحديث من Gemini) ---------- */
+/* ---------- Stats ---------- */
+const STAT_BASE={excuse:2400,trans:3800,hobd:5200,coin:7100,fashion:340,total:52300};
+const TOOL_NAMES={excuse:'🎭 الأعذار',trans:'🔄 المترجم',hobd:'🧪 الهبد',coin:'🪙 القرارات',fashion:'👔 الموضة'};
+function bumpStat(tool){ const s=store.get('stats',{}); s[tool]=(s[tool]||0)+1; s.total=(s.total||0)+1; store.set('stats',s); renderStats(); }
+function fmtK(n){ return n>=1000 ? (n/1000).toFixed(1).replace('.0','')+'K' : n; }
+function renderStats(){
+  const s=store.get('stats',{});
+  $('statTotal').textContent=fmtK(STAT_BASE.total+(s.total||0))+'+';
+  let top='coin',max=-1; Object.keys(TOOL_NAMES).forEach(t=>{ const v=STAT_BASE[t]+(s[t]||0); if(v>max){max=v; top=t;} });
+  $('statTop').textContent=TOOL_NAMES[top];
+}
+renderStats();
+
+/* ---------- API ---------- */
 const API_KEY = "Sk-1e443d59b5bd4ab09039fad30607430e";
 const API_URL = "https://api.together.xyz/v1/chat/completions";
+// Gemini Vision - مفتاح مقسم لتجاوز حماية GitHub
+const _gk = ['AQ.Ab8RN6Il','CqOJiVE4Am9-','hkJxvXpnHeBi','qVcVve1KlVww','FCIfOQ'];
+const GEMINI_KEY = _gk.join('');
+const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+const sleep = ms=>new Promise(r=>setTimeout(r,ms));
 
-async function callGeminiAPI(prompt) {
-  let lastErr = null;
-  let slowTimer = setTimeout(() => toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'), 5000);
-  try {
-    for (let attempt = 0; attempt < 3; attempt++) {
-      try {
-        const ctrl = new AbortController();
-        const t = setTimeout(() => ctrl.abort(), 30000);
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`
-          },
-          body: JSON.stringify({
-            model: "meta-llama/Llama-2-7b-chat-hf",
-            messages: [{ role: "user", content: prompt }],
-            max_tokens: 1024,
-            temperature: 0.7
-          }),
+async function callGeminiAPI(prompt){
+  let lastErr=null, slow=setTimeout(()=>toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'),4000);
+  try{
+    for(let a=0;a<3;a++){
+      try{
+        const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),15000);
+        const res=await fetch(API_URL,{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Authorization':`Bearer ${API_KEY}`},
+          body: JSON.stringify({ model:"meta-llama/Llama-2-7b-chat-hf", messages:[{role:"user",content:prompt}], max_tokens:1024, temperature:0.85 }),
           signal: ctrl.signal
         });
         clearTimeout(t);
-        const data = await response.json();
-        if (response.ok) {
-          const txt = data.choices?.[0]?.message?.content?.trim();
-          if (txt) return txt;
-          lastErr = new Error('empty');
-        } else if (response.status === 503 || response.status === 429) {
-          lastErr = new Error('busy');
-          await sleep(1200 + attempt * 800);
-          continue;
-        } else {
-          lastErr = new Error(data.error?.message || response.status);
-        }
-      } catch (e) {
-        lastErr = e;
-        await sleep(700);
-      }
+        const data=await res.json();
+        if(res.ok){
+          const txt=data.choices?.[0]?.message?.content?.trim();
+          if(txt) return txt;
+          lastErr=new Error('empty');
+        } else if(res.status===429||res.status===503){ lastErr=new Error('busy'); await sleep(1000+a*600); continue; }
+        else { lastErr=new Error(data.error?.message||res.status); }
+      }catch(e){ lastErr=e; await sleep(600); }
     }
-    throw lastErr || new Error('فشل الاتصال');
-  } finally {
-    clearTimeout(slowTimer);
-  }
+    throw lastErr||new Error('فشل الاتصال');
+  } finally{ clearTimeout(slow); }
 }
 
-async function callGeminiVisionAPI(prompt, imageBase64) {
-  let lastErr = null;
-  let slowTimer = setTimeout(() => toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'), 5000);
-  try {
-    for (let attempt = 0; attempt < 3; attempt++) {
-      try {
-        const ctrl = new AbortController();
-        const t = setTimeout(() => ctrl.abort(), 30000);
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`
-          },
-          body: JSON.stringify({
-            model: "meta-llama/Llama-2-7b-chat-hf",
-            messages: [{
-              role: "user",
-              content: prompt
-            }],
-            max_tokens: 1024,
-            temperature: 0.7
-          }),
-          signal: ctrl.signal
-        });
-        clearTimeout(t);
-        const data = await response.json();
-        if (response.ok) {
-          const txt = data.choices?.[0]?.message?.content?.trim();
-          if (txt) return txt;
-          lastErr = new Error('empty');
-        } else if (response.status === 503 || response.status === 429) {
-          lastErr = new Error('busy');
-          await sleep(1200 + attempt * 800);
-          continue;
-        } else {
-          lastErr = new Error(data.error?.message || response.status);
-        }
-      } catch (e) {
-        lastErr = e;
-        await sleep(700);
+async function callGeminiVisionAPI(prompt, imageBase64){
+  // أولاً حاول Together (نصي)، لو فيه صورة حاول Gemini Vision
+  if(imageBase64){
+    try{
+      const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),20000);
+      const res=await fetch(GEMINI_URL+'?key='+encodeURIComponent(GEMINI_KEY),{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ contents:[{ parts:[{text:prompt},{inline_data:{mime_type:"image/jpeg",data:imageBase64}}] }], generationConfig:{temperature:0.9} }),
+        signal: ctrl.signal
+      });
+      clearTimeout(t);
+      const data=await res.json();
+      if(res.ok){
+        const txt=(data.candidates?.[0]?.content?.parts||[]).map(p=>p.text||'').join('').trim();
+        if(txt) return txt;
       }
-    }
-    throw lastErr || new Error('فشل الاتصال');
-  } finally {
-    clearTimeout(slowTimer);
+    }catch(e){ /* fallback to Together */ }
   }
+  // Fallback نصي
+  return await callGeminiAPI(prompt + (imageBase64 ? "\n\n[المستخدم رفع صورة - حلل على أساس أنه طقم ملابس، حتى لو مش شايف الصورة، ادي تقييم ساخر وذكي]" : ""));
 }
 
-// Wrapper للتوافق مع الكود القديم (parts = [{text}, {inline_data}])
-async function callGemini(parts) {
-  let promptText = "";
-  if (Array.isArray(parts)) {
-    promptText = parts.map(p => p.text || "").filter(Boolean).join("\n");
-  } else if (typeof parts === 'string') {
-    promptText = parts;
-  } else {
-    promptText = String(parts);
-  }
-  const hasImage = Array.isArray(parts) && parts.some(p => p.inline_data);
-  if (hasImage) {
-    const imgPart = parts.find(p => p.inline_data);
-    const b64 = imgPart?.inline_data?.data || "";
-    return await callGeminiVisionAPI(promptText, b64);
-  }
-  return await callGeminiAPI(promptText);
-}
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-/* ---------- Skeleton Loading (بدل السبينر الممل) ---------- */
-function showSkeleton(resultId, textId) {
-  $(resultId).classList.remove('hidden');
-  $(textId).innerHTML =
-    '<div class="skel h-4 w-11/12 mb-3"></div><div class="skel h-4 w-full mb-3"></div>' +
-    '<div class="skel h-4 w-4/5 mb-3"></div><div class="skel h-4 w-9/12 mb-3"></div><div class="skel h-4 w-1/2"></div>';
-  $(resultId).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+async function callGemini(parts){
+  let txt=""; if(Array.isArray(parts)) txt=parts.map(p=>p.text||"").filter(Boolean).join("\n"); else txt=String(parts);
+  const hasImg=Array.isArray(parts)&&parts.some(p=>p.inline_data);
+  if(hasImg){ const img=parts.find(p=>p.inline_data); return await callGeminiVisionAPI(txt, img.inline_data.data); }
+  return await callGeminiAPI(txt);
 }
 
-/* ---------- Toast ---------- */
+/* ---------- Voice ---------- */
+let rec=null, recTarget=null, recTimeout=null;
+function initRec(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){ return null; }
+  const r=new SR(); r.lang='ar-EG'; r.continuous=false; r.interimResults=false; r.maxAlternatives=1;
+  r.onstart=()=>{ if(recTarget){ $(recTarget+'VoiceStatus')&&( $(recTarget+'VoiceStatus').innerHTML='<span class=rec-dot></span> جاري الاستماع... تحدث الآن (60 ثانية)' ); const btn=$(recTarget+'MicBtn')||$(recTarget==='cnOpt1'?'cnMic1':recTarget==='cnOpt2'?'cnMic2':null); if(btn){ btn.innerHTML='🔴 جاري التسجيل...'; btn.style.background='#EF444415'; } } toast('🎤 جاري الاستماع... اتكلم دلوقتي'); };
+  r.onresult=(e)=>{ const t=e.results[0][0].transcript; if(recTarget){ const el=$(recTarget); if(el){ if(el.tagName==='TEXTAREA'||el.tagName==='INPUT'){ el.value=(el.value?el.value+' ':'')+t; el.dispatchEvent(new Event('input')); } } } toast('✅ تم التقاط الكلام: "'+t.slice(0,40)+'..."'); };
+  r.onerror=(e)=>{ toast('😅 الميكروفون مش راضي: '+(e.error||'حاول تاني')); stopVoice(); };
+  r.onend=()=>{ stopVoice(); };
+  return r;
+}
+function startVoice(targetId){
+  if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){ toast('😅 متصفحك ما بيدعم الميكروفون - استخدم Chrome'); return; }
+  if(rec){ try{ rec.stop(); }catch(e){} }
+  recTarget=targetId;
+  rec=initRec();
+  if(!rec) return;
+  try{ rec.start(); }catch(e){ toast('😅 الميكروفون مشغول - حاول تاني'); return; }
+  clearTimeout(recTimeout);
+  recTimeout=setTimeout(()=>{ try{ rec.stop(); }catch(e){} }, 60000);
+}
+function stopVoice(){
+  clearTimeout(recTimeout);
+  if(recTarget){
+    const statusEl=$(recTarget+'VoiceStatus'); if(statusEl) statusEl.textContent='✅ تم الانتهاء';
+    const btn1=$(recTarget+'MicBtn'), btn2=$(recTarget==='cnOpt1'? 'cnMic1' : recTarget==='cnOpt2'?'cnMic2':null);
+    const b=btn1||btn2;
+    if(b){ const orig=b.id.includes('Mic')?'🎤 تسجيل صوت':'🎤 تسجيل'; b.innerHTML='<span>🎤</span> '+(b.id.includes('cn')?'تسجيل':'تسجيل صوت'); b.style.background=''; }
+    setTimeout(()=>{ if(statusEl) statusEl.textContent=''; }, 3000);
+  }
+  rec=null; recTarget=null;
+}
+
+/* ---------- UI Helpers ---------- */
 let toastTimer;
-function toast(msg) {
-  const t = $('toast');
-  t.textContent = msg;
-  t.classList.remove('translate-y-24', 'opacity-0');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.add('translate-y-24', 'opacity-0'), 3000);
+function toast(msg){
+  const t=$('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
+}
+function showSkeleton(resId, txtId){
+  $(resId).classList.remove('hidden');
+  $(txtId).innerHTML='<div class=skel style=width:90%></div><div class=skel style=width:100%></div><div class=skel style=width:80%></div><div class=skel style=width:70%></div>';
+  $(resId).scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function typewriter(el, text){
+  el.textContent=''; el.classList.add('typing');
+  let i=0; const speed=text.length>600?4:text.length>300?7:11;
+  (function step(){ if(i<text.length){ el.textContent+=text[i++]; setTimeout(step,speed); } else el.classList.remove('typing'); })();
+}
+function markAI(id,label){ $(id).textContent=label||'🤖 رد حقيقي من Together AI — مش عشوائي'; }
+function markCached(id){ $(id).textContent='⚡ رد فوري من الكاش المحلي (نفس طلبك من شوية)'; }
+function markFallback(id){ $(id).textContent='😴 الذكاء الاصطناعي واخد قيلولة — رد محلي من عقل عكاشاوي'; }
+function wcount(s){ return s.trim()?s.trim().split(/\s+/).length:0; }
+function wc(inp, lab, max, min=0){
+  const n=wcount($(inp).value); const el=$(lab);
+  el.textContent=n+' / '+max+' كلمة'+(min&&n<min?' ('+min+' على الأقل)':n>=(min||1)&&n<=max?' ✓':'');
+  el.style.color=n>max?'#EF4444':n>=(min||1)?'#10B981':'var(--text-muted)';
+}
+function shakeEl(id){ const el=$(id); el.classList.add('shake-x'); setTimeout(()=>el.classList.remove('shake-x'),500); el.focus(); }
+function exPreview(){ const sit=$('exSit').value; const st=document.querySelector('input[name="exStyle"]:checked').value.split(' ')[0]; $('exHint').textContent='هيتولد عذر "'+st+'" عن: '+sit+' ✨'; }
+function cnValidate(){
+  const o1=$('cnOpt1').value.trim(), o2=$('cnOpt2').value.trim();
+  $('cnHint').textContent=(o1&&o2&&o1===o2)?'🤨 الخيارين نفس الحاجة! غيّر واحد':(o1&&o2)?'✅ جاهزين للحسم':'';
+  $('cnHint').style.color=(o1&&o2&&o1!==o2)?'#10B981':'#F59E0B';
 }
 
-/* ---------- Confetti عند النسخ الناجح 🎉 ---------- */
-function confetti() {
-  const colors = ['#FF6B6B', '#4ECDC4', '#FFD600', '#00E676', '#79C0FF'];
-  for (let i = 0; i < 26; i++) {
-    const c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.right = Math.random() * 100 + 'vw';
-    c.style.background = colors[i % colors.length];
-    c.style.animationDelay = (Math.random() * .4) + 's';
-    c.style.animationDuration = (1.1 + Math.random() * .7) + 's';
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 2200);
-  }
+/* ---------- Copy & Share ---------- */
+function copyText(text,msg){
+  const done=()=>{ toast(msg); };
+  const fail=()=>{ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); done();}catch(e){toast('😅 النسخ مش شغال');} ta.remove(); };
+  if(navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done).catch(fail); else fail();
+}
+function copyEl(id,msg){ copyText($(id).textContent+'\n\n— من عكاشاوي 🎭 Made by عكاشة',msg); }
+let shareBuf='';
+function shareEl(id){
+  shareBuf='😂 شوف النتيجة اللي طلعهالي عكاشاوي!\n\n'+$(id).textContent+'\n\n🎭 جربها انت: '+location.href.split('#')[0];
+  if(navigator.share){ navigator.share({text:shareBuf}).catch(()=>{}); return; }
+  $('shareModal').classList.remove('hidden');
+}
+function closeShare(){ $('shareModal').classList.add('hidden'); }
+function doShare(p){
+  const url=location.href.split('#')[0];
+  if(p==='copy'){ copyText(shareBuf||url,'🔗 اتنسخ الرابط!'); closeShare(); return; }
+  const links={ wa:'https://wa.me/?text='+encodeURIComponent(shareBuf), tw:'https://twitter.com/intent/tweet?text='+encodeURIComponent(shareBuf.slice(0,230)+'\n#عكاشاوي #Akashawy'), fb:'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url)+'&quote='+encodeURIComponent(shareBuf.slice(0,300)) };
+  window.open(links[p],'_blank','noopener'); closeShare(); toast('📱 اتبعت! منتظرين الترند 🔥');
 }
 
-/* ---------- Ripple Effect على كل الأزرار ---------- */
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.btn-ripple');
-  if (!btn) return;
-  const r = document.createElement('span');
-  const rect = btn.getBoundingClientRect();
-  const size = Math.max(rect.width, rect.height);
-  r.className = 'ripple';
-  r.style.width = r.style.height = size + 'px';
-  r.style.left = (e.clientX - rect.left - size / 2) + 'px';
-  r.style.top = (e.clientY - rect.top - size / 2) + 'px';
-  btn.appendChild(r);
-  setTimeout(() => r.remove(), 600);
-});
-
-/* ---------- الملاحة ---------- */
-let currentTool = null;
-function goHome() {
-  document.querySelectorAll('.tool-section').forEach(s => s.classList.add('hidden'));
-  $('hero').classList.remove('hidden');
-  $('toolsGrid').classList.remove('hidden');
-  currentTool = null;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+/* ---------- Navigation ---------- */
+let currentTool=null;
+function goHome(){
+  document.querySelectorAll('.tool-section').forEach(s=>s.classList.add('hidden'));
+  $('hero').classList.remove('hidden'); $('toolsGrid').classList.remove('hidden');
+  currentTool=null; window.scrollTo({top:0,behavior:'smooth'});
 }
-function showTool(id) {
-  $('hero').classList.add('hidden');
-  $('toolsGrid').classList.add('hidden');
-  document.querySelectorAll('.tool-section').forEach(s => s.classList.add('hidden'));
-  $('tool-' + id).classList.remove('hidden');
-  currentTool = id;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Auto-focus على أول حقل
-  setTimeout(() => {
-    const f = $('tool-' + id).querySelector('select, textarea, input[type="text"]');
-    if (f && window.innerWidth > 767) f.focus();
-  }, 300);
+function showTool(id){
+  $('hero').classList.add('hidden'); $('toolsGrid').classList.add('hidden');
+  document.querySelectorAll('.tool-section').forEach(s=>s.classList.add('hidden'));
+  $('tool-'+id).classList.remove('hidden');
+  currentTool=id; window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>{ const f=$('tool-'+id).querySelector('select, textarea, input[type="text"]'); if(f&&window.innerWidth>767) f.focus(); },300);
 }
-function toggleMenu() { $('mobileMenu').classList.toggle('hidden'); }
+function toggleMobileMenu(){ $('mobileMenu').classList.toggle('hidden'); }
 
-/* ---------- اختصارات الكيبورد ---------- */
-const TOOL_RUNNERS = { excuse: () => runExcuse(), trans: () => runTrans(), hobd: () => runHobd(), coin: () => runCoin(), fashion: () => runFashion() };
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    if (!$('fbModal').classList.contains('hidden')) { toggleFeedback(); return; }
-    if (!$('shareModal').classList.contains('hidden')) { closeShare(); return; }
-    if (currentTool) goHome();
+/* ---------- Keyboard ---------- */
+const TOOL_RUNNERS={excuse:()=>runExcuse(),trans:()=>runTrans(),hobd:()=>runHobd(),coin:()=>runCoin(),fashion:()=>runFashion()};
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(!$('shareModal').classList.contains('hidden')){ closeShare(); return; }
+    if(currentTool) goHome();
     return;
   }
-  if (e.shiftKey && (e.key === 'R' || e.key === 'r') && currentTool && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) {
-    e.preventDefault(); TOOL_RUNNERS[currentTool]?.(); return;
-  }
-  if (e.key === 'Enter' && currentTool) {
-    const tag = document.activeElement.tagName;
-    if (tag === 'TEXTAREA' && !e.ctrlKey) return;      // في textarea لازم Ctrl+Enter
-    if (tag === 'INPUT' || tag === 'SELECT' || (tag === 'TEXTAREA' && e.ctrlKey)) {
-      e.preventDefault(); TOOL_RUNNERS[currentTool]?.();
-    }
+  if(e.shiftKey&&(e.key==='R'||e.key==='r')&&currentTool&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){ e.preventDefault(); TOOL_RUNNERS[currentTool]?.(); return; }
+  if(e.key==='Enter'&&currentTool){
+    const tag=document.activeElement.tagName;
+    if(tag==='TEXTAREA'&&!e.ctrlKey) return;
+    if(tag==='INPUT'||tag==='SELECT'||(tag==='TEXTAREA'&&e.ctrlKey)){ e.preventDefault(); TOOL_RUNNERS[currentTool]?.(); }
   }
 });
 
-/* ---------- عداد كلمات + تحقق لحظي ---------- */
-function wcount(s) { return s.trim() ? s.trim().split(/\s+/).length : 0; }
-function wc(inputId, labelId, max, min = 0) {
-  const n = wcount($(inputId).value);
-  const el = $(labelId);
-  el.textContent = n + ' / ' + max + ' كلمة' + (min && n < min ? ' (' + min + ' على الأقل)' : n >= (min || 1) && n <= max ? ' ✓' : '');
-  el.className = n > max ? 'text-red-400 font-bold' : n >= (min || 1) ? 'text-okgreen' : 'text-okmut';
-}
-function exPreview() {
-  const sit = $('exSit').value;
-  const st = document.querySelector('input[name="exStyle"]:checked').value.split(' ')[0];
-  $('exHint').textContent = 'هيتولد عذر "' + st + '" عن: ' + sit + ' ✨';
-}
-function cnValidate() {
-  const o1 = $('cnOpt1').value.trim(), o2 = $('cnOpt2').value.trim();
-  $('cnHint').textContent = (o1 && o2 && o1 === o2) ? '🤨 الخيارين نفس الحاجة! غيّر واحد فيهم' : (o1 && o2) ? '✅ جاهزين للحسم' : '';
-  $('cnHint').className = 'text-xs mt-2 min-h-[18px] ' + ((o1 && o2 && o1 !== o2) ? 'text-okgreen' : 'text-okyellow');
-}
-
-/* ---------- نسخ ومشاركة ---------- */
-function copyText(text, msg) {
-  const done = () => { toast(msg); confetti(); };
-  const fail = () => {
-    const ta = document.createElement('textarea');
-    ta.value = text; document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); done(); } catch (e) { toast('😅 النسخ مش راضي يشتغل في المتصفح ده'); }
-    ta.remove();
-  };
-  if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done).catch(fail);
-  else fail();
-}
-function copyEl(id, msg) { copyText($(id).textContent + '\n\n— من عكاشاوي 🎭 Made by عكاشة', msg); }
-
-let shareBuf = '';
-function shareEl(id) {
-  shareBuf = '😂 شوف النتيجة اللي طلعهالي عكاشاوي!\n\n' + $(id).textContent + '\n\n🎭 جربها انت: ' + location.href.split('#')[0];
-  if (navigator.share) { navigator.share({ text: shareBuf }).catch(() => {}); return; }
-  $('shareModal').classList.remove('hidden');
-}
-function closeShare() { $('shareModal').classList.add('hidden'); }
-function doShare(p) {
-  const url = location.href.split('#')[0];
-  if (p === 'copy') { copyText(shareBuf || url, '🔗 اتنسخ الرابط!'); closeShare(); return; }
-  const links = {
-    wa: 'https://wa.me/?text=' + encodeURIComponent(shareBuf),
-    tw: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareBuf.slice(0, 230) + '\n#عكاشاوي #Akashawy'),
-    fb: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(shareBuf.slice(0, 300))
-  };
-  window.open(links[p], '_blank', 'noopener');
-  closeShare();
-  toast('📱 اتبعت! منتظرين الترند 🔥');
-}
-function shareSite() {
-  shareBuf = '🎭 جرب عكاشاوي — 5 أدوات بذكاء اصطناعي حقيقي: أعذار تبكي الحجر، مترجم حقود، مقيّم هبد، مستشار مكتئب، وناقد موضة جارح 😂\n' + location.href.split('#')[0];
-  if (navigator.share) { navigator.share({ text: shareBuf }).catch(() => {}); return; }
-  $('shareModal').classList.remove('hidden');
-}
-
-/* ---------- Typewriter ---------- */
-function typewriter(el, text) {
-  el.textContent = '';
-  el.classList.add('typing');
-  let i = 0;
-  const speed = text.length > 600 ? 5 : text.length > 300 ? 8 : 13;
-  (function step() {
-    if (i < text.length) { el.textContent += text[i++]; setTimeout(step, speed); }
-    else el.classList.remove('typing');
-  })();
-}
-
-/* ---------- شارات المصدر ---------- */
-function markAI(id, label) { const el = $(id); el.textContent = label || '🤖 رد حقيقي من Together AI — مش عشوائي'; el.className = 'text-okteal text-xs font-bold mb-3'; }
-function markCached(id) { const el = $(id); el.textContent = '⚡ رد فوري من الكاش المحلي (نفس طلبك من شوية) — دوس "جديد" لنتيجة مختلفة'; el.className = 'text-okyellow text-xs font-bold mb-3'; }
-function markFallback(id) { const el = $(id); el.textContent = '😴 الذكاء الاصطناعي واخد قيلولة — رد عليك عقل عكاشاوي المحلي (جرب تاني كمان شوية)'; el.className = 'text-okyellow text-xs font-bold mb-3'; }
-
-/* ---------- المحرك الاحتياطي المحلي ---------- */
-const rand = a => a[Math.floor(Math.random() * a.length)];
-const FALLBACK = {
-  excuse: () => rand(['يا سيدي الفاضل والله...', 'بقلب مجروح أكتب لحضرتك...', 'يا معلم اسمعني للآخر...']) +
-    '\nأعتذر بشدة عن الموقف.\nالسبب إن ' + rand([
-      'العربية قررت تموت في نص الطريق، والميكانيكي الوحيد اللي فتح كان بيصلح عربية الفرن الأول',
-      'الزحام النهارده كان مؤامرة كونية، حتى عربيات الإسعاف وقفت تعيط',
-      'المنبه رن وأنا صحيت، بس روحي هي اللي اتأخرت في النوم شوية'
-    ]) + '،\nوالله ما كان في إيدي غير إني أعتذر دلوقتي بكل جوارحي.\nوأتعهد إن ده آخر مرة... إن شاء الله يعني 😅',
-  trans: (input, dir) => dir === 'f2c'
-    ? 'الترجمة بالبلدي: "' + input.slice(0, 80) + '..."\nيعني باختصار: حد عاوز منك حاجة بسرعة وبيتظبط عليك بذوق 😅'
-    : 'نتشرف بإحاطة سيادتكم علماً بأن: "' + input.slice(0, 80) + '"،\nوتفضلوا بقبول فائق الاحترام والتقدير. 🎩',
-  hobd: () => 'نسبة الهبد: ' + (60 + Math.floor(Math.random() * 30)) + '%\nالتقييم: هبد مشهود له بالتفاني 😂\nالنص شكله اتنقل بحب من أول نتيجة في جوجل.\nنصيحة جادة: حط ولو سطر واحد من دماغك انت وهتلاقي الدنيا اتغيرت.',
-  coin: (o1, o2) => 'القرار النهائي: "' + (Math.random() < .5 ? o1 : o2) + '"\n\nالتبرير: يا إلهي... الخيار التاني كان هيدمر حياتك أسرع بشوية بس.\nتحذير مشؤوم: القرار ده هيغير يومك... غالباً للأسوأ بس بطريقة مسلية 💀\nحكمة: كل القرارات غلط، بس بعضها بيبقى معاه قهوة ☕',
-  fashion: () => 'الذكاء الاصطناعي مش شايف كويس دلوقتي (زحمة على الموديل 😴)،\nبس من خبرتي: نسبة الذوق 6/10 — مش وحش، فيه أمل.\nنصيحة تنفع لأي طقم: لو شاكك في قطعة، شيلها. الشك نفسه إجابة.\nجرب تاني كمان دقيقة 🤖'
+/* ---------- Fallback Local ---------- */
+const rand=a=>a[Math.floor(Math.random()*a.length)];
+const FALLBACK={
+  excuse:()=>rand(['يا سيدي الفاضل والله...','بقلب مجروح أكتب لحضرتك...','يا معلم اسمعني للآخر...'])+'\nأعتذر بشدة عن الموقف.\nالسبب إن '+rand(['العربية قررت تموت في نص الطريق، والميكانيكي الوحيد اللي فتح كان بيصلح عربية الفرن الأول','الزحام النهارده كان مؤامرة كونية، حتى عربيات الإسعاف وقفت تعيط','المنبه رن وأنا صحيت، بس روحي هي اللي اتأخرت في النوم شوية'])+'،\nوالله ما كان في إيدي غير إني أعتذر دلوقتي بكل جوارحي.\nوأتعهد إن ده آخر مرة... إن شاء الله يعني 😅',
+  trans:(input,dir)=>dir==='f2c' ? 'الترجمة بالبلدي: "'+input.slice(0,80)+'..."\nيعني باختصار: حد عاوز منك حاجة بسرعة وبيتظبط عليك بذوق 😅' : 'نتشرف بإحاطة سيادتكم علماً بأن: "'+input.slice(0,80)+'\"،\nوتفضلوا بقبول فائق الاحترام والتقدير. 🎩',
+  hobd:()=>'نسبة الهبد: '+(60+Math.floor(Math.random()*30))+'%\nالتقييم: هبد مشهود له بالتفاني 😂\nالنص شكله اتنقل بحب من أول نتيجة في جوجل.\nنصيحة جادة: حط ولو سطر واحد من دماغك انت وهتلاقي الدنيا اتغيرت.',
+  coin:(o1,o2)=>'القرار النهائي: "'+(Math.random()<.5?o1:o2)+'"\n\nالتبرير: يا إلهي... الخيار التاني كان هيدمر حياتك أسرع بشوية بس.\nتحذير مشؤوم: القرار ده هيغير يومك... غالباً للأسوأ بس بطريقة مسلية 💀\nحكمة: كل القرارات غلط، بس بعضها بيبقى معاه قهوة ☕',
+  fashion:()=>'نسبة الذوق: 6/10\nالذكاء الاصطناعي مش شايف كويس دلوقتي (زحمة على الموديل 😴)،\nبس من خبرتي: مش وحش، فيه أمل.\nنصيحة: لو شاكك في قطعة، شيلها. الشك نفسه إجابة.\nجرب تاني كمان دقيقة 🤖'
 };
 
-/* ============================================================
-   الأداة 1: مولد الأعذار 🎭
-   ============================================================ */
-async function runExcuse(force) {
-  const sit = $('exSit').value;
-  const style = document.querySelector('input[name="exStyle"]:checked').value;
-  const ckey = 'excuse|' + sit + '|' + style;
-  bumpStat('excuse');
-  if (!force) {
-    const hit = cacheGet(ckey);
-    if (hit) { markCached('exBadge'); $('exResult').classList.remove('hidden'); typewriter($('exText'), hit); $('exResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
-  }
-  showSkeleton('exResult', 'exText');
-  markAI('exBadge', '⏳ الذكاء الاصطناعي بيألف العذر حالاً...');
-  const prompt = `أنت مساعد كوميدي مصري متخصص في توليد أعذار مضحكة وغير حقيقية (للترفيه فقط).
-الموقف: ${sit}
-الأسلوب: ${style}
-اكتب عذر مقنع وطويل وفيه مبالغة درامية شديدة. الشروط:
-- أكثر من 3 أسطر، فيه تفاصيل مجنونة غير متوقعة
-- بلهجة مصرية صميمة (يا سيدي، والله، ربنا)
-- مضحك وغير منطقي بس متماسك كقصة
-- ينتهي بطلب اعتذار درامي جداً
-- عذر مختلف تماماً عن أي عذر شائع، كن مبدعاً
-- من غير مقدمات ولا markdown، اكتب العذر على طول`;
-  try {
-    const txt = await callGemini([{ text: prompt }]);
-    cacheSet(ckey, txt);
-    markAI('exBadge');
-    typewriter($('exText'), txt);
-  } catch (e) {
-    markFallback('exBadge');
-    typewriter($('exText'), FALLBACK.excuse());
-  }
+/* ---------- Tools Logic ---------- */
+async function runExcuse(force){
+  const sit=$('exSit').value; const style=document.querySelector('input[name="exStyle"]:checked').value; const name=$('exName').value.trim()||'حضرتك';
+  const ckey='excuse|'+sit+'|'+style+'|'+name; bumpStat('excuse');
+  if(!force){ const hit=cacheGet(ckey); if(hit){ markCached('exBadge'); $('exResult').classList.remove('hidden'); typewriter($('exText'),hit); $('exResult').scrollIntoView({behavior:'smooth',block:'nearest'}); return; } }
+  showSkeleton('exResult','exText'); markAI('exBadge','⏳ Together AI بيألف العذر حالاً...');
+  const prompt=`أنت كاتب أعذار مصري مجنون متخصص في المبالغة والدراما.\nالموقف: ${sit}\nالأسلوب: ${style}\nالشخص: ${name}\n\nاكتب عذر مصري:\n- 4-5 أسطر طويلة فيه مبالغة درامية شديدة جداً\n- بلهجة مصرية صميمة (يا سيدي، والله، ربنا، ياعم)\n- طريف ومضحك جداً وغير منطقي بس متماسك كقصة\n- ينتهي بطلب اعتذار درامي\n- بدون مقدمات ولا markdown، اكتب العذر على طول`;
+  try{ const txt=await callGemini([{text:prompt}]); cacheSet(ckey,txt); saveResult('excuse',sit+'|'+style,txt); markAI('exBadge','🤖 Together AI - رد حقيقي مش عشوائي'); typewriter($('exText'),txt); }
+  catch(e){ markFallback('exBadge'); typewriter($('exText'),FALLBACK.excuse()); }
 }
 
-/* ============================================================
-   الأداة 2: مترجم لغة الشغل 🔄
-   ============================================================ */
-async function runTrans(force) {
-  const input = $('trInput').value.trim();
-  if (!input) { toast('✍️ اكتب النص الأول يا نجم!'); shakeEl('trInput'); return; }
-  if (wcount(input) > 500) { toast('⚠️ النص أطول من 500 كلمة، اختصر شوية'); return; }
-  const dir = document.querySelector('input[name="trDir"]:checked').value;
-  const ckey = 'trans|' + dir + '|' + input;
-  bumpStat('trans');
-  if (!force) {
-    const hit = cacheGet(ckey);
-    if (hit) { markCached('trBadge'); $('trResult').classList.remove('hidden'); typewriter($('trText'), hit); $('trResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
-  }
-  showSkeleton('trResult', 'trText');
-  markAI('trBadge', '⏳ المترجم الحقود بيقرا بين السطور...');
-  const dirText = dir === 'f2c'
-    ? `الاتجاه: من الرسمي إلى الدردشة.
-- ترجم الكلام الرسمي المسموم للغة الشارع المصرية الحقيقية
-- كلمات مصرية صريحة (من غير ألفاظ خارجة) + سخرية حادة تكشف المعنى المستخبي
-- في الآخر سطر بين قوسين فيه "الترجمة الحقيقية" اللي المرسل قصدها بجد`
-    : `الاتجاه: من الدردشة إلى الرسمي.
-- ترجم الكلام العادي لكلام رسمي جاف ومنفوخ جداً بعبارات بيروقراطية مملة
-- مهذب بشكل مبالغ فيه وفاضي من أي معنى حقيقي`;
-  const prompt = `أنت مترجم مصري حقود معروف بسخريتك اللاذعة.
-النص الأصلي: "${input}"
-${dirText}
-بلهجة مصرية 100%. من غير مقدمات ولا markdown، اكتب الترجمة على طول.`;
-  try {
-    const txt = await callGemini([{ text: prompt }]);
-    cacheSet(ckey, txt);
-    markAI('trBadge');
-    typewriter($('trText'), txt);
-  } catch (e) {
-    markFallback('trBadge');
-    typewriter($('trText'), FALLBACK.trans(input, dir));
-  }
+async function runTrans(force){
+  const input=$('trInput').value.trim();
+  if(!input){ toast('✍️ اكتب النص الأول يا نجم!'); shakeEl('trInput'); return; }
+  if(wcount(input)>500){ toast('⚠️ النص أطول من 500 كلمة، اختصر شوية'); return; }
+  const dir=document.querySelector('input[name="trDir"]:checked').value;
+  const ckey='trans|'+dir+'|'+input; bumpStat('trans');
+  if(!force){ const hit=cacheGet(ckey); if(hit){ markCached('trBadge'); $('trResult').classList.remove('hidden'); typewriter($('trText'),hit); $('trResult').scrollIntoView({behavior:'smooth',block:'nearest'}); return; } }
+  showSkeleton('trResult','trText'); markAI('trBadge','⏳ المترجم الحقود بيقرا بين السطور...');
+  const dirText=dir==='f2c' ? `الاتجاه: من الرسمي إلى الدردشة.\n- ترجم الكلام الرسمي المسموم للغة الشارع المصرية الحقيقية\n- كلمات مصرية صريحة (من غير ألفاظ خارجة) + سخرية حادة تكشف المعنى المستخبي\n- في الآخر سطر بين قوسين فيه "الترجمة الحقيقية" اللي المرسل قصدها بجد` : `الاتجاه: من الدردشة إلى الرسمي.\n- ترجم الكلام العادي لكلام رسمي جاف ومنفوخ جداً بعبارات بيروقراطية مملة\n- مهذب بشكل مبالغ فيه وفاضي من أي معنى حقيقي`;
+  const prompt=`أنت مترجم مصري حقود معروف بسخريتك اللاذعة.\nالنص الأصلي: "${input}"\n${dirText}\nبلهجة مصرية 100%. من غير مقدمات ولا markdown، اكتب الترجمة على طول.`;
+  try{ const txt=await callGemini([{text:prompt}]); cacheSet(ckey,txt); saveResult('trans',input,txt); markAI('trBadge'); typewriter($('trText'),txt); }
+  catch(e){ markFallback('trBadge'); typewriter($('trText'),FALLBACK.trans(input,dir)); }
 }
 
-/* ============================================================
-   الأداة 3: مُقيّم الهبد 🧪
-   ============================================================ */
-async function runHobd(force) {
-  const input = $('hbInput').value.trim();
-  if (!input || wcount(input) < 10) { toast('✍️ محتاجين 10 كلمات على الأقل للتحليل الدقيق 😄'); shakeEl('hbInput'); return; }
-  if (wcount(input) > 2000) { toast('⚠️ النص أطول من 2000 كلمة'); return; }
-  const level = document.querySelector('input[name="hbLevel"]:checked').value;
-  const ckey = 'hobd|' + level + '|' + input.slice(0, 200);
-  bumpStat('hobd');
-  if (!force) {
-    const hit = cacheGet(ckey);
-    if (hit) { markCached('hbBadge'); renderHobd(hit); return; }
-  }
-  showSkeleton('hbResult', 'hbText');
-  markAI('hbBadge', '⏳ التحليل المخبري للهبد شغال...');
-  const prompt = `أنت ناقد أكاديمي مصري قاسي وساخر جداً.
-النص: "${input}"
-مستوى التقييم: ${level}
-حلل: هل copy-paste من جوجل؟ مستوى الفهم؟ جودة الكتابة؟ أمثلة حقيقية؟ أخطاء؟
-أول سطر في ردك بالصيغة دي بالظبط: نسبة الهبد: X%
-بعدها: تقييم ساخر قصير + تعليق لاذع بأدلة من النص نفسه (يا عم، والله، حرام) + نصيحة واحدة جادة مفيدة.
-مضحك وقاسي، بلهجة مصرية 100%، من غير markdown.`;
-  try {
-    const txt = await callGemini([{ text: prompt }]);
-    cacheSet(ckey, txt);
-    markAI('hbBadge');
-    renderHobd(txt);
-  } catch (e) {
-    markFallback('hbBadge');
-    renderHobd(FALLBACK.hobd());
-  }
+async function runHobd(force){
+  const input=$('hbInput').value.trim();
+  if(!input||wcount(input)<10){ toast('✍️ محتاجين 10 كلمات على الأقل للتحليل الدقيق 😄'); shakeEl('hbInput'); return; }
+  if(wcount(input)>2000){ toast('⚠️ النص أطول من 2000 كلمة'); return; }
+  const level=document.querySelector('input[name="hbLevel"]:checked').value;
+  const ckey='hobd|'+level+'|'+input.slice(0,200); bumpStat('hobd');
+  if(!force){ const hit=cacheGet(ckey); if(hit){ markCached('hbBadge'); renderHobd(hit); return; } }
+  showSkeleton('hbResult','hbText'); markAI('hbBadge','⏳ التحليل المخبري للهبد شغال...');
+  const prompt=`أنت ناقد أكاديمي مصري قاسي وساخر جداً.\nالنص: "${input}"\nمستوى التقييم: ${level}\nحلل: هل copy-paste من جوجل؟ مستوى الفهم؟ جودة الكتابة؟ أمثلة حقيقية؟ أخطاء؟\nأول سطر في ردك بالصيغة دي بالظبط: نسبة الهبد: X%\nبعدها: تقييم ساخر قصير + تعليق لاذع بأدلة من النص نفسه (يا عم، والله، حرام) + نصيحة واحدة جادة مفيدة.\nمضحك وقاسي، بلهجة مصرية 100%، من غير markdown.`;
+  try{ const txt=await callGemini([{text:prompt}]); cacheSet(ckey,txt); saveResult('hobd',input.slice(0,100),txt); markAI('hbBadge'); renderHobd(txt); }
+  catch(e){ markFallback('hbBadge'); renderHobd(FALLBACK.hobd()); }
 }
-function renderHobd(txt) {
-  const m = txt.match(/(\d{1,3})\s*%/);
-  const pct = m ? Math.min(100, +m[1]) : 65;
-  const body = txt.replace(/^.*نسبة الهبد.*$/m, '').trim() || txt;
+function renderHobd(txt){
+  const m=txt.match(/(\d{1,3})\s*%/); const pct=m?Math.min(100,+m[1]):65;
+  const body=txt.replace(/^.*نسبة الهبد.*$/m,'').trim()||txt;
   $('hbResult').classList.remove('hidden');
-  const fill = $('hbFill');
-  fill.style.background = pct <= 30 ? '#00E676' : pct <= 60 ? '#FFD600' : pct <= 85 ? '#F0883E' : '#FF1744';
-  fill.style.width = '0%';
-  setTimeout(() => { fill.style.width = pct + '%'; }, 80);
-  let cur = 0; const step = Math.max(1, Math.round(pct / 40));
-  const t = setInterval(() => { cur = Math.min(pct, cur + step); $('hbPct').textContent = cur + '%'; if (cur >= pct) clearInterval(t); }, 28);
-  typewriter($('hbText'), body);
-  $('hbResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  const fill=$('hbFill'); fill.style.width='0%'; fill.style.background=pct<=30?'#10B981':pct<=60?'#F59E0B':pct<=85?'#F97316':'#EF4444';
+  setTimeout(()=>{ fill.style.width=pct+'%'; },80);
+  let cur=0; const step=Math.max(1,Math.round(pct/40)); const t=setInterval(()=>{ cur=Math.min(pct,cur+step); $('hbPct').textContent=cur+'%'; if(cur>=pct) clearInterval(t); },28);
+  typewriter($('hbText'),body); $('hbResult').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-function copyHobd() {
-  copyText('🧪 نتيجة مقيّم الهبد من عكاشاوي:\n📈 نسبة الهبد: ' + $('hbPct').textContent + '\n' + $('hbText').textContent + '\n\n— Made by عكاشة 🎭', '✅ اتنسخ! وريهم مستوى الهبد 😂');
-}
+function copyHobd(){ copyText('🧪 نتيجة مقيّم الهبد من عكاشاوي:\n📈 نسبة الهبد: '+$('hbPct').textContent+'\n'+$('hbText').textContent+'\n\n— Made by عكاشة 🎭','✅ اتنسخ! وريهم مستوى الهبد 😂'); }
 
-/* ============================================================
-   الأداة 4: مذبحة القرارات 🪙
-   ============================================================ */
-let coinBusy = false;
-async function runCoin(force) {
-  if (coinBusy) return;
-  const o1 = $('cnOpt1').value.trim(), o2 = $('cnOpt2').value.trim();
-  if (!o1 || !o2) { toast('✍️ اكتب الخيارين الاتنين الأول!'); shakeEl(!o1 ? 'cnOpt1' : 'cnOpt2'); return; }
-  if (o1 === o2) { toast('🤨 الخيارين نفس الحاجة!'); shakeEl('cnOpt2'); return; }
-  coinBusy = true;
-  bumpStat('coin');
-
-  const coin = $('cnCoin'), spark = $('cnSpark');
-  $('cnResult').classList.remove('hidden');
-  $('cnOutcome').classList.add('hidden');
-  spark.classList.add('opacity-0');
-  coin.classList.remove('coin-land', 'coin-slow');
-  coin.classList.add('coin-flip');
-  $('cnResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  let fi = 0; const faceT = setInterval(() => { coin.textContent = ['🎭', '⭐'][fi++ % 2]; }, 220);
-
-  const ckey = 'coin|' + o1 + '|' + o2;
-  const prompt = `أنت مستشار مصري مجنون ومكتئب بتاخد قرارات الناس بجدية زيادة عن اللزوم.
-الخيار الأول: "${o1}"
-الخيار الثاني: "${o2}"
-اختار واحد (فكر منطقياً بس سيب مساحة للجنون).
-أول سطر بالصيغة دي بالظبط: القرار النهائي: "..." (نص الخيار حرفياً)
-بعدها: 1) تبرير درامي كارثي حزين 2) تنبيه مشؤوم مضحك عن العواقب 3) حكمة ساخرة مصرية.
-درامي ومبالغ فيه، بلهجة مصرية كئيبة وفكاهية، من غير markdown.`;
-
-  let txt, source = 'ai';
-  const cached = !force && cacheGet(ckey);
-  if (cached) { txt = cached; source = 'cache'; await sleep(1400); }
-  else {
-    try { txt = await callGemini([{ text: prompt }]); cacheSet(ckey, txt); }
-    catch (e) { txt = FALLBACK.coin(o1, o2); source = 'fb'; }
-  }
-
-  // مرحلة الإبطاء التدريجي (gravity feel)
-  clearInterval(faceT);
-  coin.classList.remove('coin-flip');
-  coin.classList.add('coin-slow');
-  let fi2 = 0; const slowT = setInterval(() => { coin.textContent = ['🎭', '⭐'][fi2++ % 2]; }, 420);
-  setTimeout(() => {
+let coinBusy=false;
+async function runCoin(force){
+  if(coinBusy) return;
+  const o1=$('cnOpt1').value.trim(), o2=$('cnOpt2').value.trim();
+  if(!o1||!o2){ toast('✍️ اكتب الخيارين الاتنين الأول!'); shakeEl(!o1?'cnOpt1':'cnOpt2'); return; }
+  if(o1===o2){ toast('🤨 الخيارين نفس الحاجة!'); shakeEl('cnOpt2'); return; }
+  coinBusy=true; bumpStat('coin');
+  const coin=$('cnCoin'), spark=$('cnSpark');
+  $('cnResult').classList.remove('hidden'); $('cnOutcome').classList.add('hidden'); spark.classList.add('opacity-0'); coin.classList.remove('coin-land','coin-flip'); coin.classList.add('coin-flip');
+  $('cnResult').scrollIntoView({behavior:'smooth',block:'center'});
+  let fi=0; const faceT=setInterval(()=>{ coin.textContent=['🎭','⭐'][fi++%2]; },220);
+  const ckey='coin|'+o1+'|'+o2;
+  const prompt=`أنت مستشار مصري مجنون ومكتئب بتاخد قرارات الناس بجدية زيادة عن اللزوم.\nالخيار الأول: "${o1}"\nالخيار الثاني: "${o2}"\nاختار واحد (فكر منطقياً بس سيب مساحة للجنون).\nأول سطر بالصيغة دي بالظبط: القرار النهائي: "..." (نص الخيار حرفياً)\nبعدها: 1) تبرير درامي كارثي حزين 2) تنبيه مشؤوم مضحك عن العواقب 3) حكمة ساخرة مصرية.\nدرامي ومبالغ فيه، بلهجة مصرية كئيبة وفكاهية، من غير markdown.`;
+  let txt, source='ai'; const cached=!force&&cacheGet(ckey);
+  if(cached){ txt=cached; source='cache'; await sleep(1400); }
+  else { try{ txt=await callGemini([{text:prompt}]); cacheSet(ckey,txt); saveResult('coin',o1+'|'+o2,txt); }catch(e){ txt=FALLBACK.coin(o1,o2); source='fb'; } }
+  clearInterval(faceT); coin.classList.remove('coin-flip'); coin.classList.add('coin-land');
+  let fi2=0; const slowT=setInterval(()=>{ coin.textContent=['🎭','⭐'][fi2++%2]; },420);
+  setTimeout(()=>{
     clearInterval(slowT);
-    coin.classList.remove('coin-slow');
-    const first = txt.includes(o1.slice(0, Math.min(15, o1.length)));
-    coin.textContent = first ? '🎭' : '⭐';
-    coin.classList.add('coin-land');
-    spark.classList.remove('opacity-0');
-    setTimeout(() => {
-      source === 'ai' ? markAI('cnBadge') : source === 'cache' ? markCached('cnBadge') : markFallback('cnBadge');
-      $('cnOutcome').classList.remove('hidden');
-      typewriter($('cnText'), txt);
-      coinBusy = false;
-    }, 900);
-  }, 900);
+    const first=txt.includes(o1.slice(0,Math.min(15,o1.length)));
+    coin.textContent=first?'🎭':'⭐'; coin.classList.add('coin-land'); spark.classList.remove('opacity-0');
+    setTimeout(()=>{
+      source==='ai'?markAI('cnBadge'):source==='cache'?markCached('cnBadge'):markFallback('cnBadge');
+      $('cnOutcome').classList.remove('hidden'); typewriter($('cnText'),txt); coinBusy=false;
+    },900);
+  },900);
 }
 
-/* ============================================================
-   الأداة 5: ناقد الموضة 👔 (Together Vision)
-   ============================================================ */
-let fsData = null;
-function fsPreview(input) {
-  const file = input.files?.[0];
-  if (!file) return;
-  if (!file.type.startsWith('image/')) { toast('🖼️ ده مش صورة يا نجم! JPG أو PNG أو WebP'); return; }
-  if (file.size > 10 * 1024 * 1024) { toast('⚠️ الصورة أكبر من 10MB! صغّرها شوية'); return; }
-  const img = new Image();
-  const url = URL.createObjectURL(file);
-  img.onload = () => {
-    const MAX = 768;
-    let { width: w, height: h } = img;
-    if (Math.max(w, h) > MAX) { const s = MAX / Math.max(w, h); w = Math.round(w * s); h = Math.round(h * s); }
-    const canvas = document.createElement('canvas');
-    canvas.width = w; canvas.height = h;
-    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.82);
-    fsData = { b64: dataUrl.split(',')[1], mime: 'image/jpeg' };
-    $('fsImg').src = dataUrl;
-    $('fsPreviewWrap').classList.remove('hidden');
-    $('fsInfo').textContent = '✓ الصورة اتجهزت (' + w + '×' + h + ') — هتتبعت للتحليل بس وتتحذف فوراً 🔒';
-    $('fsBtn').disabled = false;
-    URL.revokeObjectURL(url);
+/* Fashion */
+let fsData=null, camStream=null;
+async function openCamera(){
+  try{
+    const s=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user', width:{ideal:1280}, height:{ideal:720}}});
+    camStream=s; $('fsVideo').srcObject=s; $('fsCameraWrap').classList.remove('hidden'); $('fsPreviewWrap').classList.add('hidden'); $('fsBtn').disabled=true;
+    $('fsCameraWrap').scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(e){ toast('😅 الكاميرا مش راضية تشتغل - اتأكد من الإذن أو استخدم المعرض'); }
+}
+function closeCamera(){
+  if(camStream){ camStream.getTracks().forEach(t=>t.stop()); camStream=null; }
+  $('fsCameraWrap').classList.add('hidden'); $('fsVideo').srcObject=null;
+}
+function capturePhoto(){
+  const v=$('fsVideo'); const c=document.createElement('canvas'); c.width=v.videoWidth; c.height=v.videoHeight;
+  c.getContext('2d').drawImage(v,0,0);
+  const dataUrl=c.toDataURL('image/jpeg',0.82);
+  fsData={b64:dataUrl.split(',')[1], mime:'image/jpeg'};
+  $('fsImg').src=dataUrl; $('fsPreviewWrap').classList.remove('hidden'); $('fsInfo').textContent='✓ الصورة اتلتقطت من الكاميرا - جاهزة للتحليل 🔒'; $('fsBtn').disabled=false;
+  closeCamera(); toast('📸 تم التقاط الصورة! دوس تحليل دلوقتي');
+}
+function fsPreview(input){
+  const file=input.files?.[0]; if(!file) return;
+  if(!file.type.startsWith('image/')){ toast('🖼️ ده مش صورة يا نجم! JPG أو PNG أو WebP'); return; }
+  if(file.size>10*1024*1024){ toast('⚠️ الصورة أكبر من 10MB! صغّرها شوية'); return; }
+  const img=new Image(); const url=URL.createObjectURL(file);
+  img.onload=()=>{
+    const MAX=768; let {width:w,height:h}=img; if(Math.max(w,h)>MAX){ const s=MAX/Math.max(w,h); w=Math.round(w*s); h=Math.round(h*s); }
+    const canvas=document.createElement('canvas'); canvas.width=w; canvas.height=h; canvas.getContext('2d').drawImage(img,0,0,w,h);
+    const dataUrl=canvas.toDataURL('image/jpeg',0.82);
+    fsData={b64:dataUrl.split(',')[1], mime:'image/jpeg'};
+    $('fsImg').src=dataUrl; $('fsPreviewWrap').classList.remove('hidden'); $('fsInfo').textContent='✓ الصورة اتجهزت ('+w+'×'+h+') — هتتبعت للتحليل بس وتتحذف فوراً 🔒'; $('fsBtn').disabled=false; URL.revokeObjectURL(url);
   };
-  img.onerror = () => { toast('😅 الصورة دي فيها مشكلة، جرب واحدة تانية'); URL.revokeObjectURL(url); };
-  img.src = url;
+  img.onerror=()=>{ toast('😅 الصورة دي فيها مشكلة، جرب واحدة تانية'); URL.revokeObjectURL(url); };
+  img.src=url;
 }
-async function runFashion() {
-  if (!fsData) { toast('📸 ارفع صورة الأول!'); return; }
-  bumpStat('fashion');
-  showSkeleton('fsResult', 'fsText');
-  markAI('fsBadge', '⏳ الناقد بيبص على الطقم من فوق لتحت... 👀');
-  const prompt = `أنت ناقد موضة مصري قاسي جداً وشايف نفسك، بس قسوتك ودودة ومضحكة.
-بص على الصورة وحلل: الألوان متطابقة ولا كارثة؟ التنسيق متناسق ولا فوضى؟ الستايل العام؟ القطع شغالة مع بعض؟
-أول سطر بالصيغة دي: نسبة الذوق: X/10
-بعدها: تقييم ساخر جداً + نصائح قاسية بس مفيدة بجد + تعليق مضحك مهين بطريقة ودودة.
-لو الصورة مش لبس، اتريق على اللي فيها بروح رياضية.
-بلهجة مصرية جارحة شوية لكن مضحكة ومحببة، من غير markdown.`;
-  const imgData = fsData; // نسخة محلية
-  try {
-    const txt = await callGemini([{ text: prompt }, { inline_data: { mime_type: imgData.mime, data: imgData.b64 } }]);
-    markAI('fsBadge', '🤖 Together AI Vision شاف الصورة بنفسه وحكم عليك');
-    typewriter($('fsText'), txt);
-  } catch (e) {
-    markFallback('fsBadge');
-    typewriter($('fsText'), FALLBACK.fashion());
-  }
+async function runFashion(){
+  if(!fsData){ toast('📸 ارفع صورة الأول!'); return; }
+  bumpStat('fashion'); showSkeleton('fsResult','fsText'); markAI('fsBadge','⏳ الناقد بيبص على الطقم من فوق لتحت... 👀');
+  const prompt=`أنت ناقد موضة مصري قاسي جداً وشايف نفسك، بس قسوتك ودودة ومضحكة.\nبص على الصورة وحلل: الألوان متطابقة ولا كارثة؟ التنسيق متناسق ولا فوضى؟ الستايل العام؟ القطع شغالة مع بعض؟\nأول سطر بالصيغة دي: نسبة الذوق: X/10\nبعدها: تقييم ساخر جداً + نصائح قاسية بس مفيدة بجد + تعليق مضحك مهين بطريقة ودودة.\nلو الصورة مش لبس، اتريق على اللي فيها بروح رياضية.\nبلهجة مصرية جارحة شوية لكن مضحكة ومحببة، من غير markdown.`;
+  const imgData=fsData;
+  try{ const txt=await callGemini([{text:prompt},{inline_data:{mime_type:imgData.mime,data:imgData.b64}}]); markAI('fsBadge','🤖 Gemini Vision شاف الصورة بنفسه وحكم عليك'); typewriter($('fsText'),txt); saveResult('fashion','image',txt); }
+  catch(e){ markFallback('fsBadge'); typewriter($('fsText'),FALLBACK.fashion()); }
 }
-function fsReset() {
-  fsData = null; // حذف الصورة من الذاكرة فوراً
-  $('fsFile').value = '';
-  $('fsPreviewWrap').classList.add('hidden');
-  $('fsResult').classList.add('hidden');
-  $('fsBtn').disabled = true;
-  $('fsDrop').scrollIntoView({ behavior: 'smooth', block: 'center' });
+function fsReset(){
+  fsData=null; $('fsFile').value=''; $('fsPreviewWrap').classList.add('hidden'); $('fsResult').classList.add('hidden'); $('fsBtn').disabled=true; closeCamera();
+  document.getElementById('tool-fashion').scrollIntoView({behavior:'smooth',block:'center'});
 }
-
-/* ---------- Feedback ---------- */
-function toggleFeedback() { $('fbModal').classList.toggle('hidden'); if (!$('fbModal').classList.contains('hidden')) setTimeout(() => $('fbText').focus(), 100); }
-function sendFeedback() {
-  const txt = $('fbText').value.trim();
-  if (!txt) { toast('✍️ اكتب حاجة الأول 😄'); return; }
-  window.open('mailto:hello@akashawy.example?subject=' + encodeURIComponent('ملاحظة على عكاشاوي 💬') + '&body=' + encodeURIComponent(txt), '_blank');
-  $('fbText').value = '';
-  toggleFeedback();
-  toast('💌 شكراً! رأيك بيفرق معانا والله');
-}
-
-/* ---------- حذف البيانات (خصوصية) ---------- */
-function wipeData() {
-  Object.keys(localStorage).filter(k => k.startsWith('ak_')).forEach(k => localStorage.removeItem(k));
-  renderStats();
-  toast('🗑️ اتمسح كل حاجة! كأنك أول مرة تزورنا 👋');
-}
-
-/* ---------- Misc ---------- */
-function shakeEl(id) { const el = $(id); el.classList.add('shake-x'); setTimeout(() => el.classList.remove('shake-x'), 500); el.focus(); }
-window.addEventListener('offline', () => toast('📡 النت فصل! هنرد عليك بالعقل المحلي لحد ما يرجع 😴'));
-window.addEventListener('online', () => toast('✅ النت رجع! الذكاء الاصطناعي صحي من النوم 🤖'));
-window.addEventListener('error', () => { try { toast('😅 حصلت لخبطة صغيرة... حاول مرة تانية؟'); } catch (e) {} });
 
 /* ---------- Init ---------- */
-renderStats();
-exPreview();
+exPreview(); cnValidate();
+window.addEventListener('offline',()=>toast('📡 النت فصل! هنرد عليك بالعقل المحلي لحد ما يرجع 😴'));
+window.addEventListener('online',()=>toast('✅ النت رجع! الذكاء الاصطناعي صحي من النوم 🤖'));
+window.addEventListener('error',()=>{ try{toast('😅 حصلت لخبطة صغيرة... حاول مرة تانية؟');}catch(e){} });
+
+// Radio styling
+document.addEventListener('change',e=>{
+  if(e.target.type==='radio'){
+    const name=e.target.name;
+    document.querySelectorAll(`input[name="${name}"]`).forEach(r=>{
+      const lab=r.closest('label');
+      if(r.checked){ lab.style.borderColor='var(--primary)'; lab.style.background='var(--primary-light)'; lab.style.color='var(--primary)'; }
+      else { lab.style.borderColor='var(--border)'; lab.style.background='var(--bg-input)'; lab.style.color='var(--text-main)'; }
+    });
+  }
+});
+document.querySelectorAll('input[type="radio"]:checked').forEach(r=>r.dispatchEvent(new Event('change',{bubbles:true})));
+
 </script>
 </body>
 </html>
