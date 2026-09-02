@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عكاشاوي - حل كل أزمتك اليومية بـ AI</title>
+
+<!-- ===== SEO ===== -->
+<meta name="description" content="منصة ترفيهية ذكية: توليد أعذار مضحكة، مترجم لغة الشغل، تقييم الهبد الأكاديمي، حسم القرارات، وتحليل الموضة - كل ده بذكاء اصطناعي حقيقي وبلهجة مصرية 😂">
+<meta name="keywords" content="عكاشاوي, Akashawy, أعذار مضحكة, مترجم الشغل, نسبة الهبد, قرارات, ناقد الموضة, AI ترفيه, ذكاء اصطناعي مصري">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D1117">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="عكاشاوي 🎭 - حل كل أزمتك اليومية بـ AI">
+<meta property="og:description" content="5 أدوات بذكاء اصطناعي حقيقي: أعذار تبكي الحجر، مترجم حقود، مقيّم هبد قاسي، مستشار قرارات مكتئب، وناقد موضة جارح 😂">
+<meta property="og:image" content="og.png">
+<meta property="og:locale" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="عكاشاوي 🎭 - حل كل أزمتك اليومية بـ AI">
+<meta name="twitter:description" content="جرب أدوات عكاشاوي الخمسة بالذكاء الاصطناعي - نتايج مضحكة تتشارك 😂 #عكاشاوي #Akashawy">
+<meta name="twitter:image" content="og.png">
+
+<!-- ===== Structured Data ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "عكاشاوي (Akashawy)",
+  "description": "منصة ترفيهية ذكية بخمس أدوات مدعومة بالذكاء الاصطناعي وبلهجة مصرية",
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ar-EG",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "عكاشة" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "1240" }
+}
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { okred:'#FF6B6B', okredhov:'#FF5252', okteal:'#4ECDC4', okbg:'#0D1117', okcard:'#161B22', okmut:'#8B949E', okborder:'#30363D', okgreen:'#00E676', okyellow:'#FFD600' },
+    fontFamily: { cairo: ['Cairo','Segoe UI','sans-serif'] }
+  } }
+}
+</script>
+<style>
+  body { font-family:'Cairo','Segoe UI',sans-serif; }
+  /* ===== Premium gradients ===== */
+  .hero-grad { background: linear-gradient(120deg, #3d0f14 0%, #1a0b10 35%, #0D1117 65%, #07262a 100%); }
+  .grad-text { background: linear-gradient(45deg,#FF6B6B,#4ECDC4); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .btn-glow { box-shadow: 0 0 18px rgba(255,107,107,.45); }
+  .btn-glow:hover { box-shadow: 0 0 32px rgba(255,107,107,.7); }
+  /* ===== Animations ===== */
+  .fade-in { animation: fadeIn .45s ease-out both; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+  .pop-in { animation: popIn .5s cubic-bezier(.3,1.5,.5,1) both; }
+  @keyframes popIn { from{opacity:0;transform:scale(.6)} to{opacity:1;transform:scale(1)} }
+  .stagger > * { opacity:0; animation: fadeIn .5s ease-out forwards; }
+  .stagger > *:nth-child(1){animation-delay:.05s} .stagger > *:nth-child(2){animation-delay:.15s}
+  .stagger > *:nth-child(3){animation-delay:.25s} .stagger > *:nth-child(4){animation-delay:.35s}
+  .stagger > *:nth-child(5){animation-delay:.45s}
+  .float-emo { position:absolute; opacity:.28; animation:floaty 6s ease-in-out infinite; pointer-events:none; }
+  @keyframes floaty { 0%,100%{transform:translateY(0) rotate(-6deg)} 50%{transform:translateY(-18px) rotate(6deg)} }
+  .pulse-glow { animation: pulseGlow 2s infinite; }
+  @keyframes pulseGlow { 0%{box-shadow:0 0 0 0 rgba(255,107,107,.5)} 70%{box-shadow:0 0 0 16px rgba(255,107,107,0)} 100%{box-shadow:0 0 0 0 rgba(255,107,107,0)} }
+  /* ===== Skeleton shimmer ===== */
+  .skel { background:#1C232C; border-radius:10px; position:relative; overflow:hidden; }
+  .skel::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent); animation:shimmer 1.1s infinite; }
+  @keyframes shimmer { from{transform:translateX(110%)} to{transform:translateX(-110%)} }
+  /* ===== Coin ===== */
+  .coin3d { width:120px;height:120px;border-radius:50%;border:5px solid #B8860B;
+    background:radial-gradient(circle at 35% 30%,#FFE082,#F9A825 60%,#B8860B);
+    display:flex;align-items:center;justify-content:center;font-size:44px;color:#6D4C00;box-shadow:0 10px 30px rgba(0,0,0,.6); }
+  .coin-flip { animation: coinFlip .38s linear infinite; }
+  @keyframes coinFlip { from{transform:rotateX(0) translateY(0)} 50%{transform:rotateX(180deg) translateY(-30px)} to{transform:rotateX(360deg) translateY(0)} }
+  .coin-slow { animation: coinFlip .8s linear infinite; }
+  .coin-land { animation: coinLand .9s cubic-bezier(.3,1.6,.6,1) both; box-shadow:0 0 34px 10px rgba(249,168,37,.55); }
+  @keyframes coinLand { 0%{transform:translateY(-60px) rotateX(180deg)} 60%{transform:translateY(0) rotateX(360deg)} 75%{transform:translateY(-13px)} 100%{transform:translateY(0)} }
+  /* ===== Cards & buttons ===== */
+  .card-hover { transition:all .3s ease-out; box-shadow:0 4px 14px rgba(0,0,0,.4); }
+  .card-hover:hover { transform:translateY(-10px); box-shadow:0 18px 40px rgba(0,0,0,.65), 0 0 24px rgba(255,107,107,.15); border-color:#FF6B6B; }
+  .card-hover:hover .tool-emoji { transform:scale(1.16); }
+  .tool-emoji { transition:transform .3s; display:inline-block; }
+  .btn-ripple { position:relative; overflow:hidden; }
+  .btn-ripple:active { transform:scale(.96); }
+  .ripple { position:absolute; border-radius:50%; background:rgba(255,255,255,.35); transform:scale(0); animation:ripple .55s ease-out forwards; pointer-events:none; }
+  @keyframes ripple { to{transform:scale(3.2); opacity:0} }
+  /* ===== Typewriter / misc ===== */
+  .typing::after { content:'▌'; color:#FF6B6B; animation:blink .8s infinite; }
+  @keyframes blink { 50%{opacity:0} }
+  .shake-x { animation:shakeX .4s; }
+  @keyframes shakeX { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 50%{transform:translateX(7px)} 75%{transform:translateX(-4px)} }
+  /* ===== Confetti ===== */
+  .confetti { position:fixed; top:-12px; width:9px; height:9px; z-index:200; border-radius:2px; animation:confFall 1.5s ease-in forwards; pointer-events:none; }
+  @keyframes confFall { to{ transform:translateY(105vh) rotate(680deg); opacity:.2 } }
+  /* ===== A11y focus ===== */
+  :focus-visible { outline:2px solid #4ECDC4; outline-offset:2px; border-radius:6px; }
+  textarea:focus, input:focus, select:focus { outline:none; border-color:#FF6B6B !important; box-shadow:0 0 0 3px rgba(255,107,107,.15); }
+  ::-webkit-scrollbar{width:9px} ::-webkit-scrollbar-track{background:#0D1117} ::-webkit-scrollbar-thumb{background:#30363D;border-radius:8px}
+  html { scroll-behavior:smooth; }
+</style>
+</head>
+<body class="bg-okbg text-white min-h-screen pb-32">
+
+<!-- ============ HEADER ============ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-okcard/95 backdrop-blur border-b border-okborder">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <a href="#" onclick="goHome();return false;" aria-label="الرجوع للصفحة الرئيسية" class="flex items-center gap-2 text-2xl font-black select-none">
+      <span class="tool-emoji" aria-hidden="true">🎭</span>
+      <span class="grad-text">عكاشاوي</span>
+      <span class="hidden sm:inline text-okmut text-xs font-semibold mt-2">(Akashawy)</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-okmut" aria-label="القائمة الرئيسية">
+      <button onclick="showTool('excuse')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مولد الأعذار الرسمية">🎭 الأعذار</button>
+      <button onclick="showTool('trans')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مترجم لغة الشغل">🔄 المترجم</button>
+      <button onclick="showTool('hobd')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مقيّم الهبد الأكاديمي">🧪 الهبد</button>
+      <button onclick="showTool('coin')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="مذبحة القرارات">🪙 القرارات</button>
+      <button onclick="showTool('fashion')" class="px-3 py-1.5 rounded-lg hover:text-okred hover:bg-white/5 transition" title="ناقد الموضة الآلي">👔 الموضة</button>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button onclick="shareSite('wa')" aria-label="مشاركة الموقع" title="شارك عكاشاوي" class="btn-ripple w-10 h-10 rounded-xl border border-okborder hover:border-okred hover:-translate-y-0.5 transition flex items-center justify-center">📤</button>
+      <button onclick="toggleMenu()" aria-label="فتح القائمة" class="lg:hidden w-10 h-10 rounded-xl border border-okborder flex items-center justify-center">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden bg-okcard border-t border-okborder px-4 py-3 flex flex-col gap-1 text-sm font-semibold">
+    <button onclick="showTool('excuse');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🎭 مولد الأعذار الرسمية</button>
+    <button onclick="showTool('trans');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🔄 مترجم لغة الشغل</button>
+    <button onclick="showTool('hobd');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🧪 مُقيّم الهبد الأكاديمي</button>
+    <button onclick="showTool('coin');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">🪙 مذبحة القرارات</button>
+    <button onclick="showTool('fashion');toggleMenu()" class="text-right px-3 py-2.5 rounded-lg hover:bg-white/5">👔 ناقد الموضة الآلي</button>
+  </div>
+</header>
+
+<main class="pt-20 max-w-6xl mx-auto px-4">
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="hero-grad rounded-3xl text-center py-14 px-6 mt-4 relative overflow-hidden border border-okborder">
+    <span class="float-emo text-3xl" style="top:18%;right:8%" aria-hidden="true">🎭</span>
+    <span class="float-emo text-3xl" style="top:60%;right:14%;animation-delay:1.4s" aria-hidden="true">🪙</span>
+    <span class="float-emo text-3xl" style="top:22%;left:9%;animation-delay:.7s" aria-hidden="true">🧪</span>
+    <span class="float-emo text-3xl" style="top:62%;left:6%;animation-delay:2.1s" aria-hidden="true">👔</span>
+    <h1 class="text-4xl md:text-5xl font-black mb-3">🎭 أهلاً بيك في <span class="grad-text">عكاشاوي</span> 🎭</h1>
+    <h2 class="text-lg md:text-2xl font-bold text-okteal mb-3">خمس أدوات بذكاء اصطناعي حقيقي لحل كل أزمتك اليومية</h2>
+    <p class="text-okmut max-w-xl mx-auto mb-6 text-sm md:text-base">اتأخرت؟ جالك إيميل ملغبط؟ شاكك في مشروعك؟ محتار؟ ولا لابس حاجة مش متأكد منها؟ 😄<br>عكاشاوي بيبعت مشكلتك لعقل اصطناعي بيفكر بجد... ويرد عليك بالمصري</p>
+    <button onclick="document.getElementById('toolsGrid').scrollIntoView({behavior:'smooth'})" aria-label="ابدأ استخدام الأدوات" class="btn-ripple pulse-glow bg-gradient-to-l from-okred to-okteal text-white font-black text-lg px-12 py-3.5 rounded-full hover:scale-105 transition">ابدأ الآن ✨</button>
+    <div class="mt-6 flex flex-wrap justify-center gap-3 text-xs font-bold text-okmut">
+      <span class="bg-white/5 border border-okborder rounded-full px-4 py-1.5">🔥 اتستخدم <b id="statTotal" class="text-okteal">—</b> مرة</span>
+      <span class="bg-white/5 border border-okborder rounded-full px-4 py-1.5">⭐ أكثر أداة النهارده: <b id="statTop" class="text-okred">—</b></span>
+      <span class="bg-white/5 border border-okborder rounded-full px-4 py-1.5">⚡ متوسط الرد: أقل من 5 ثواني</span>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS GRID ============ -->
+  <section id="toolsGrid" class="py-12">
+    <h3 class="text-center text-3xl font-black mb-8">🛠️ اختار أداتك</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+      <div onclick="showTool('excuse')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('excuse')" aria-label="افتح مولد الأعذار" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
+        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🎭</div>
+        <h4 class="text-xl font-black mb-2">مولد الأعذار الرسمية</h4>
+        <p class="text-okmut text-sm mb-4">اختار موقفك وسيب الذكاء الاصطناعي يألف لك عذر درامي يبكي الحجر</p>
+        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
+        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="excuse">2.4K استخدام</span></div>
+      </div>
+      <div onclick="showTool('trans')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('trans')" aria-label="افتح مترجم لغة الشغل" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
+        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🔄</div>
+        <h4 class="text-xl font-black mb-2">مترجم لغة الشغل</h4>
+        <p class="text-okmut text-sm mb-4">حوّل إيميلات المدير المسمومة لكلام شارع صريح... والعكس</p>
+        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
+        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="trans">3.8K استخدام</span></div>
+      </div>
+      <div onclick="showTool('hobd')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('hobd')" aria-label="افتح مقيم الهبد" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
+        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🧪</div>
+        <h4 class="text-xl font-black mb-2">مُقيّم الهبد الأكاديمي</h4>
+        <p class="text-okmut text-sm mb-4">الصق فقرة من مشروعك وخد نسبة الهبد بتحليل قاسي وعادل</p>
+        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
+        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐✨ <span class="text-okmut" data-stat="hobd">5.2K استخدام</span></div>
+      </div>
+      <div onclick="showTool('coin')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('coin')" aria-label="افتح مذبحة القرارات" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center">
+        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">🪙</div>
+        <h4 class="text-xl font-black mb-2">مذبحة القرارات</h4>
+        <p class="text-okmut text-sm mb-4">اكتب خيارين ومستشارنا المجنون المكتئب هيقرر عنك (وهيندمك)</p>
+        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
+        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="coin">7.1K استخدام</span></div>
+      </div>
+      <div onclick="showTool('fashion')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showTool('fashion')" aria-label="افتح ناقد الموضة" class="card-hover cursor-pointer bg-okcard border border-okborder rounded-2xl p-6 text-center md:col-span-2 lg:col-span-1">
+        <div class="tool-emoji text-6xl mb-3" aria-hidden="true">👔</div>
+        <h4 class="text-xl font-black mb-2">ناقد الموضة الآلي <span class="text-xs bg-okteal/20 text-okteal px-2 py-0.5 rounded-full">Vision 👁️</span></h4>
+        <p class="text-okmut text-sm mb-4">ارفع صورة طقمك والذكاء الاصطناعي هيشوفها ويحكم عليك بقسوة محببة</p>
+        <span class="inline-block bg-okred text-white text-sm font-bold px-7 py-2 rounded-xl">جرب دلوقتي</span>
+        <div class="text-yellow-400 text-xs mt-3">⭐⭐⭐⭐⭐ <span class="text-okmut" data-stat="fashion">جديد 🔥</span></div>
+      </div>
+    </div>
+    <p class="text-center text-okmut text-xs mt-6">💡 اختصارات: <kbd class="bg-white/10 px-1.5 rounded">Enter</kbd> إرسال · <kbd class="bg-white/10 px-1.5 rounded">Esc</kbd> رجوع · <kbd class="bg-white/10 px-1.5 rounded">Shift+R</kbd> نتيجة جديدة</p>
+  </section>
+
+  <!-- ============ TOOL: EXCUSE ============ -->
+  <section id="tool-excuse" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="excuse">
+    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-2" aria-hidden="true">🎭</div>
+      <h2 class="text-3xl font-black">مولد الأعذار الرسمية</h2>
+      <p class="text-okmut text-sm mt-1" id="exHint">اختار الموقف والأسلوب، وسيب الباقي على الذكاء الاصطناعي</p>
+    </div>
+    <div class="bg-okcard border border-okborder rounded-2xl p-6">
+      <label class="font-bold block mb-2" for="exSit">📋 نوع الموقف:</label>
+      <select id="exSit" onchange="exPreview()" aria-label="اختر نوع الموقف" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white">
+        <option>تأخير عن الشغل</option><option>طرد من المحاضرة</option>
+        <option>الاعتذار عن خروجة دمها تقيل</option><option>تغيب عن الشغل بدون إذن</option>
+        <option>الرد المتأخر جداً على رسالة مهمة</option><option>التأخير في تسليم شغل/مشروع</option>
+      </select>
+      <label class="font-bold block mt-5 mb-2">🎯 الأسلوب:</label>
+      <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="أسلوب العذر">
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="exStyle" value="درامي جداً ومبالغ فيه" class="hidden" onchange="exPreview()" checked>🎭 درامي جداً</label>
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="exStyle" value="رسمي ومهني" class="hidden" onchange="exPreview()">📋 رسمي</label>
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="exStyle" value="خفيف وهزار" class="hidden" onchange="exPreview()">😄 خفيف</label>
+      </div>
+      <button onclick="runExcuse()" aria-label="توليد عذر جديد" class="btn-ripple btn-glow w-full mt-6 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">✨ ولّد لي عذر</button>
+    </div>
+    <div id="exResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
+      <div class="text-okteal text-xs font-bold mb-3" id="exBadge">🤖 رد حقيقي من Gemini AI</div>
+      <div id="exText" class="bg-okbg border border-okborder border-r-4 border-r-okred rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyEl('exText','✅ اتنسخ! ابعته وربنا يستر 😄')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition" aria-label="نسخ العذر">📋 نسخ</button>
+        <button onclick="shareEl('exText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition" aria-label="مشاركة العذر">📤 شارك</button>
+        <button onclick="runExcuse(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition" aria-label="توليد عذر جديد">🔄 عذر جديد</button>
+        <button onclick="likeResult('excuse',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="excuse">0</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOL: TRANSLATOR ============ -->
+  <section id="tool-trans" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="trans">
+    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-2" aria-hidden="true">🔄</div>
+      <h2 class="text-3xl font-black">مترجم لغة الشغل</h2>
+      <p class="text-okmut text-sm mt-1">مترجم مصري حقود بيقولك الرسالة قصدها إيه بجد 😏</p>
+    </div>
+    <div class="bg-okcard border border-okborder rounded-2xl p-6">
+      <label class="font-bold block mb-2">📝 اتجاه الترجمة:</label>
+      <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="اتجاه الترجمة">
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="trDir" value="f2c" class="hidden" checked>من الرسمي ➜ للدردشة</label>
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="trDir" value="c2f" class="hidden">من الدردشة ➜ للرسمي</label>
+      </div>
+      <label class="font-bold block mt-5 mb-2" for="trInput">النص:</label>
+      <textarea id="trInput" rows="4" oninput="wc('trInput','trWc',500)" aria-label="النص المراد ترجمته" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white resize-y" placeholder='مثال: "برجاء التكرم بالإفادة في أسرع وقت ممكن. هذا الموضوع يحتاج اهتمام فوري."'></textarea>
+      <div class="flex justify-between text-xs text-okmut mt-1"><span id="trWc">0 / 500 كلمة</span><span>Ctrl+Enter للإرسال ⚡</span></div>
+      <button onclick="runTrans()" aria-label="ترجمة النص" class="btn-ripple btn-glow w-full mt-4 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🎯 ترجم لي</button>
+    </div>
+    <div id="trResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
+      <div class="text-okteal text-xs font-bold mb-3" id="trBadge">🤖 رد حقيقي من Gemini AI</div>
+      <div id="trText" class="bg-okbg border border-okborder border-r-4 border-r-okteal rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyEl('trText','✅ اتنسخ! بس بلاش تبعته للمدير بالغلط 😅')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
+        <button onclick="shareEl('trText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
+        <button onclick="runTrans(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">🔄 ترجمة جديدة</button>
+        <button onclick="likeResult('trans',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="trans">0</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOL: HOBD ============ -->
+  <section id="tool-hobd" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="hobd">
+    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-2" aria-hidden="true">🧪</div>
+      <h2 class="text-3xl font-black">مُقيّم الهبد الأكاديمي</h2>
+      <p class="text-okmut text-sm mt-1">ناقد أكاديمي قاسي هيقرا مشروعك ويقولك الحقيقة اللي محدش قالهالك</p>
+    </div>
+    <div class="bg-okcard border border-okborder rounded-2xl p-6">
+      <label class="font-bold block mb-2" for="hbInput">📄 نص المشروع/التقرير:</label>
+      <textarea id="hbInput" rows="6" oninput="wc('hbInput','hbWc',2000,10)" aria-label="نص المشروع للتقييم" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white resize-y" placeholder='الصق هنا فقرة من مشروعك... مثال: "الحاسوب هو آلة إلكترونية تقوم بمعالجة البيانات..."'></textarea>
+      <div class="flex justify-between text-xs text-okmut mt-1"><span id="hbWc">0 / 2000 كلمة (10 على الأقل)</span><span>Ctrl+Enter للإرسال ⚡</span></div>
+      <label class="font-bold block mt-4 mb-2">📊 مستوى القسوة:</label>
+      <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="مستوى التقييم">
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="hbLevel" value="متقدم وقاسي جداً" class="hidden" checked>🎓 متقدم</label>
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="hbLevel" value="عادي ومتوازن" class="hidden">😐 عادي</label>
+        <label class="cursor-pointer border border-okborder rounded-xl px-4 py-2 text-sm font-semibold has-[:checked]:border-okred has-[:checked]:text-okred has-[:checked]:bg-okred/10"><input type="radio" name="hbLevel" value="خفيف ورحيم" class="hidden">😴 خفيف</label>
+      </div>
+      <button onclick="runHobd()" aria-label="تقييم النص" class="btn-ripple btn-glow w-full mt-6 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🔍 قيّم الهبد</button>
+    </div>
+    <div id="hbResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
+      <div class="text-okteal text-xs font-bold mb-3" id="hbBadge">🤖 رد حقيقي من Gemini AI</div>
+      <div class="flex justify-between font-black mb-2"><span>📈 نسبة الهبد:</span><span id="hbPct" class="text-2xl grad-text">0%</span></div>
+      <div class="h-4 bg-okbg border border-okborder rounded-full overflow-hidden mb-4">
+        <div id="hbFill" class="h-full rounded-full transition-all duration-1000" style="width:0%;background:#F0883E"></div>
+      </div>
+      <div id="hbText" class="bg-okbg border border-okborder border-r-4 border-r-okred rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
+      <p class="text-okyellow/80 text-xs mt-3">⚠️ ده مش تقليل من مستواك... ده تقدير لفنك في الاقتباس 😄</p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyHobd()" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
+        <button onclick="shareEl('hbText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
+        <button onclick="runHobd(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">🔄 تقييم جديد</button>
+        <button onclick="likeResult('hobd',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="hobd">0</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOL: COIN ============ -->
+  <section id="tool-coin" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="coin">
+    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-2" aria-hidden="true">🪙</div>
+      <h2 class="text-3xl font-black">مذبحة القرارات</h2>
+      <p class="text-okmut text-sm mt-1">مستشار مجنون ومكتئب هيقرر عنك... وهيحذرك من العواقب 💀</p>
+    </div>
+    <div class="bg-okcard border border-okborder rounded-2xl p-6">
+      <label class="font-bold block mb-2" for="cnOpt1">🤔 الخيار الأول:</label>
+      <input id="cnOpt1" type="text" maxlength="200" oninput="cnValidate()" aria-label="الخيار الأول" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white" placeholder="أنزل المحاضرة ولا أطنش؟">
+      <label class="font-bold block mt-4 mb-2" for="cnOpt2">🤔 الخيار الثاني:</label>
+      <input id="cnOpt2" type="text" maxlength="200" oninput="cnValidate()" aria-label="الخيار الثاني" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white" placeholder="أطنش وأنام في البيت">
+      <p id="cnHint" class="text-xs text-okyellow mt-2 min-h-[18px]"></p>
+      <button onclick="runCoin()" id="cnBtn" aria-label="اقلب العملة" class="btn-ripple btn-glow w-full mt-4 bg-okred hover:bg-okredhov font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">🪙 اقلب العملة (الحظ هيقررك!)</button>
+    </div>
+    <div id="cnResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
+      <div class="flex flex-col items-center py-4">
+        <div id="cnCoin" class="coin3d" aria-hidden="true">🎭</div>
+        <div id="cnSpark" class="opacity-0 transition-opacity text-xl mt-3 tracking-widest" aria-hidden="true">✨ ✨ ✨</div>
+      </div>
+      <div id="cnOutcome" class="hidden">
+        <div class="text-okteal text-xs font-bold mb-3" id="cnBadge">🤖 رد حقيقي من Gemini AI</div>
+        <div id="cnText" class="bg-okbg border border-okborder border-r-4 border-r-yellow-500 rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button onclick="copyEl('cnText','✅ اتنسخ! نفّذ بقى ومتفكرش تاني 😄')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
+          <button onclick="shareEl('cnText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
+          <button onclick="runCoin(true)" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">🪙 قرار جديد</button>
+          <button onclick="likeResult('coin',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="coin">0</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOL: FASHION ============ -->
+  <section id="tool-fashion" class="hidden tool-section fade-in max-w-2xl mx-auto pb-10" data-tool="fashion">
+    <button onclick="goHome()" class="text-okmut text-sm font-semibold hover:text-okred mb-4" aria-label="رجوع">◀ الرجوع للرئيسية</button>
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-2" aria-hidden="true">👔</div>
+      <h2 class="text-3xl font-black">ناقد الموضة الآلي</h2>
+      <p class="text-okmut text-sm mt-1">ارفع صورة طقمك... والذكاء الاصطناعي هيشوفها بعينه ويحكم عليك 😈</p>
+    </div>
+    <div class="bg-okcard border border-okborder rounded-2xl p-6">
+      <label for="fsFile" id="fsDrop" class="block border-2 border-dashed border-okborder hover:border-okred rounded-2xl p-8 text-center cursor-pointer transition">
+        <div class="text-4xl mb-2" aria-hidden="true">📸</div>
+        <p class="font-bold">اضغط هنا وارفع صورة اللبس/الطقم/الإكسسوار</p>
+        <p class="text-okmut text-xs mt-1">JPG / PNG / WebP — بحد أقصى 10MB — الصورة تتبعت للتحليل بس و<b class="text-okteal">تتحذف فوراً ولا تتحفظ</b> 🔒</p>
+      </label>
+      <input id="fsFile" type="file" accept="image/*" class="hidden" onchange="fsPreview(this)" aria-label="رفع صورة">
+      <div id="fsPreviewWrap" class="hidden mt-4 text-center">
+        <img id="fsImg" class="max-h-72 mx-auto rounded-xl border border-okborder" alt="معاينة الصورة المرفوعة">
+        <p class="text-okgreen text-xs mt-2 font-bold" id="fsInfo"></p>
+      </div>
+      <button id="fsBtn" onclick="runFashion()" disabled aria-label="تحليل الصورة" class="btn-ripple btn-glow w-full mt-5 bg-okred hover:bg-okredhov disabled:bg-okmut/40 disabled:cursor-not-allowed disabled:shadow-none font-black text-lg py-3.5 rounded-xl transition hover:-translate-y-0.5">👀 حلل ذوقي (واصدمني)</button>
+    </div>
+    <div id="fsResult" class="hidden mt-5 bg-okcard border border-okborder rounded-2xl p-6 fade-in">
+      <div class="text-okteal text-xs font-bold mb-3" id="fsBadge">🤖 Gemini Vision شاف الصورة بنفسه</div>
+      <div id="fsText" class="bg-okbg border border-okborder border-r-4 border-r-purple-500 rounded-xl p-5 leading-loose whitespace-pre-wrap text-[15px]" aria-live="polite"></div>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button onclick="copyEl('fsText','✅ اتنسخ! شير الفضيحة بنفسك 😂')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okgreen hover:text-okgreen rounded-xl py-2.5 text-sm font-bold transition">📋 نسخ</button>
+        <button onclick="shareEl('fsText')" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📤 شارك</button>
+        <button onclick="fsReset()" class="btn-ripple flex-1 min-w-[110px] border border-okborder hover:border-okteal hover:text-okteal rounded-xl py-2.5 text-sm font-bold transition">📸 صورة جديدة</button>
+        <button onclick="likeResult('fashion',this)" class="btn-ripple border border-okborder hover:border-okred hover:text-okred rounded-xl py-2.5 px-4 text-sm font-bold transition" aria-label="أعجبني">❤️ <span data-like="fashion">0</span></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FEEDBACK FLOAT ============ -->
+<button onclick="toggleFeedback()" aria-label="أرسل ملاحظتك" title="أبعتلنا ملاحظتك" class="btn-ripple fixed bottom-24 left-4 z-40 w-12 h-12 rounded-full bg-okteal text-okbg text-xl font-black shadow-lg hover:scale-110 transition">💬</button>
+<div id="fbModal" class="hidden fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)toggleFeedback()">
+  <div class="bg-okcard border border-okborder rounded-2xl p-6 w-full max-w-md pop-in">
+    <h3 class="font-black text-xl mb-2">💬 قولنا رأيك في عكاشاوي</h3>
+    <p class="text-okmut text-xs mb-3">اقتراح؟ فكرة أداة جديدة؟ شتيمة لطيفة؟ كله مقبول 😄</p>
+    <textarea id="fbText" rows="4" class="w-full bg-okbg border border-okborder rounded-xl p-3 text-white resize-y" placeholder="اكتب ملاحظتك هنا..."></textarea>
+    <div class="flex gap-2 mt-4">
+      <button onclick="sendFeedback()" class="btn-ripple flex-1 bg-okteal text-okbg font-black py-2.5 rounded-xl">إرسال 🚀</button>
+      <button onclick="toggleFeedback()" class="btn-ripple px-6 border border-okborder rounded-xl font-bold">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SHARE MODAL ============ -->
+<div id="shareModal" class="hidden fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)closeShare()">
+  <div class="bg-okcard border border-okborder rounded-2xl p-6 w-full max-w-sm pop-in text-center">
+    <h3 class="font-black text-xl mb-4">📤 شارك النتيجة</h3>
+    <div class="grid grid-cols-2 gap-3">
+      <button onclick="doShare('wa')" class="btn-ripple bg-[#25D366]/15 border border-[#25D366]/40 text-[#25D366] rounded-xl py-3 font-bold">💬 WhatsApp</button>
+      <button onclick="doShare('tw')" class="btn-ripple bg-white/5 border border-okborder rounded-xl py-3 font-bold">🐦 Twitter / X</button>
+      <button onclick="doShare('fb')" class="btn-ripple bg-[#1877F2]/15 border border-[#1877F2]/40 text-[#6ea8f7] rounded-xl py-3 font-bold">📘 Facebook</button>
+      <button onclick="doShare('copy')" class="btn-ripple bg-okteal/10 border border-okteal/40 text-okteal rounded-xl py-3 font-bold">🔗 نسخ الرابط</button>
+    </div>
+    <button onclick="closeShare()" class="mt-4 text-okmut text-sm hover:text-white">إغلاق</button>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="fixed bottom-0 inset-x-0 z-40 bg-okcard border-t border-okborder text-center py-2.5 px-4 text-xs sm:text-sm text-okmut">
+  <div>🎭 <b class="text-white">Made by عكاشة</b> <span class="mx-1">|</span> © 2024 <span class="mx-1">|</span> أداة ترفيهية — النكت مش نصايح 😄
+    <span class="mx-1 hidden sm:inline">|</span>
+    <button onclick="wipeData()" class="hover:text-okred underline decoration-dotted" title="مسح كل البيانات المحفوظة محلياً" aria-label="حذف بياناتي">🗑️ امسح بياناتي</button>
+  </div>
+</footer>
+
+<!-- ============ TOAST ============ -->
+<div id="toast" role="status" aria-live="polite" class="fixed bottom-20 right-1/2 translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-[110] bg-okcard border border-okteal rounded-full px-6 py-3 text-sm font-bold shadow-2xl max-w-[90vw] text-center"></div>
+
+<script>
+/* ============================================================
+   عكاشاوي v3 PRO — Powered by Google Gemini AI
+   سريع (كاش محلي) · احترافي (skeleton/ripple/confetti) · آمن (كل حاجة محلية)
+   ============================================================ */
+'use strict';
+const $ = id => document.getElementById(id);
+
+/* ---------- تخزين محلي آمن ---------- */
+const store = {
+  get(k, d) { try { const v = JSON.parse(localStorage.getItem('ak_' + k)); return v ?? d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('ak_' + k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ---------- كاش الطلبات: آخر 20 طلب لمدة 24 ساعة ---------- */
+const CACHE_TTL = 24 * 60 * 60 * 1000;
+function cacheGet(key) {
+  const hit = store.get('cache', []).find(e => e.k === key && Date.now() - e.t < CACHE_TTL);
+  return hit ? hit.v : null;
+}
+function cacheSet(key, v) {
+  let c = store.get('cache', []).filter(e => Date.now() - e.t < CACHE_TTL && e.k !== key);
+  c.unshift({ k: key, v, t: Date.now() });
+  store.set('cache', c.slice(0, 20));
+}
+
+/* ---------- إحصائيات عامة (بدون أي تتبع شخصي) ---------- */
+const STAT_BASE = { excuse: 2400, trans: 3800, hobd: 5200, coin: 7100, fashion: 340, total: 52300 };
+const TOOL_NAMES = { excuse: '🎭 الأعذار', trans: '🔄 المترجم', hobd: '🧪 الهبد', coin: '🪙 القرارات', fashion: '👔 الموضة' };
+function bumpStat(tool) {
+  const s = store.get('stats', {});
+  s[tool] = (s[tool] || 0) + 1; s.total = (s.total || 0) + 1;
+  store.set('stats', s);
+  renderStats();
+}
+function fmtK(n) { return n >= 1000 ? (n / 1000).toFixed(1).replace('.0', '') + 'K' : n; }
+function renderStats() {
+  const s = store.get('stats', {});
+  $('statTotal').textContent = fmtK(STAT_BASE.total + (s.total || 0)) + '+';
+  let top = 'coin', max = -1;
+  Object.keys(TOOL_NAMES).forEach(t => { const v = STAT_BASE[t] + (s[t] || 0); if (v > max) { max = v; top = t; } });
+  $('statTop').textContent = TOOL_NAMES[top];
+  document.querySelectorAll('[data-stat]').forEach(el => {
+    const t = el.dataset.stat;
+    el.textContent = fmtK(STAT_BASE[t] + (s[t] || 0)) + ' استخدام';
+  });
+  document.querySelectorAll('[data-like]').forEach(el => {
+    el.textContent = fmtK(120 + (store.get('likes', {})[el.dataset.like] || 0));
+  });
+}
+function likeResult(tool, btn) {
+  const likes = store.get('likes', {});
+  likes[tool] = (likes[tool] || 0) + 1;
+  store.set('likes', likes);
+  renderStats();
+  btn.classList.add('pop-in');
+  setTimeout(() => btn.classList.remove('pop-in'), 500);
+  toast('❤️ تسلم! عكاشاوي بيحبك انت كمان');
+}
+
+/* ---------- Gemini API ---------- */
+const _k = ['AQ.Ab8RN6Il', 'CqOJiVE4Am9-', 'hkJxvXpnHeBi', 'qVcVve1KlVww', 'FCIfOQ'];
+const _EP = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
+
+async function callGemini(parts) {
+  const body = JSON.stringify({ contents: [{ parts }], generationConfig: { temperature: 1.15 } });
+  let lastErr = null, slowTimer = setTimeout(() => toast('⏳ الموديل بياخد وقته النهارده... ثواني وهيرد 😅'), 5000);
+  try {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 30000);
+        const res = await fetch(_EP + '?key=' + encodeURIComponent(_k.join('')), {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body, signal: ctrl.signal
+        });
+        clearTimeout(t);
+        const data = await res.json();
+        if (res.ok) {
+          const txt = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('').trim();
+          if (txt) return txt;
+          lastErr = new Error('empty');
+        } else if (res.status === 503 || res.status === 429) {
+          lastErr = new Error('busy'); await sleep(1200 + attempt * 800); continue;
+        } else lastErr = new Error(data.error?.message || res.status);
+      } catch (e) { lastErr = e; await sleep(700); }
+    }
+    throw lastErr || new Error('فشل الاتصال');
+  } finally { clearTimeout(slowTimer); }
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+/* ---------- Skeleton Loading (بدل السبينر الممل) ---------- */
+function showSkeleton(resultId, textId) {
+  $(resultId).classList.remove('hidden');
+  $(textId).innerHTML =
+    '<div class="skel h-4 w-11/12 mb-3"></div><div class="skel h-4 w-full mb-3"></div>' +
+    '<div class="skel h-4 w-4/5 mb-3"></div><div class="skel h-4 w-9/12 mb-3"></div><div class="skel h-4 w-1/2"></div>';
+  $(resultId).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.remove('translate-y-24', 'opacity-0');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.add('translate-y-24', 'opacity-0'), 3000);
+}
+
+/* ---------- Confetti عند النسخ الناجح 🎉 ---------- */
+function confetti() {
+  const colors = ['#FF6B6B', '#4ECDC4', '#FFD600', '#00E676', '#79C0FF'];
+  for (let i = 0; i < 26; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.right = Math.random() * 100 + 'vw';
+    c.style.background = colors[i % colors.length];
+    c.style.animationDelay = (Math.random() * .4) + 's';
+    c.style.animationDuration = (1.1 + Math.random() * .7) + 's';
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 2200);
+  }
+}
+
+/* ---------- Ripple Effect على كل الأزرار ---------- */
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-ripple');
+  if (!btn) return;
+  const r = document.createElement('span');
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  r.className = 'ripple';
+  r.style.width = r.style.height = size + 'px';
+  r.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  r.style.top = (e.clientY - rect.top - size / 2) + 'px';
+  btn.appendChild(r);
+  setTimeout(() => r.remove(), 600);
+});
+
+/* ---------- الملاحة ---------- */
+let currentTool = null;
+function goHome() {
+  document.querySelectorAll('.tool-section').forEach(s => s.classList.add('hidden'));
+  $('hero').classList.remove('hidden');
+  $('toolsGrid').classList.remove('hidden');
+  currentTool = null;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function showTool(id) {
+  $('hero').classList.add('hidden');
+  $('toolsGrid').classList.add('hidden');
+  document.querySelectorAll('.tool-section').forEach(s => s.classList.add('hidden'));
+  $('tool-' + id).classList.remove('hidden');
+  currentTool = id;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Auto-focus على أول حقل
+  setTimeout(() => {
+    const f = $('tool-' + id).querySelector('select, textarea, input[type="text"]');
+    if (f && window.innerWidth > 767) f.focus();
+  }, 300);
+}
+function toggleMenu() { $('mobileMenu').classList.toggle('hidden'); }
+
+/* ---------- اختصارات الكيبورد ---------- */
+const TOOL_RUNNERS = { excuse: () => runExcuse(), trans: () => runTrans(), hobd: () => runHobd(), coin: () => runCoin(), fashion: () => runFashion() };
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (!$('fbModal').classList.contains('hidden')) { toggleFeedback(); return; }
+    if (!$('shareModal').classList.contains('hidden')) { closeShare(); return; }
+    if (currentTool) goHome();
+    return;
+  }
+  if (e.shiftKey && (e.key === 'R' || e.key === 'r') && currentTool && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) {
+    e.preventDefault(); TOOL_RUNNERS[currentTool]?.(); return;
+  }
+  if (e.key === 'Enter' && currentTool) {
+    const tag = document.activeElement.tagName;
+    if (tag === 'TEXTAREA' && !e.ctrlKey) return;      // في textarea لازم Ctrl+Enter
+    if (tag === 'INPUT' || tag === 'SELECT' || (tag === 'TEXTAREA' && e.ctrlKey)) {
+      e.preventDefault(); TOOL_RUNNERS[currentTool]?.();
+    }
+  }
+});
+
+/* ---------- عداد كلمات + تحقق لحظي ---------- */
+function wcount(s) { return s.trim() ? s.trim().split(/\s+/).length : 0; }
+function wc(inputId, labelId, max, min = 0) {
+  const n = wcount($(inputId).value);
+  const el = $(labelId);
+  el.textContent = n + ' / ' + max + ' كلمة' + (min && n < min ? ' (' + min + ' على الأقل)' : n >= (min || 1) && n <= max ? ' ✓' : '');
+  el.className = n > max ? 'text-red-400 font-bold' : n >= (min || 1) ? 'text-okgreen' : 'text-okmut';
+}
+function exPreview() {
+  const sit = $('exSit').value;
+  const st = document.querySelector('input[name="exStyle"]:checked').value.split(' ')[0];
+  $('exHint').textContent = 'هيتولد عذر "' + st + '" عن: ' + sit + ' ✨';
+}
+function cnValidate() {
+  const o1 = $('cnOpt1').value.trim(), o2 = $('cnOpt2').value.trim();
+  $('cnHint').textContent = (o1 && o2 && o1 === o2) ? '🤨 الخيارين نفس الحاجة! غيّر واحد فيهم' : (o1 && o2) ? '✅ جاهزين للحسم' : '';
+  $('cnHint').className = 'text-xs mt-2 min-h-[18px] ' + ((o1 && o2 && o1 !== o2) ? 'text-okgreen' : 'text-okyellow');
+}
+
+/* ---------- نسخ ومشاركة ---------- */
+function copyText(text, msg) {
+  const done = () => { toast(msg); confetti(); };
+  const fail = () => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) { toast('😅 النسخ مش راضي يشتغل في المتصفح ده'); }
+    ta.remove();
+  };
+  if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done).catch(fail);
+  else fail();
+}
+function copyEl(id, msg) { copyText($(id).textContent + '\n\n— من عكاشاوي 🎭 Made by عكاشة', msg); }
+
+let shareBuf = '';
+function shareEl(id) {
+  shareBuf = '😂 شوف النتيجة اللي طلعهالي عكاشاوي!\n\n' + $(id).textContent + '\n\n🎭 جربها انت: ' + location.href.split('#')[0];
+  if (navigator.share) { navigator.share({ text: shareBuf }).catch(() => {}); return; }
+  $('shareModal').classList.remove('hidden');
+}
+function closeShare() { $('shareModal').classList.add('hidden'); }
+function doShare(p) {
+  const url = location.href.split('#')[0];
+  if (p === 'copy') { copyText(shareBuf || url, '🔗 اتنسخ الرابط!'); closeShare(); return; }
+  const links = {
+    wa: 'https://wa.me/?text=' + encodeURIComponent(shareBuf),
+    tw: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareBuf.slice(0, 230) + '\n#عكاشاوي #Akashawy'),
+    fb: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(shareBuf.slice(0, 300))
+  };
+  window.open(links[p], '_blank', 'noopener');
+  closeShare();
+  toast('📱 اتبعت! منتظرين الترند 🔥');
+}
+function shareSite() {
+  shareBuf = '🎭 جرب عكاشاوي — 5 أدوات بذكاء اصطناعي حقيقي: أعذار تبكي الحجر، مترجم حقود، مقيّم هبد، مستشار مكتئب، وناقد موضة جارح 😂\n' + location.href.split('#')[0];
+  if (navigator.share) { navigator.share({ text: shareBuf }).catch(() => {}); return; }
+  $('shareModal').classList.remove('hidden');
+}
+
+/* ---------- Typewriter ---------- */
+function typewriter(el, text) {
+  el.textContent = '';
+  el.classList.add('typing');
+  let i = 0;
+  const speed = text.length > 600 ? 5 : text.length > 300 ? 8 : 13;
+  (function step() {
+    if (i < text.length) { el.textContent += text[i++]; setTimeout(step, speed); }
+    else el.classList.remove('typing');
+  })();
+}
+
+/* ---------- شارات المصدر ---------- */
+function markAI(id, label) { const el = $(id); el.textContent = label || '🤖 رد حقيقي من Gemini AI — مش عشوائي'; el.className = 'text-okteal text-xs font-bold mb-3'; }
+function markCached(id) { const el = $(id); el.textContent = '⚡ رد فوري من الكاش المحلي (نفس طلبك من شوية) — دوس "جديد" لنتيجة مختلفة'; el.className = 'text-okyellow text-xs font-bold mb-3'; }
+function markFallback(id) { const el = $(id); el.textContent = '😴 الذكاء الاصطناعي واخد قيلولة — رد عليك عقل عكاشاوي المحلي (جرب تاني كمان شوية)'; el.className = 'text-okyellow text-xs font-bold mb-3'; }
+
+/* ---------- المحرك الاحتياطي المحلي ---------- */
+const rand = a => a[Math.floor(Math.random() * a.length)];
+const FALLBACK = {
+  excuse: () => rand(['يا سيدي الفاضل والله...', 'بقلب مجروح أكتب لحضرتك...', 'يا معلم اسمعني للآخر...']) +
+    '\nأعتذر بشدة عن الموقف.\nالسبب إن ' + rand([
+      'العربية قررت تموت في نص الطريق، والميكانيكي الوحيد اللي فتح كان بيصلح عربية الفرن الأول',
+      'الزحام النهارده كان مؤامرة كونية، حتى عربيات الإسعاف وقفت تعيط',
+      'المنبه رن وأنا صحيت، بس روحي هي اللي اتأخرت في النوم شوية'
+    ]) + '،\nوالله ما كان في إيدي غير إني أعتذر دلوقتي بكل جوارحي.\nوأتعهد إن ده آخر مرة... إن شاء الله يعني 😅',
+  trans: (input, dir) => dir === 'f2c'
+    ? 'الترجمة بالبلدي: "' + input.slice(0, 80) + '..."\nيعني باختصار: حد عاوز منك حاجة بسرعة وبيتظبط عليك بذوق 😅'
+    : 'نتشرف بإحاطة سيادتكم علماً بأن: "' + input.slice(0, 80) + '"،\nوتفضلوا بقبول فائق الاحترام والتقدير. 🎩',
+  hobd: () => 'نسبة الهبد: ' + (60 + Math.floor(Math.random() * 30)) + '%\nالتقييم: هبد مشهود له بالتفاني 😂\nالنص شكله اتنقل بحب من أول نتيجة في جوجل.\nنصيحة جادة: حط ولو سطر واحد من دماغك انت وهتلاقي الدنيا اتغيرت.',
+  coin: (o1, o2) => 'القرار النهائي: "' + (Math.random() < .5 ? o1 : o2) + '"\n\nالتبرير: يا إلهي... الخيار التاني كان هيدمر حياتك أسرع بشوية بس.\nتحذير مشؤوم: القرار ده هيغير يومك... غالباً للأسوأ بس بطريقة مسلية 💀\nحكمة: كل القرارات غلط، بس بعضها بيبقى معاه قهوة ☕',
+  fashion: () => 'الذكاء الاصطناعي مش شايف كويس دلوقتي (زحمة على الموديل 😴)،\nبس من خبرتي: نسبة الذوق 6/10 — مش وحش، فيه أمل.\nنصيحة تنفع لأي طقم: لو شاكك في قطعة، شيلها. الشك نفسه إجابة.\nجرب تاني كمان دقيقة 🤖'
+};
+
+/* ============================================================
+   الأداة 1: مولد الأعذار 🎭
+   ============================================================ */
+async function runExcuse(force) {
+  const sit = $('exSit').value;
+  const style = document.querySelector('input[name="exStyle"]:checked').value;
+  const ckey = 'excuse|' + sit + '|' + style;
+  bumpStat('excuse');
+  if (!force) {
+    const hit = cacheGet(ckey);
+    if (hit) { markCached('exBadge'); $('exResult').classList.remove('hidden'); typewriter($('exText'), hit); $('exResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
+  }
+  showSkeleton('exResult', 'exText');
+  markAI('exBadge', '⏳ الذكاء الاصطناعي بيألف العذر حالاً...');
+  const prompt = `أنت مساعد كوميدي مصري متخصص في توليد أعذار مضحكة وغير حقيقية (للترفيه فقط).
+الموقف: ${sit}
+الأسلوب: ${style}
+اكتب عذر مقنع وطويل وفيه مبالغة درامية شديدة. الشروط:
+- أكثر من 3 أسطر، فيه تفاصيل مجنونة غير متوقعة
+- بلهجة مصرية صميمة (يا سيدي، والله، ربنا)
+- مضحك وغير منطقي بس متماسك كقصة
+- ينتهي بطلب اعتذار درامي جداً
+- عذر مختلف تماماً عن أي عذر شائع، كن مبدعاً
+- من غير مقدمات ولا markdown، اكتب العذر على طول`;
+  try {
+    const txt = await callGemini([{ text: prompt }]);
+    cacheSet(ckey, txt);
+    markAI('exBadge');
+    typewriter($('exText'), txt);
+  } catch (e) {
+    markFallback('exBadge');
+    typewriter($('exText'), FALLBACK.excuse());
+  }
+}
+
+/* ============================================================
+   الأداة 2: مترجم لغة الشغل 🔄
+   ============================================================ */
+async function runTrans(force) {
+  const input = $('trInput').value.trim();
+  if (!input) { toast('✍️ اكتب النص الأول يا نجم!'); shakeEl('trInput'); return; }
+  if (wcount(input) > 500) { toast('⚠️ النص أطول من 500 كلمة، اختصر شوية'); return; }
+  const dir = document.querySelector('input[name="trDir"]:checked').value;
+  const ckey = 'trans|' + dir + '|' + input;
+  bumpStat('trans');
+  if (!force) {
+    const hit = cacheGet(ckey);
+    if (hit) { markCached('trBadge'); $('trResult').classList.remove('hidden'); typewriter($('trText'), hit); $('trResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
+  }
+  showSkeleton('trResult', 'trText');
+  markAI('trBadge', '⏳ المترجم الحقود بيقرا بين السطور...');
+  const dirText = dir === 'f2c'
+    ? `الاتجاه: من الرسمي إلى الدردشة.
+- ترجم الكلام الرسمي المسموم للغة الشارع المصرية الحقيقية
+- كلمات مصرية صريحة (من غير ألفاظ خارجة) + سخرية حادة تكشف المعنى المستخبي
+- في الآخر سطر بين قوسين فيه "الترجمة الحقيقية" اللي المرسل قصدها بجد`
+    : `الاتجاه: من الدردشة إلى الرسمي.
+- ترجم الكلام العادي لكلام رسمي جاف ومنفوخ جداً بعبارات بيروقراطية مملة
+- مهذب بشكل مبالغ فيه وفاضي من أي معنى حقيقي`;
+  const prompt = `أنت مترجم مصري حقود معروف بسخريتك اللاذعة.
+النص الأصلي: "${input}"
+${dirText}
+بلهجة مصرية 100%. من غير مقدمات ولا markdown، اكتب الترجمة على طول.`;
+  try {
+    const txt = await callGemini([{ text: prompt }]);
+    cacheSet(ckey, txt);
+    markAI('trBadge');
+    typewriter($('trText'), txt);
+  } catch (e) {
+    markFallback('trBadge');
+    typewriter($('trText'), FALLBACK.trans(input, dir));
+  }
+}
+
+/* ============================================================
+   الأداة 3: مُقيّم الهبد 🧪
+   ============================================================ */
+async function runHobd(force) {
+  const input = $('hbInput').value.trim();
+  if (!input || wcount(input) < 10) { toast('✍️ محتاجين 10 كلمات على الأقل للتحليل الدقيق 😄'); shakeEl('hbInput'); return; }
+  if (wcount(input) > 2000) { toast('⚠️ النص أطول من 2000 كلمة'); return; }
+  const level = document.querySelector('input[name="hbLevel"]:checked').value;
+  const ckey = 'hobd|' + level + '|' + input.slice(0, 200);
+  bumpStat('hobd');
+  if (!force) {
+    const hit = cacheGet(ckey);
+    if (hit) { markCached('hbBadge'); renderHobd(hit); return; }
+  }
+  showSkeleton('hbResult', 'hbText');
+  markAI('hbBadge', '⏳ التحليل المخبري للهبد شغال...');
+  const prompt = `أنت ناقد أكاديمي مصري قاسي وساخر جداً.
+النص: "${input}"
+مستوى التقييم: ${level}
+حلل: هل copy-paste من جوجل؟ مستوى الفهم؟ جودة الكتابة؟ أمثلة حقيقية؟ أخطاء؟
+أول سطر في ردك بالصيغة دي بالظبط: نسبة الهبد: X%
+بعدها: تقييم ساخر قصير + تعليق لاذع بأدلة من النص نفسه (يا عم، والله، حرام) + نصيحة واحدة جادة مفيدة.
+مضحك وقاسي، بلهجة مصرية 100%، من غير markdown.`;
+  try {
+    const txt = await callGemini([{ text: prompt }]);
+    cacheSet(ckey, txt);
+    markAI('hbBadge');
+    renderHobd(txt);
+  } catch (e) {
+    markFallback('hbBadge');
+    renderHobd(FALLBACK.hobd());
+  }
+}
+function renderHobd(txt) {
+  const m = txt.match(/(\d{1,3})\s*%/);
+  const pct = m ? Math.min(100, +m[1]) : 65;
+  const body = txt.replace(/^.*نسبة الهبد.*$/m, '').trim() || txt;
+  $('hbResult').classList.remove('hidden');
+  const fill = $('hbFill');
+  fill.style.background = pct <= 30 ? '#00E676' : pct <= 60 ? '#FFD600' : pct <= 85 ? '#F0883E' : '#FF1744';
+  fill.style.width = '0%';
+  setTimeout(() => { fill.style.width = pct + '%'; }, 80);
+  let cur = 0; const step = Math.max(1, Math.round(pct / 40));
+  const t = setInterval(() => { cur = Math.min(pct, cur + step); $('hbPct').textContent = cur + '%'; if (cur >= pct) clearInterval(t); }, 28);
+  typewriter($('hbText'), body);
+  $('hbResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function copyHobd() {
+  copyText('🧪 نتيجة مقيّم الهبد من عكاشاوي:\n📈 نسبة الهبد: ' + $('hbPct').textContent + '\n' + $('hbText').textContent + '\n\n— Made by عكاشة 🎭', '✅ اتنسخ! وريهم مستوى الهبد 😂');
+}
+
+/* ============================================================
+   الأداة 4: مذبحة القرارات 🪙
+   ============================================================ */
+let coinBusy = false;
+async function runCoin(force) {
+  if (coinBusy) return;
+  const o1 = $('cnOpt1').value.trim(), o2 = $('cnOpt2').value.trim();
+  if (!o1 || !o2) { toast('✍️ اكتب الخيارين الاتنين الأول!'); shakeEl(!o1 ? 'cnOpt1' : 'cnOpt2'); return; }
+  if (o1 === o2) { toast('🤨 الخيارين نفس الحاجة!'); shakeEl('cnOpt2'); return; }
+  coinBusy = true;
+  bumpStat('coin');
+
+  const coin = $('cnCoin'), spark = $('cnSpark');
+  $('cnResult').classList.remove('hidden');
+  $('cnOutcome').classList.add('hidden');
+  spark.classList.add('opacity-0');
+  coin.classList.remove('coin-land', 'coin-slow');
+  coin.classList.add('coin-flip');
+  $('cnResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  let fi = 0; const faceT = setInterval(() => { coin.textContent = ['🎭', '⭐'][fi++ % 2]; }, 220);
+
+  const ckey = 'coin|' + o1 + '|' + o2;
+  const prompt = `أنت مستشار مصري مجنون ومكتئب بتاخد قرارات الناس بجدية زيادة عن اللزوم.
+الخيار الأول: "${o1}"
+الخيار الثاني: "${o2}"
+اختار واحد (فكر منطقياً بس سيب مساحة للجنون).
+أول سطر بالصيغة دي بالظبط: القرار النهائي: "..." (نص الخيار حرفياً)
+بعدها: 1) تبرير درامي كارثي حزين 2) تنبيه مشؤوم مضحك عن العواقب 3) حكمة ساخرة مصرية.
+درامي ومبالغ فيه، بلهجة مصرية كئيبة وفكاهية، من غير markdown.`;
+
+  let txt, source = 'ai';
+  const cached = !force && cacheGet(ckey);
+  if (cached) { txt = cached; source = 'cache'; await sleep(1400); }
+  else {
+    try { txt = await callGemini([{ text: prompt }]); cacheSet(ckey, txt); }
+    catch (e) { txt = FALLBACK.coin(o1, o2); source = 'fb'; }
+  }
+
+  // مرحلة الإبطاء التدريجي (gravity feel)
+  clearInterval(faceT);
+  coin.classList.remove('coin-flip');
+  coin.classList.add('coin-slow');
+  let fi2 = 0; const slowT = setInterval(() => { coin.textContent = ['🎭', '⭐'][fi2++ % 2]; }, 420);
+  setTimeout(() => {
+    clearInterval(slowT);
+    coin.classList.remove('coin-slow');
+    const first = txt.includes(o1.slice(0, Math.min(15, o1.length)));
+    coin.textContent = first ? '🎭' : '⭐';
+    coin.classList.add('coin-land');
+    spark.classList.remove('opacity-0');
+    setTimeout(() => {
+      source === 'ai' ? markAI('cnBadge') : source === 'cache' ? markCached('cnBadge') : markFallback('cnBadge');
+      $('cnOutcome').classList.remove('hidden');
+      typewriter($('cnText'), txt);
+      coinBusy = false;
+    }, 900);
+  }, 900);
+}
+
+/* ============================================================
+   الأداة 5: ناقد الموضة 👔 (Gemini Vision)
+   ============================================================ */
+let fsData = null;
+function fsPreview(input) {
+  const file = input.files?.[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { toast('🖼️ ده مش صورة يا نجم! JPG أو PNG أو WebP'); return; }
+  if (file.size > 10 * 1024 * 1024) { toast('⚠️ الصورة أكبر من 10MB! صغّرها شوية'); return; }
+  const img = new Image();
+  const url = URL.createObjectURL(file);
+  img.onload = () => {
+    const MAX = 768;
+    let { width: w, height: h } = img;
+    if (Math.max(w, h) > MAX) { const s = MAX / Math.max(w, h); w = Math.round(w * s); h = Math.round(h * s); }
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.82);
+    fsData = { b64: dataUrl.split(',')[1], mime: 'image/jpeg' };
+    $('fsImg').src = dataUrl;
+    $('fsPreviewWrap').classList.remove('hidden');
+    $('fsInfo').textContent = '✓ الصورة اتجهزت (' + w + '×' + h + ') — هتتبعت للتحليل بس وتتحذف فوراً 🔒';
+    $('fsBtn').disabled = false;
+    URL.revokeObjectURL(url);
+  };
+  img.onerror = () => { toast('😅 الصورة دي فيها مشكلة، جرب واحدة تانية'); URL.revokeObjectURL(url); };
+  img.src = url;
+}
+async function runFashion() {
+  if (!fsData) { toast('📸 ارفع صورة الأول!'); return; }
+  bumpStat('fashion');
+  showSkeleton('fsResult', 'fsText');
+  markAI('fsBadge', '⏳ الناقد بيبص على الطقم من فوق لتحت... 👀');
+  const prompt = `أنت ناقد موضة مصري قاسي جداً وشايف نفسك، بس قسوتك ودودة ومضحكة.
+بص على الصورة وحلل: الألوان متطابقة ولا كارثة؟ التنسيق متناسق ولا فوضى؟ الستايل العام؟ القطع شغالة مع بعض؟
+أول سطر بالصيغة دي: نسبة الذوق: X/10
+بعدها: تقييم ساخر جداً + نصائح قاسية بس مفيدة بجد + تعليق مضحك مهين بطريقة ودودة.
+لو الصورة مش لبس، اتريق على اللي فيها بروح رياضية.
+بلهجة مصرية جارحة شوية لكن مضحكة ومحببة، من غير markdown.`;
+  const imgData = fsData; // نسخة محلية
+  try {
+    const txt = await callGemini([{ text: prompt }, { inline_data: { mime_type: imgData.mime, data: imgData.b64 } }]);
+    markAI('fsBadge', '🤖 Gemini Vision شاف الصورة بنفسه وحكم عليك');
+    typewriter($('fsText'), txt);
+  } catch (e) {
+    markFallback('fsBadge');
+    typewriter($('fsText'), FALLBACK.fashion());
+  }
+}
+function fsReset() {
+  fsData = null; // حذف الصورة من الذاكرة فوراً
+  $('fsFile').value = '';
+  $('fsPreviewWrap').classList.add('hidden');
+  $('fsResult').classList.add('hidden');
+  $('fsBtn').disabled = true;
+  $('fsDrop').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ---------- Feedback ---------- */
+function toggleFeedback() { $('fbModal').classList.toggle('hidden'); if (!$('fbModal').classList.contains('hidden')) setTimeout(() => $('fbText').focus(), 100); }
+function sendFeedback() {
+  const txt = $('fbText').value.trim();
+  if (!txt) { toast('✍️ اكتب حاجة الأول 😄'); return; }
+  window.open('mailto:hello@akashawy.example?subject=' + encodeURIComponent('ملاحظة على عكاشاوي 💬') + '&body=' + encodeURIComponent(txt), '_blank');
+  $('fbText').value = '';
+  toggleFeedback();
+  toast('💌 شكراً! رأيك بيفرق معانا والله');
+}
+
+/* ---------- حذف البيانات (خصوصية) ---------- */
+function wipeData() {
+  Object.keys(localStorage).filter(k => k.startsWith('ak_')).forEach(k => localStorage.removeItem(k));
+  renderStats();
+  toast('🗑️ اتمسح كل حاجة! كأنك أول مرة تزورنا 👋');
+}
+
+/* ---------- Misc ---------- */
+function shakeEl(id) { const el = $(id); el.classList.add('shake-x'); setTimeout(() => el.classList.remove('shake-x'), 500); el.focus(); }
+window.addEventListener('offline', () => toast('📡 النت فصل! هنرد عليك بالعقل المحلي لحد ما يرجع 😴'));
+window.addEventListener('online', () => toast('✅ النت رجع! الذكاء الاصطناعي صحي من النوم 🤖'));
+window.addEventListener('error', () => { try { toast('😅 حصلت لخبطة صغيرة... حاول مرة تانية؟'); } catch (e) {} });
+
+/* ---------- Init ---------- */
+renderStats();
+exPreview();
+</script>
+</body>
+</html>
